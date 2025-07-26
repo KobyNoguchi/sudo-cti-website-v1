@@ -7,7 +7,7 @@
   </head>
   <body class="relative flex size-full min-h-screen flex-col bg-[#17171c] dark group/design-root overflow-x-hidden" style='font-family: Cambria, serif;'>
     <div class="layout-container flex h-full grow flex-col">
-      <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#31303b] px-10 py-3">
+      <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#31303b] px-10 py-3 sticky top-0 z-40 bg-[#17171c]">
         <div class="flex items-center gap-4 text-white">
           <img src="Assets/Logo Files/svg/White logo - no background.svg" alt="Sudo CTI Logo" class="h-10 w-auto" />
         </div>
@@ -25,187 +25,167 @@
           </button>
         </div>
       </header>
-      <div class="@container">
-        <div class="@[480px]:p-4">
-          <div
-            class="flex min-h-[480px] flex-col bg-cover bg-center bg-no-repeat @[480px]:gap-8 justify-end items-center"
-            style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("Assets/Hero Image v1.png");'
-          >
-            <div class="w-full max-w-[960px] flex flex-col items-start gap-6 px-4 @[480px]:px-10 pb-10">
-              <div class="flex flex-col gap-2 text-left">
-                <h1
-                  class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
-                >
-                  Purpose-built cyber intelligence for Utilities and Critical Infrastructure
-                </h1>
-                <h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                  Custom alerts, analysis, and reporting tailored for utilities managing cyber threats in real-time.
-                </h2>
-              </div>
-              <button
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#e5e4f0] text-[#17171c] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] open-modal-button"
-              >
-                <span class="truncate">Schedule Your Briefing</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="px-40 flex flex-1 justify-center py-5">
-          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-            <div class="flex flex-col gap-10 px-4 py-10 @container">
-              <div class="flex flex-row items-start justify-between gap-8">
-                <div class="flex flex-col gap-6 w-1/2">
+      <div
+        class="min-h-[480px] bg-contain bg-center bg-no-repeat"
+        style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("Assets/hero shot v3.png");'
+      ></div>
+      <div class="px-40 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+          <div class="flex flex-col gap-10 px-4 py-10 @container">
+            <div class="flex flex-col gap-6">
+              <div class="flex flex-row justify-between gap-8">
+                <div class="flex flex-col w-1/2">
                   <div class="flex flex-col gap-4">
                     <h1
-                      class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
+                      class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px] text-center"
                     >
-                      Comprehensive Threat Intelligence
+                      Purpose-Built Cyber Threat Intelligence for Utilities and Critical Infrastructure
                     </h1>
-                    <p class="text-white text-base font-normal leading-normal max-w-[720px]">
+                    <p class="text-white text-base font-normal leading-normal max-w-[720px] text-justify">
                       Our platform aggregates, analyzes, and delivers actionable intelligence on cyber threats, tailored for executives, vulnerability management teams, and OT executives in the Utility space. Trusted by Fortune 500 utilities across North America, our platform combines real-time threat intelligence with deep industry expertise to provide the strategic visibility and tactical guidance your organization needs to stay ahead of evolving cyber threats targeting critical infrastructure.
                     </p>
                   </div>
-                  <button
-                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#e5e4f0] text-[#17171c] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] w-fit"
-                  >
-                    <span class="truncate">Explore Features</span>
-                  </button>
                 </div>
                 <div class="w-5/12">
-                  <img src="Assets/LNG Infrastructure v1.jfif" alt="A photo of LNG energy infrastructure at dusk." class="rounded-xl w-full h-auto" />
+                  <img src="Assets/LNG Infrastructure v2.jpg" alt="A photo of LNG energy infrastructure at dusk." class="rounded-xl w-full h-full object-cover" />
                 </div>
               </div>
-              <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-0">
-                <div class="flex flex-1 gap-3 rounded-lg border border-[#454455] bg-[#23222a] p-4 flex-col">
-                  <div class="text-white" data-icon="Shield" data-size="24px" data-weight="regular">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                      <path
-                        d="M208,40H48A16,16,0,0,0,32,56v58.77c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56l160,0Z"
-                      ></path>
-                    </svg>
-                  </div>
-                  <div class="flex flex-col gap-1">
-                    <h2 class="text-white text-base font-bold leading-tight">Proactive Threat Monitoring</h2>
-                    <p class="text-[#a6a4b6] text-sm font-normal leading-normal">
-                      Stay informed with real-time alerts and insights into emerging threats targeting the Utility sector.
-                    </p>
-                  </div>
-                </div>
-                <div class="flex flex-1 gap-3 rounded-lg border border-[#454455] bg-[#23222a] p-4 flex-col">
-                  <div class="text-white" data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                      <path
-                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
-                      ></path>
-                    </svg>
-                  </div>
-                  <div class="flex flex-col gap-1">
-                    <h2 class="text-white text-base font-bold leading-tight">Vulnerability Management</h2>
-                    <p class="text-[#a6a4b6] text-sm font-normal leading-normal">
-                      Identify and prioritize vulnerabilities with detailed risk assessments and remediation guidance.
-                    </p>
-                  </div>
-                </div>
-                <div class="flex flex-1 gap-3 rounded-lg border border-[#454455] bg-[#23222a] p-4 flex-col">
-                  <div class="text-white" data-icon="PresentationChart" data-size="24px" data-weight="regular">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                      <path
-                        d="M216,40H136V24a8,8,0,0,0-16,0V40H40A16,16,0,0,0,24,56V176a16,16,0,0,0,16,16H79.36L57.75,219a8,8,0,0,0,12.5,10l29.59-37h56.32l29.59,37a8,8,0,1,0,12.5-10l-21.61-27H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,136H40V56H216V176ZM104,120v24a8,8,0,0,1-16,0V120a8,8,0,0,1,16,0Zm32-16v40a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm32-16v56a8,8,0,0,1-16,0V88a8,8,0,0,1,16,0Z"
-                      ></path>
-                    </svg>
-                  </div>
-                  <div class="flex flex-col gap-1">
-                    <h2 class="text-white text-base font-bold leading-tight">Executive Reporting</h2>
-                    <p class="text-[#a6a4b6] text-sm font-normal leading-normal">
-                      Generate clear, concise reports for executives, summarizing key threats and their potential impact.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#e5e4f0] text-[#17171c] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] w-fit mt-4"
+              >
+                <span class="truncate">Explore Features</span>
+              </button>
             </div>
-            <div class="flex flex-col gap-10 px-4 py-10 @container">
-              <div class="flex flex-row items-start justify-between gap-8">
-                <div class="w-5/12">
-                  <img src="Assets/LNG Infrastructure v2.jpg" alt="Overhead view of an LNG facility with storage tanks." class="rounded-xl w-full h-auto" />
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-0">
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#454455] bg-[#23222a] p-4 flex-row items-center">
+                <div class="text-white" data-icon="Shield" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M208,40H48A16,16,0,0,0,32,56v58.77c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56l160,0Z"
+                    ></path>
+                  </svg>
                 </div>
-                <div class="flex flex-col gap-6 w-1/2">
-                  <div class="flex flex-col gap-4">
-                    <h1
-                      class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
-                    >
-                      Tailored for the Utility Sector
-                    </h1>
-                    <p class="text-white text-base font-normal leading-normal max-w-[720px]">
-                      As a cyber threat intelligence analyst who has spent years analyzing cyber threats targeting multinational utility companies, I've witnessed firsthand how the
-                      threat landscape has evolved dramatically over the past 4 years. The targeting of critical infrastructure has intensified to unprecedented levels due to
-                      geopolitical tensions and rapid advancement in open source threat actor tooling. I've established this specialized intelligence service specifically to help
-                      utility organizations like yours maintain your operational tempo to outpace evolving threats.
-                    </p>
-                  </div>
-                  <button
-                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#e5e4f0] text-[#17171c] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] w-fit"
-                  >
-                    <span class="truncate">Learn More</span>
-                  </button>
-                </div>
-              </div>
-              <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3">
-                <div class="flex flex-col gap-3 pb-3">
-                  <div
-                    class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-                    style='background-image: url("Assets/OT Specific Threat Analysis.webp");'
-                  ></div>
-                  <div>
-                    <p class="text-white text-base font-medium leading-normal">OT-Specific Threat Analysis</p>
-                    <p class="text-[#a6a4b6] text-sm font-normal leading-normal">
-                      Gain insights into threats targeting Operational Technology (OT) systems and industrial control systems (ICS).
-                    </p>
-                  </div>
-                </div>
-                <div class="flex flex-col gap-3 pb-3">
-                  <div
-                    class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-                    style='background-image: url("Assets/Regulatory Compliance Support.png");'
-                  ></div>
-                  <div>
-                    <p class="text-white text-base font-medium leading-normal">Regulatory Compliance Support</p>
-                    <p class="text-[#a6a4b6] text-sm font-normal leading-normal">
-                      Ensure compliance with industry regulations and standards with our up-to-date intelligence and reporting.
-                    </p>
-                  </div>
-                </div>
-                <div class="flex flex-col gap-3 pb-3">
-                  <div
-                    class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-                    style='background-image: url("Assets/Incident Response v1.png");'
-                  ></div>
-                  <div>
-                    <p class="text-white text-base font-medium leading-normal">Incident Response Guidance</p>
-                    <p class="text-[#a6a4b6] text-sm font-normal leading-normal">Respond effectively to incidents with our detailed guidance and best practices.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="@container">
-              <div class="flex flex-col justify-end gap-6 px-4 py-10 @[480px]:gap-8 @[480px]:px-10 @[480px]:py-20">
-                <div class="flex flex-col gap-2 text-center">
-                  <h1
-                    class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
-                  >
-                    Ready to enhance your cyber defenses?
-                  </h1>
-                  <p class="text-white text-base font-normal leading-normal max-w-[720px">
-                    Schedule your briefing today and see how our platform can help you stay ahead of cyber threats.
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-white text-base font-bold leading-tight text-center">Proactive Threat Monitoring</h2>
+                  <p class="text-[#a6a4b6] text-sm font-normal leading-normal text-justify">
+                    Stay informed with real-time alerts and insights into emerging threats targeting the Utility sector.
                   </p>
                 </div>
-                <div class="flex flex-1 justify-center">
-                  <div class="flex justify-center">
-                    <button
-                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#e5e4f0] text-[#17171c] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] grow open-modal-button"
-                    >
-                      <span class="truncate">Schedule Your Briefing</span>
-                    </button>
-                  </div>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#454455] bg-[#23222a] p-4 flex-row items-center">
+                <div class="text-white" data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-white text-base font-bold leading-tight text-center">Vulnerability Management</h2>
+                  <p class="text-[#a6a4b6] text-sm font-normal leading-normal text-justify">
+                    Identify and prioritize vulnerabilities with detailed risk assessments and remediation guidance.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#454455] bg-[#23222a] p-4 flex-row items-center">
+                <div class="text-white" data-icon="PresentationChart" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M216,40H136V24a8,8,0,0,0-16,0V40H40A16,16,0,0,0,24,56V176a16,16,0,0,0,16,16H79.36L57.75,219a8,8,0,0,0,12.5,10l29.59-37h56.32l29.59,37a8,8,0,1,0,12.5-10l-21.61-27H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,136H40V56H216V176ZM104,120v24a8,8,0,0,1-16,0V120a8,8,0,0,1,16,0Zm32-16v40a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm32-16v56a8,8,0,0,1-16,0V88a8,8,0,0,1,16,0Z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-white text-base font-bold leading-tight text-center">Executive Reporting</h2>
+                  <p class="text-[#a6a4b6] text-sm font-normal leading-normal text-justify">
+                    Generate clear, concise reports for executives, summarizing key threats and their potential impact.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-10 px-4 py-10 @container">
+            <div class="flex flex-row items-start justify-between gap-8">
+              <div class="w-5/12">
+                <img src="Assets/LNG Infrastructure v1.jfif" alt="Overhead view of an LNG facility with storage tanks." class="rounded-xl w-full h-auto" />
+              </div>
+              <div class="flex flex-col gap-6 w-1/2">
+                <div class="flex flex-col gap-4">
+                  <h1
+                    class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px] text-center"
+                  >
+                    Tailored for the Utility Sector
+                  </h1>
+                  <p class="text-white text-base font-normal leading-normal max-w-[720px] text-justify">
+                    As a cyber threat intelligence analyst who has spent years analyzing cyber threats targeting multinational utility companies, I've witnessed firsthand how the
+                    threat landscape has evolved dramatically over the past 4 years. The targeting of critical infrastructure has intensified to unprecedented levels due to
+                    geopolitical tensions and rapid advancement in open source threat actor tooling. I've established this specialized intelligence service specifically to help
+                    utility organizations like yours maintain your operational tempo to outpace evolving threats.
+                  </p>
+                </div>
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#e5e4f0] text-[#17171c] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] w-fit"
+                >
+                  <span class="truncate">Learn More</span>
+                </button>
+              </div>
+            </div>
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3">
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style='background-image: url("Assets/OT Specific Threat Analysis.webp");'
+                ></div>
+                <div>
+                  <p class="text-white text-base font-medium leading-normal text-justify">OT-Specific Threat Analysis</p>
+                  <p class="text-[#a6a4b6] text-sm font-normal leading-normal text-justify">
+                    Gain insights into threats targeting Operational Technology (OT) systems and industrial control systems (ICS).
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style='background-image: url("Assets/Regulatory Compliance Support.png");'
+                ></div>
+                <div>
+                  <p class="text-white text-base font-medium leading-normal text-justify">Regulatory Compliance Support</p>
+                  <p class="text-[#a6a4b6] text-sm font-normal leading-normal text-justify">
+                    Ensure compliance with industry regulations and standards with our up-to-date intelligence and reporting.
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 pb-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style='background-image: url("Assets/Incident Response v1.png");'
+                ></div>
+                <div>
+                  <p class="text-white text-base font-medium leading-normal text-justify">Incident Response Guidance</p>
+                  <p class="text-[#a6a4b6] text-sm font-normal leading-normal text-justify">Respond effectively to incidents with our detailed guidance and best practices.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="@container">
+            <div class="flex flex-col justify-end gap-6 px-4 py-10 @[480px]:gap-8 @[480px]:px-10 @[480px]:py-20">
+              <div class="flex flex-col gap-2 text-center">
+                <h1
+                  class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px] text-center"
+                >
+                  Ready to enhance your cyber defenses?
+                </h1>
+                <p class="text-white text-base font-normal leading-normal max-w-[720px] text-justify">
+                  Schedule your briefing today and see how our platform can help you stay ahead of cyber threats.
+                </p>
+              </div>
+              <div class="flex flex-1 justify-center">
+                <div class="flex justify-center">
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#e5e4f0] text-[#17171c] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] grow open-modal-button"
+                  >
+                    <span class="truncate">Schedule Your Briefing</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -242,7 +222,7 @@
                 </div>
               </a>
             </div>
-            <p class="text-[#a6a4b6] text-base font-normal leading-normal">© 2023 sudo cti. All rights reserved.</p>
+            <p class="text-[#a6a4b6] text-base font-normal leading-normal text-justify">© 2023 sudo cti. All rights reserved.</p>
           </footer>
         </div>
       </footer>
