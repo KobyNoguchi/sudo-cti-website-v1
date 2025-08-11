@@ -1,0 +1,133 @@
+latitude,longitude,event_date,OrgName,Location (State),Primary CI Sector targeted,Secondary CI Sector,Strain/Group,Ransom Amount,Local Currency,RansomScale,PaidStatus,,AmtPaid
+41.748162,-71.189562,11/6/2013,"Swansea, Massachusetts Police Department",MA,Emergency Services,,CryptoLocker,2 bitcoin,$750,$1000 or less,Yes,bitcoin,$750
+43.011,-75.04,1/1/2014,"Village of Ilion, N.Y.",NY,Government Facilities,,,$300,$300,$1000 or less,Yes,prepaid credit card into an online payment portal,$300
+43.011,-75.04,5/1/2014,"Village of Ilion, N.Y.",NY,Government Facilities,,,$500,$500,$1000 or less,Yes,,$500
+36.1817,-87.3393,10/14/2014,Dickson County Sheriff’s Office,TN,Government Facilities,,CryptoWall,$572 ,$572,$1000 or less,Yes,Western Union,$572
+41.6253,-87.7176,1/1/2015,Midlothian Police Department,IL,Emergency Services,,Cryptoware,,$500,$1000 or less,Yes,bitcoin,$606
+40.4406,-79.9959,1/1/2015,Allegheny County DA's office,PA,Government Facilities,,"Goznym, Nymain",6 bitcoin,"$1,400",$50000 or less,Yes,bitcoin,"~ $1,400"
+43.9651,-69.491,3/20/2015,Lincoln County Sheriff's Department,ME,Government Facilities,,Megacode,300 euros in bitcoin,$350,$1000 or less,Yes,bitcoin,300 euros in bitcoin
+42.6107,-71.2342,4/4/2015,Tewksbury Police Department,MA,Emergency Services,,KEYHolder,$500,$500,$1000 or less,Yes,bitcoin,$500
+42.274,-89.093,9/1/2015,"The Arc of Winnebago, Boone and Ogle Counties",IL,Healthcare and Public Health,,CryptoWall,$700 or $1400 after 2 weeks,$700,$1000 or less,Yes,bitcoin,$700
+51.0605,-114.0893,12/6/2015,Kensington Wine Market,Canada,Commercial Facilities,,,$500,$500,$1000 or less,Yes,bitcoin,$500
+NA,NA,1/1/2016,Uber,,Transportation Systems,,,,,,Yes,Bitcoin,"$100,000 "
+42.1715,-71.3061,2/2/2016,Medfield,MA,Government Facilities,,,1/2 bitcoin,$300 ,$1000 or less,Yes,bitcoin,$300 
+34.1643,-118.356,2/5/2016,Hollywood Presbyterian Medical Center,CA,Healthcare and Public Health,,,40 bitcoin,"$17,000",$50000 or less,Yes,bitcoin,"$17, 000"
+33.9195,-78.928,2/5/2016,Horry County Schools,SC,Education Facilities,,,1.5 bitcoin per machine/22 bitcoin total,"$580 - $8,500",$50000 or less,Yes,bitcoin,"$10,000"
+41.327,-89.087,3/9/2016,Peru Township,IL,Government Facilities,,,$200,$200,$1000 or less,Yes,,$200
+42.4554,-71.0657,3/25/2016,Melrose Police Department,MA,Emergency Services,,,1 bitcoin,$489 ,$1000 or less,Yes,bitcoin,1 bitcoin
+42.7325,-84.5555,4/25/2016,Lansing Board of Water & Light,MI,Water and Wastewater Systems,,,"$25,000","$25,000",$50000 or less,Yes,bitcoin,"$25,000"
+39.2125,-95.712,5/18/2016,Kansas Heart Hospital,KS,Healthcare and Public Health,,,,,,Yes,,
+40.6787,-80.6488,5/26/2016,Columbiana County Juvenile Court System,OH,Government Facilities,,Locky,5.4 bitcoin,"$2,883",$50000 or less,Yes,bitcoin,"$2,883"
+51.083,-114.1334,5/28/2016,University of Calgary,Canada,Education Facilities,,Samsam,"$20,000","20,000 CDN",$50000 or less,Yes,bitcoin,"$20,000 CDN"
+37.9981,-122.5311,7/26/2016,Marin General Healthcare District and Prima Medical Group,CA,Healthcare and Public Health,,,,,,Yes,,
+40.79,-74.059,7/27/2016,New Jersey Spine Center,NJ,Healthcare and Public Health,,,,,,Yes,,
+NA,NA,10/1/2016,Bighton PD,MA,Emergency Services,,,"$4,600 ","$4,600 ",$50000 or less,Yes,,"$4,600 "
+39.5278,-87.1242,11/4/2016,Clay County Courthouse,IN,Government Facilities,,,,,,Yes,,
+40.3487,-85.7583,11/4/2016,Madison County Government and Police Department,IN,Government Facilities,,,,"$21,000",$50000 or less,Yes,,"$21,000"
+36.3333,-93.4641,12/5/2016,Carroll County Sheriff's Office and another unspecified agency in the county,AR,Government Facilities,,Dharma,3 bitcoin,"$2,400",$50000 or less,Yes,bitcoin,"$2,440"
+34.2362,-118.529,12/30/2016,Los Angeles Valley College (LAVC) part of Los Angeles Community College District (LACCD),CA,Education Facilities,,,"$28,000","$28,000",$50000 or less,Yes,bitcoin,"$28,000"
+47.321,12.786,1/21/2017,Romantik Seehotel Jaegerwirt,Austria,Commercial Facilities,,,2 bitcoin,"€1,500 ($1,600)",$50000 or less,Yes,bitcoin,"$1,600"
+40.7357,-74.1724,4/25/2017,City of Newark,NJ,Government Facilities,,Samsam,"$30,000 in bitcoin","$30,000 ",$50000 or less,Yes,bitcoin,"$30,000"
+NA,NA,6/10/2017,Internet Nayana,South Korea,Information Technology,Communication,Erebus,397 bitcoin,$1.14 million,$5000000 or less,Yes,Bitcoin,397.6 bitcoin (1.14 million USD)
+39.7764,-86.3682,7/5/2017,Brownsburg Public Library,IN,Education Facilities,,,$1000 in bitcoin,"$1,000 ",$1000 or less,Yes,bitcoin,"$1,000"
+32.9832,-80.1952,8/1/2017,Dorchester School District,SC,Education Facilities,,,"$2,900 ","$2,900",$50000 or less,Yes,,"$2,900"
+32.3668,-86.3,9/18/2017,Montgomery County (Alabama),AL,Government Facilities,,Samsam,9 bitcoin,37000,$50000 or less,Yes,Bitcoin,"$37,000"
+47.6394,-122.2428,10/15/2017,Town of Yarrow Point,WA,Government Facilities,,,"$10,000 in bitcoin","$10,000",$50000 or less,Yes,bitcoin,"$10,000 in bitcoin"
+43.075,-88.3719,11/30/2017,Village of Nashotah,WI,Government Facilities,,,"$2,000 in bitcoin","$2,000",$50000 or less,Yes,bitcoin,"$2,000 in bitcoin"
+34.1336,-117.9076,1/1/2018,Azusa police department,CA,Emergency Services,,,,,,Yes,,"$65,000"
+39.8217,-85.7664,1/11/2018,Hancock Health,IN,Healthcare and Public Health,,Samsam,4 bitcoin,"$45,000-55,000",$50000 or less,Yes,,
+33.5142,-86.6389,3/1/2018,City of Leeds,AL,Government Facilities,,,"$12,000 in bitcoin","$12,000",$50000 or less,Yes,bitcoin,"$12,000 in bitcoin"
+33.5142,-86.6389,3/2/2018,Leeds PD and FD,AL,Emergency Services,,,"$8,000 in bitcoin","$8,000",$50000 or less,Yes,bitcoin,"$8,000 in bitcoin"
+44.9778,-93.265,3/30/2018,MN Associates in Psychiatry and Psychology,MN,Healthcare and Public Health,,TripleM,4 bitcoin,about $27000,$50000 or less,Yes,bitcoin,.5 BTC
+42.5251,-71.7594,4/4/2018,Leominster School District,MA,Education Facilities,,,"10,000","$10,000 ",$50000 or less,Yes,bitcoin,"$10,000"
+26.7056,-80.0364,6/1/2018,Village of Palm Springs,FL,Government Facilities,,Scarab,,,,Yes,bitcoin,"$1,200"
+40.3279,-79.5486,7/1/2018,Westmoreland County Housing Authority,PA,Government Facilities,,,1 bitcoin,"$6,500 ",$50000 or less,Yes,bitcoin,1 bitcoin
+61.1309,-146.347,7/27/2018,City of Valdez,AK,Government Facilities,,Hermes,4 bitcoin,"$26,623.97",$50000 or less,Yes,bitcoin,4 bitcoin
+41.2706,-72.9971,10/16/2018,City of West Haven,CT,Government Facilities,,,"$2,000 in bitcoin","$2,000",$50000 or less,Yes,bitcoin,"$2,000 in bitcoin"
+41.2706,-72.9971,10/16/2018,West Haven City Hall,CT,Government Facilities,,,,"$2,000 ",$50000 or less,Yes,,"$2,000 "
+45.0533,-84.6789,10/20/2018,Johannesburg-Lewiston School District,MI,Education Facilities,,,,,,Yes,,
+46.6027,-120.5059,1/9/2019,Columbia Surgical Specialists,WA,Healthcare and Public Health,,,,"about $15,000",$50000 or less,Yes,,"$14,649.09"
+30.4383,-84.2807,2/25/2019,Network Tallahassee,FL,Communication,,,"$6,000 ","$6,000 ",$50000 or less,Yes,,"$6,000"
+34.1179,-83.5495,3/1/2019,"Jackson County, Georgia",GA,Government Facilities,,Ryuk,"$400,000 ","$400,000 ",$1000000 or less,Yes,,"$400,000"
+37.743,-112.378,4/1/2019,Garfield County,UT,Government Facilities,,,,,,Yes,bitcoin,
+34.1656,-84.7996,5/4/2019,City of Cartersville,GA,Government Facilities,,Ryuk,$2.8 million,$2.8 million,$5000000 or less,Yes,Bitcoin,"$380,000 in bitcoin"
+40.1734,-79.9536,5/6/2019,"Washington County, PA",PA,Government Facilities,,,,,,Yes,,"$21,250"
+26.7736,-80.0567,5/29/2019,"Riviera Beach, Florida",FL,Government Facilities,,,65 bitcoin,"603,000",$1000000 or less,yes,bitcoin,"$600,000"
+NA,NA,6/1/2019,UBX Cloud MSP- company name undisclosed,Undisclosed,Information Technology,,,Undisclosed bitcoin,"$150,000 ",$1000000 or less,Yes,bitcoin,"$150,000"
+51.5074,-0.1278,6/5/2019,Eurofins Scientific,UK,Chemical,,,,,,Yes,,
+38.234,-85.825,6/7/2019,Park Duvalle Community Health Center,KY,Healthcare and Public Health,,,6 bitcoin,"$70,000 ",$100000 or less,Yes,bitcoin,6 bitcoin
+30.1898,-82.6403,6/10/2019,"Lake City, Florida",FL,Government Facilities,,Ryuk,42 bitcoin,"$460,000 ",$1000000 or less,Yes,bitcoin,"$460,000"
+39.2837,-80.3445,6/13/2019,Harrison County,WV,Government Facilities,,,,"$1,500",$50000 or less,Yes,,"$1,500"
+41.0628,-95.6008,7/1/2019,Glenwood Community School District,IA,Education Facilities,,,"$130,000 worth of cryptocurrency","$130,000 ",$100000 or less,Yes,,"$10,000 "
+41.6081,-86.7156,7/6/2019,"La Porte County, Indiana",IN,Government Facilities,,Ryuk,Undisclosed bitcoin,"$130,000 ",$1000000 or less,Yes,bitcoin,"$130,000"
+32.9023,-96.5653,7/10/2019,"Berry Family Services, Rowlett, Texas",TX,Healthcare and Public Health,,,,,,Yes,,
+41.3366,-75.8069,7/18/2019,City of Exeter,PA,Government Facilities,,,,,,Yes,N/A,"$38,000"
+40.6643,-73.6533,7/25/2019,Rockville Centre School District,NY,Education Facilities,,Ryuk,"$176,000 ","$176,000 ",$1000000 or less,Yes,,"$88,000"
+39.746,-104.982,8/1/2019,Regis University,CO,Education Facilities,,,,,,Yes,,
+39.0639,-94.58,8/6/2019,Truman Medical Centers,MO,Healthcare and Public Health,,,,,,Yes,,
+43.0731,-89.4012,8/26/2019,Percsoft and the Digital Dental Record,WI,Information Technology,Healthcare and Public Health,Revil/sodinokibi,,,,Yes,,
+33.2098,-87.5692,10/1/2019,"(3) DCH Health System hospitals (Tuscaloosa, Fayetter, and Northport, AL)",AL,Healthcare and Public Health,,Ryuk,,,,Yes,,
+27.9943,-82.5944,10/13/2019,TrialWorks (MSP),FL,Information Technology,,,,,,Yes,,
+NA,NA,10/15/2019,LifeLabs,Canada,Healthcare and Public Health,,,,,,Yes,,
+40.9312,-74.0721,12/2/2019,Hackensack Meridian Health,NJ,Healthcare and Public Health,,,,,,Yes,,
+50.8514,5.6901,12/23/2019,Maastricht University,Netherlands,Education Facilities,,,30 bitcoin,"$300,000 ",$1000000 or less,Yes,bitcoin,30 bitcoin
+37.7749,-122.4194,12/24/2019,Synoptek,CA,Information Technology,,Revil/sodinokibi,,,,Yes,,
+42.7483,-73.8027,12/25/2019,Albany International Airport,NY,Transportation Systems,,,Undisclosed bitcoin,"$10,000+ but less than 6 figures",$50000 or less,Yes,Bitcoin,Undisclosed bitcoin
+51.5074,-0.1278,12/31/2019,Travelex,UK,Financial Services,,Revil/sodinokibi,4.6 million euro,$6 million,More than $5000000,Yes,Bitcoin,285 Bitcoin ($2.3 million)
+33.8003,-117.9189,1/1/2020,Communications and Power Industries (CPI),CA,Critical Manufacturing,,,"$500,000 ","$500,000 ",$1000000 or less,Yes,,"$500,000"
+44.829,-122.793,1/1/2020,Kiezer,OR,Government Facilities,,,,,,Yes,,"$50,000"
+45.548,-123.8427,1/22/2020,Tillamook County,OR,Government Facilities,,Revil/sodinokibi,,,,Yes,,300000
+35.2859,-105.4384,1/31/2020,San Miguel County,NM,Government Facilities,,,43 bitcoins,"around $500,000",$1000000 or less,Yes,bitcoin,"24 bitcoins ($250,000)"
+40.4256,-77.0639,4/10/2020,"Borough of Duncannon (Perry County, PA)",PA,Government Facilities,,,"$40,780 ","$40,780 ",$50000 or less,Yes,,"$43,000"
+29.7604,-95.3698,4/20/2020,Benefit Recovery Specialists Inc (BRSI),TX,Financial Services,,Maze,,,,Yes,,
+NA,NA,5/1/2020,BlackBaud (Cloud provider),USA,Information Technology,,,,,,Yes,,
+53.9576,-1.0873,5/1/2020,University of York,UK,Education Facilities,,,,,,Yes,,
+37.7749,-122.4194,6/1/2020,University of San Francisco (UCSF),CA,Education Facilities,,NetWalker,Undisclosed bitcoin,$3 million,$5000000 or less,Yes,Bitcoin,1.14 million (116 bitcoin)
+NA,NA,6/1/2020,Unnamed small company,KY,Critical Manufacturing,,,"$400,000 in bitcoin","$400,000 ",$1000000 or less,Yes,Bitcoin,"$150,000"
+32.0853,34.7818,6/1/2020,Sapiens (Software Company),Israel,Information Technology,,,$250000 in bitcoin,"$250,000 ",$1000000 or less,Yes,Bitcoin,"$250,000"
+41.8708,-87.6505,6/3/2020,Columbia College of Chicago,IL,Education Facilities,,NetWalker,Undisclosed bitcoin,,,Yes,,
+34.7998,-87.6773,6/5/2020,"City of Florence, Alabama",AL,Government Facilities,,DoppelPaymer,39 bitcoin,"$378,000 ",$1000000 or less,Yes,Bitcoin,291000 (30 bitcoin)
+44.829,-122.793,6/10/2020,"City of Keizer, Oregon",OR,Government Facilities,,,48000,48000,$50000 or less,Yes,,"$48,000"
+40.7608,-111.891,7/19/2020,University of Utah's College of Social and Behavioral Science,UT,Education Facilities,,,,$457.059.24,$1000000 or less,Yes,,"$457,059.24 "
+38.9717,-95.2353,7/23/2020,Garmin,KS,Communication,Transportation Systems,WastedLocker,10 million USD,10 million USD,More than $5000000,Yes,,
+39.9873,-105.098,8/1/2020,"City of Lafayette, Colorado",CO,Government Facilities,,,,"$45,000 ",$50000 or less,Yes,,"$45,000 "
+39.9526,-75.1652,8/1/2020,Southeastern Pennsylvania Transportation Authority (SEPTA),PA,Transportation Systems,,,,,,Yes,,
+32.0853,34.7818,9/1/2020,Tower (wireless chip and camera sensors manufacturer),Israel,Information Technology,,,,"""hundreds of thousands of dollars""",$1000000 or less,Yes,,"""hundreds of thousands of dollars"""
+40.6953,-80.2867,9/22/2020,Milcreek Township,PA,Government Facilities,,,,"$250,000 ",$1000000 or less,Yes,,Less than $250000
+29.7604,-95.3698,9/23/2020,Tyler Technologies,TX,Information Technology,Government Facilities,RansomExx/defray,,,,Yes,,
+40.4864,-86.1336,9/25/2020,Kokomo-Howard Public Library,IN,Education Facilities,,,4 bitcoin,"$43,000",$50000 or less,Yes,Bitcoin,"3.36 bitcoin ($36,000)"
+37.7749,-122.4194,10/24/2020,Online storage vendor of Harvard Eye Associates,CA,Healthcare and Public Health,,,,,,Yes,,
+NA,NA,11/15/2020,K12 (AKA Stride Inc),USA,Education Facilities,,Ryuk,,,,Yes,,
+39.897,-75.3454,11/28/2020,Delaware County,PA,Government Facilities,,DoppelPaymer,,"$500,000",$1000000 or less,Yes,,"$500,000"
+51.5074,-0.1278,1/17/2021,FatFace,UK,Commercial Facilities,,Conti,213 bitcoin,$8 million,More than $5000000,Yes,,$2.65  million
+41.9188,-70.6678,2/9/2021,Sturdy Memorial Hospital,MA,Healthcare and Public Health,,,,,,Yes,,
+42.0285,-87.6725,3/21/2021,CNA Financial (Insurance Giant),IL,Financial Services,,Phoenix CryptoLocker,,$60 million,More than $5000000,Yes,,$40 million
+NA,NA,3/29/2021,Yoshiba Foods,OR,Food and Agriculture,,,$107k worth of cryptocurrency,"$107,000 ",$100000 or less,Yes,Cryptocurrency,"$107,074.20 "
+NA,NA,5/1/2021,Brenntag,"Germany, North America",Chemical,,,133.65 bitcoin,$7.5 million,More than $5000000,Yes,,$4.4 million
+NA,NA,5/7/2021,Colonial Pipeline,USA,Transportation Systems,Energy,DarkSide,,,$5000000 or less,Yes,bitcoin,$4.4 million (75 bitcoin)
+NA,NA,5/30/2021,JBS (meat processor),Global,Food and Agriculture,,Revil/sodinokibi,,,More than $5000000,Yes,Bitcoin,$11 million
+29.549,-97.4686,6/18/2021,Judson ISD,TX,Education Facilities,,,,,$1000000 or less,Yes,,"$547,000"
+37.0842,-94.5133,7/7/2021,City of Joplin,MO,Government Facilities,,,,,$1000000 or less,Yes,,"$320,000"
+39.2074,-96.1236,9/17/2021,Pottawatomie County,KS,Government Facilities,,,,,,Yes,,"""less than 10% of the hackers' original demands"""
+NA,NA,10/31/2021,Handa Hospital,Japan,Healthcare and Public Health,,LockBit,,$60k,$100000 or less,Yes,,$30k
+NA,NA,11/30/2021,Conseil des écoles publiques de l’Est de l’Ontario (School District),Canada,Education Facilities,,,,,,Yes,,
+NA,NA,1/15/2022,Horizon Actuarial Services,USA,Financial Services,,,,,,Yes,,
+39.7595,-122.2251,5/10/2022,Glenn County Office of Education,CA,Education Facilities,,Quantum,$1 million+ in bitcoin,$1 million+,$5000000 or less,Yes,bitcoin,$400k
+27.2048,-98.1116,6/21/2022,Brooks County,TX,Government Facilities,,,,"$93,000",$100000 or less,Yes,,"$37,000"
+41.9779,-91.6656,7/3/2022,Cedar Rapids Community School District,IA,Education Facilities,,Karakurt,,,,Yes,,
+NA,NA,1/31/2023,ION Group,Global,Financial Services,,LockBit,,,,Yes,,
+NA,NA,2/23/2023,Dish Network,USA,Communication,,Black Basta,,,,Yes,,
+34.1083,-117.2898,4/7/2023,San Bernardino County Sheriff's Department,CA,Government Facilities,Emergency Services,,,$1.1 million,$1000000 or less,Yes,,"$511,852 "
+NA,NA,6/1/2023,Coca-Cola FEMSA,Latin America,Food and Agriculture,,TheSnake,,$12 million,More than $5000000,Yes,,$1.5 million
+19.707,-155.109,6/1/2023,Hawaii Community College,HI,Education Facilities,,,,,,Yes,,
+NA,NA,6/13/2023,Hawai'i Community College,HI,Education Facilities,,NoEscape,,,,Yes,,
+36.1147,-115.1728,7/26/2023,Alberta Dental Service Corporation,Canada,Healthcare and Public Health,,8base,,,,Yes,,
+NA,NA,8/31/2023,Caesars Entertainment,NV,Commercial Facilities,,Scattered Spider,,$30 million,More than $5000000,Yes,,$15 million
+NA,NA,11/8/2023,The Industrial and Commercial Bank of China (ICBC),China,Financial Services,,LockBit,,,,Yes,,
+NA,NA,1/19/2024,"Washington County, PA",WA,Government Facilities,,,,"$346,687 ",$1000000 or less,Yes,,"$346,687 "
+NA,NA,2/21/2024,Change Healthcare (UnitedHealth Group),USA,Healthcare and Public Health,Financial Services,BlackCat/ALPHV,350 bitcoin,$22 million,More than $5000000,Yes,Bitcoin,$22 million
+NA,NA,3/22/2024,Panera Bread,USA,Food and Agriculture,Commercial Facilities,,,,,Yes,,
+44.4849,-88.0586,5/1/2024,AT&T,USA,Communication,,ShinyHunters,,$1 million,$1000000 or less,Yes,Bitcoin,"$370,000 "
+NA,NA,5/14/2024,American Radio Relay League (ARRL),USA,Communication,,,,,,Yes,,$1 million
+41.4259,-83.6459,6/19/2024,CDK Global,USA and Canada,Information Technology,Transportation Systems,BlackSuit,387 Bitcoin,$25 million,More than $5000000,Yes,Bitcoin,$25 million
+NA,NA,12/9/2024,Wood County,OH,Emergency Services,,,,$1.5 million,$5000000 or less,Yes,,$1.5 million

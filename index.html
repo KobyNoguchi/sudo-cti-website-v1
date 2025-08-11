@@ -2,24 +2,38 @@
   <head>
     <title>Stitch Design</title>
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
-
+    <script>
+      tailwind.config = { darkMode: 'class' };
+    </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
   </head>
-  <body class="relative flex size-full min-h-screen flex-col bg-[#17171c] dark group/design-root overflow-x-hidden" style='font-family: Cambria, serif;'>
+  <body
+    class="relative flex size-full min-h-screen flex-col bg-white dark:bg-[#17171c] group/design-root overflow-x-hidden"
+    style="font-family: Cambria, serif"
+  >
     <div class="layout-container flex h-full grow flex-col">
-      <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#31303b] px-10 py-3 sticky top-0 z-40 bg-[#17171c]">
-        <div class="flex items-center gap-4 text-white">
-          <img src="Assets/Logo Files/svg/White logo - no background.svg" alt="Sudo CTI Logo" class="h-10 w-auto" />
+      <header class="sticky top-0 z-40 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#31303b] bg-white dark:bg-[#17171c] px-10 py-3">
+        <div class="flex items-center gap-4 text-black dark:text-white">
+          <img
+            id="theme-toggle-logo"
+            src="Assets/Logo Files/svg/White logo - no background.svg"
+            data-dark-src="Assets/Logo Files/svg/White logo - no background.svg"
+            data-light-src="Assets/Logo Files/svg/Black logo - no background.svg"
+            alt="Sudo CTI Logo"
+            class="h-10 w-auto cursor-pointer"
+          />
         </div>
         <div class="flex flex-1 justify-end gap-8">
           <div class="flex items-center gap-9">
-            <a class="text-white text-sm font-medium leading-normal" href="#">Platform</a>
-            <a class="text-white text-sm font-medium leading-normal" href="#">Intelligence</a>
-            <a class="text-white text-sm font-medium leading-normal" href="#">Resources</a>
-            <a class="text-white text-sm font-medium leading-normal" href="#">Company</a>
+            <a class="text-black dark:text-white text-sm font-medium leading-normal" href="#">Platform</a>
+            <a class="text-black dark:text-white text-sm font-medium leading-normal" href="#">Intelligence</a>
+            <a class="text-black dark:text-white text-sm font-medium leading-normal" href="#">Resources</a>
+            <a class="text-black dark:text-white text-sm font-medium leading-normal" href="#">Company</a>
           </div>
           <button
-            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#e5e4f0] text-[#17171c] text-sm font-bold leading-normal tracking-[0.015em] open-modal-button"
+            class="open-modal-button flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-black text-white dark:bg-[#e5e4f0] dark:text-[#17171c] text-sm font-bold leading-normal tracking-[0.015em]"
           >
             <span class="truncate">Schedule Your Briefing</span>
           </button>
@@ -29,6 +43,7 @@
         class="min-h-[480px] bg-contain bg-center bg-no-repeat"
         style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("Assets/hero shot v3.png");'
       ></div>
+      <div id="walmart-growth-map" class="flex justify-center bg-white dark:bg-[#17171c] py-10"></div>
       <div class="px-40 flex flex-1 justify-center py-5">
         <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
           <div class="flex flex-col gap-10 px-4 py-10 @container">
@@ -37,11 +52,11 @@
                 <div class="flex flex-col w-1/2">
                   <div class="flex flex-col gap-4">
                     <h1
-                      class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px] text-center"
+                      class="text-black dark:text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px] text-center"
                     >
                       Purpose-Built Cyber Threat Intelligence for Utilities and Critical Infrastructure
                     </h1>
-                    <p class="text-white text-base font-normal leading-normal max-w-[720px] text-justify">
+                    <p class="text-black dark:text-white text-base font-normal leading-normal max-w-[720px] text-justify">
                       Our platform aggregates, analyzes, and delivers actionable intelligence on cyber threats, tailored for executives, vulnerability management teams, and OT executives in the Utility space. Trusted by Fortune 500 utilities across North America, our platform combines real-time threat intelligence with deep industry expertise to provide the strategic visibility and tactical guidance your organization needs to stay ahead of evolving cyber threats targeting critical infrastructure.
                     </p>
                   </div>
@@ -51,14 +66,14 @@
                 </div>
               </div>
               <button
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#e5e4f0] text-[#17171c] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] w-fit mt-4"
+                class="mt-4 flex w-fit min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-black text-white dark:bg-[#e5e4f0] dark:text-[#17171c] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
               >
                 <span class="truncate">Explore Features</span>
               </button>
             </div>
             <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-0">
-              <div class="flex flex-1 gap-3 rounded-lg border border-[#454455] bg-[#23222a] p-4 flex-row items-center">
-                <div class="text-white" data-icon="Shield" data-size="24px" data-weight="regular">
+              <div class="flex flex-1 flex-row items-center gap-3 rounded-lg border border-gray-200 dark:border-[#454455] bg-gray-100 dark:bg-[#23222a] p-4">
+                <div class="text-black dark:text-white" data-icon="Shield" data-size="24px" data-weight="regular">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                     <path
                       d="M208,40H48A16,16,0,0,0,32,56v58.77c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56l160,0Z"
@@ -66,14 +81,14 @@
                   </svg>
                 </div>
                 <div class="flex flex-col gap-1">
-                  <h2 class="text-white text-base font-bold leading-tight text-center">Proactive Threat Monitoring</h2>
-                  <p class="text-[#a6a4b6] text-sm font-normal leading-normal text-justify">
+                  <h2 class="text-black dark:text-white text-base font-bold leading-tight text-center">Proactive Threat Monitoring</h2>
+                  <p class="text-gray-600 dark:text-[#a6a4b6] text-sm font-normal leading-normal text-justify">
                     Stay informed with real-time alerts and insights into emerging threats targeting the Utility sector.
                   </p>
                 </div>
               </div>
-              <div class="flex flex-1 gap-3 rounded-lg border border-[#454455] bg-[#23222a] p-4 flex-row items-center">
-                <div class="text-white" data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
+              <div class="flex flex-1 flex-row items-center gap-3 rounded-lg border border-gray-200 dark:border-[#454455] bg-gray-100 dark:bg-[#23222a] p-4">
+                <div class="text-black dark:text-white" data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                     <path
                       d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
@@ -81,14 +96,14 @@
                   </svg>
                 </div>
                 <div class="flex flex-col gap-1">
-                  <h2 class="text-white text-base font-bold leading-tight text-center">Vulnerability Management</h2>
-                  <p class="text-[#a6a4b6] text-sm font-normal leading-normal text-justify">
+                  <h2 class="text-black dark:text-white text-base font-bold leading-tight text-center">Vulnerability Management</h2>
+                  <p class="text-gray-600 dark:text-[#a6a4b6] text-sm font-normal leading-normal text-justify">
                     Identify and prioritize vulnerabilities with detailed risk assessments and remediation guidance.
                   </p>
                 </div>
               </div>
-              <div class="flex flex-1 gap-3 rounded-lg border border-[#454455] bg-[#23222a] p-4 flex-row items-center">
-                <div class="text-white" data-icon="PresentationChart" data-size="24px" data-weight="regular">
+              <div class="flex flex-1 flex-row items-center gap-3 rounded-lg border border-gray-200 dark:border-[#454455] bg-gray-100 dark:bg-[#23222a] p-4">
+                <div class="text-black dark:text-white" data-icon="PresentationChart" data-size="24px" data-weight="regular">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                     <path
                       d="M216,40H136V24a8,8,0,0,0-16,0V40H40A16,16,0,0,0,24,56V176a16,16,0,0,0,16,16H79.36L57.75,219a8,8,0,0,0,12.5,10l29.59-37h56.32l29.59,37a8,8,0,1,0,12.5-10l-21.61-27H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,136H40V56H216V176ZM104,120v24a8,8,0,0,1-16,0V120a8,8,0,0,1,16,0Zm32-16v40a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm32-16v56a8,8,0,0,1-16,0V88a8,8,0,0,1,16,0Z"
@@ -96,8 +111,8 @@
                   </svg>
                 </div>
                 <div class="flex flex-col gap-1">
-                  <h2 class="text-white text-base font-bold leading-tight text-center">Executive Reporting</h2>
-                  <p class="text-[#a6a4b6] text-sm font-normal leading-normal text-justify">
+                  <h2 class="text-black dark:text-white text-base font-bold leading-tight text-center">Executive Reporting</h2>
+                  <p class="text-gray-600 dark:text-[#a6a4b6] text-sm font-normal leading-normal text-justify">
                     Generate clear, concise reports for executives, summarizing key threats and their potential impact.
                   </p>
                 </div>
@@ -112,11 +127,11 @@
               <div class="flex flex-col gap-6 w-1/2">
                 <div class="flex flex-col gap-4">
                   <h1
-                    class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px] text-center"
+                    class="text-black dark:text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px] text-center"
                   >
                     Tailored for the Utility Sector
                   </h1>
-                  <p class="text-white text-base font-normal leading-normal max-w-[720px] text-justify">
+                  <p class="text-black dark:text-white text-base font-normal leading-normal max-w-[720px] text-justify">
                     As a cyber threat intelligence analyst who has spent years analyzing cyber threats targeting multinational utility companies, I've witnessed firsthand how the
                     threat landscape has evolved dramatically over the past 4 years. The targeting of critical infrastructure has intensified to unprecedented levels due to
                     geopolitical tensions and rapid advancement in open source threat actor tooling. I've established this specialized intelligence service specifically to help
@@ -124,7 +139,7 @@
                   </p>
                 </div>
                 <button
-                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#e5e4f0] text-[#17171c] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] w-fit"
+                  class="mt-4 flex w-fit min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-black text-white dark:bg-[#e5e4f0] dark:text-[#17171c] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
                 >
                   <span class="truncate">Learn More</span>
                 </button>
@@ -137,8 +152,8 @@
                   style='background-image: url("Assets/OT Specific Threat Analysis.webp");'
                 ></div>
                 <div>
-                  <p class="text-white text-base font-medium leading-normal text-justify">OT-Specific Threat Analysis</p>
-                  <p class="text-[#a6a4b6] text-sm font-normal leading-normal text-justify">
+                  <p class="text-black dark:text-white text-base font-medium leading-normal text-justify">OT-Specific Threat Analysis</p>
+                  <p class="text-gray-600 dark:text-[#a6a4b6] text-sm font-normal leading-normal text-justify">
                     Gain insights into threats targeting Operational Technology (OT) systems and industrial control systems (ICS).
                   </p>
                 </div>
@@ -149,8 +164,8 @@
                   style='background-image: url("Assets/Regulatory Compliance Support.png");'
                 ></div>
                 <div>
-                  <p class="text-white text-base font-medium leading-normal text-justify">Regulatory Compliance Support</p>
-                  <p class="text-[#a6a4b6] text-sm font-normal leading-normal text-justify">
+                  <p class="text-black dark:text-white text-base font-medium leading-normal text-justify">Regulatory Compliance Support</p>
+                  <p class="text-gray-600 dark:text-[#a6a4b6] text-sm font-normal leading-normal text-justify">
                     Ensure compliance with industry regulations and standards with our up-to-date intelligence and reporting.
                   </p>
                 </div>
@@ -161,8 +176,8 @@
                   style='background-image: url("Assets/Incident Response v1.png");'
                 ></div>
                 <div>
-                  <p class="text-white text-base font-medium leading-normal text-justify">Incident Response Guidance</p>
-                  <p class="text-[#a6a4b6] text-sm font-normal leading-normal text-justify">Respond effectively to incidents with our detailed guidance and best practices.</p>
+                  <p class="text-black dark:text-white text-base font-medium leading-normal text-justify">Incident Response Guidance</p>
+                  <p class="text-gray-600 dark:text-[#a6a4b6] text-sm font-normal leading-normal text-justify">Respond effectively to incidents with our detailed guidance and best practices.</p>
                 </div>
               </div>
             </div>
@@ -171,18 +186,18 @@
             <div class="flex flex-col justify-end gap-6 px-4 py-10 @[480px]:gap-8 @[480px]:px-10 @[480px]:py-20">
               <div class="flex flex-col gap-2 text-center">
                 <h1
-                  class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px] text-center"
+                  class="text-black dark:text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px] text-center"
                 >
                   Ready to enhance your cyber defenses?
                 </h1>
-                <p class="text-white text-base font-normal leading-normal max-w-[720px] text-justify">
+                <p class="text-black dark:text-white text-base font-normal leading-normal max-w-[720px] text-justify">
                   Schedule your briefing today and see how our platform can help you stay ahead of cyber threats.
                 </p>
               </div>
               <div class="flex flex-1 justify-center">
                 <div class="flex justify-center">
                   <button
-                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#e5e4f0] text-[#17171c] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] grow open-modal-button"
+                    class="open-modal-button grow flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-black text-white dark:bg-[#e5e4f0] dark:text-[#17171c] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
                   >
                     <span class="truncate">Schedule Your Briefing</span>
                   </button>
@@ -196,15 +211,15 @@
         <div class="flex max-w-[960px] flex-1 flex-col">
           <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
             <div class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
-              <a class="text-[#a6a4b6] text-base font-normal leading-normal min-w-40" href="#">Platform</a>
-              <a class="text-[#a6a4b6] text-base font-normal leading-normal min-w-40" href="#">Intelligence</a>
-              <a class="text-[#a6a4b6] text-base font-normal leading-normal min-w-40" href="#">Resources</a>
-              <a class="text-[#a6a4b6] text-base font-normal leading-normal min-w-40" href="#">Company</a>
-              <a class="text-[#a6a4b6] text-base font-normal leading-normal min-w-40" href="#">Contact Us</a>
+              <a class="text-gray-700 dark:text-[#a6a4b6] text-base font-normal leading-normal min-w-40" href="#">Platform</a>
+              <a class="text-gray-700 dark:text-[#a6a4b6] text-base font-normal leading-normal min-w-40" href="#">Intelligence</a>
+              <a class="text-gray-700 dark:text-[#a6a4b6] text-base font-normal leading-normal min-w-40" href="#">Resources</a>
+              <a class="text-gray-700 dark:text-[#a6a4b6] text-base font-normal leading-normal min-w-40" href="#">Company</a>
+              <a class="text-gray-700 dark:text-[#a6a4b6] text-base font-normal leading-normal min-w-40" href="#">Contact Us</a>
             </div>
             <div class="flex flex-wrap justify-center gap-4">
               <a href="#">
-                <div class="text-[#a6a4b6]" data-icon="TwitterLogo" data-size="24px" data-weight="regular">
+                <div class="text-gray-700 dark:text-[#a6a4b6]" data-icon="TwitterLogo" data-size="24px" data-weight="regular">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                     <path
                       d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"
@@ -212,8 +227,8 @@
                   </svg>
                 </div>
               </a>
-              <a href="#">
-                <div class="text-[#a6a4b6]" data-icon="LinkedinLogo" data-size="24px" data-weight="regular">
+              <a href="https://www.linkedin.com/in/koby-noguchi/" target="_blank" rel="noopener noreferrer">
+                <div class="text-gray-700 dark:text-[#a6a4b6]" data-icon="LinkedinLogo" data-size="24px" data-weight="regular">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                     <path
                       d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"
@@ -222,7 +237,7 @@
                 </div>
               </a>
             </div>
-            <p class="text-[#a6a4b6] text-base font-normal leading-normal text-justify">© 2023 sudo cti. All rights reserved.</p>
+            <p class="text-gray-700 dark:text-[#a6a4b6] text-base font-normal leading-normal text-justify">© 2023 sudo cti. All rights reserved.</p>
           </footer>
         </div>
       </footer>
@@ -231,34 +246,34 @@
       id="briefing-modal"
       class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 transition-opacity"
     >
-      <div class="relative w-full max-w-md rounded-xl bg-[#23222a] border border-[#454455] p-8 shadow-lg">
-        <button id="close-modal-button" class="absolute top-4 right-4 text-[#a6a4b6] hover:text-white">
+      <div class="relative w-full max-w-md rounded-xl bg-white dark:bg-[#23222a] border border-gray-300 dark:border-[#454455] p-8 shadow-lg">
+        <button id="close-modal-button" class="absolute top-4 right-4 text-gray-500 hover:text-black dark:text-[#a6a4b6] dark:hover:text-white">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
-        <h2 class="text-2xl font-bold text-white mb-6">Schedule Your Briefing</h2>
+        <h2 class="text-2xl font-bold text-black dark:text-white mb-6">Schedule Your Briefing</h2>
         <form id="briefing-form">
           <div class="space-y-4">
             <div>
-              <label for="full-name" class="block text-sm font-medium text-[#a6a4b6] mb-1">Full Name</label>
-              <input type="text" id="full-name" name="full-name" required class="w-full rounded-md border-0 bg-[#17171c] p-2 text-white placeholder-[#555] focus:ring-2 focus:ring-[#e5e4f0]">
+              <label for="full-name" class="block text-sm font-medium text-gray-600 dark:text-[#a6a4b6] mb-1">Full Name</label>
+              <input type="text" id="full-name" name="full-name" required class="w-full rounded-md border-0 bg-gray-100 text-black dark:bg-[#17171c] dark:text-white p-2 placeholder-[#555] focus:ring-2 focus:ring-[#e5e4f0]">
             </div>
             <div>
-              <label for="organization" class="block text-sm font-medium text-[#a6a4b6] mb-1">Organization</label>
-              <input type="text" id="organization" name="organization" required class="w-full rounded-md border-0 bg-[#17171c] p-2 text-white placeholder-[#555] focus:ring-2 focus:ring-[#e5e4f0]">
+              <label for="organization" class="block text-sm font-medium text-gray-600 dark:text-[#a6a4b6] mb-1">Organization</label>
+              <input type="text" id="organization" name="organization" required class="w-full rounded-md border-0 bg-gray-100 text-black dark:bg-[#17171c] dark:text-white p-2 placeholder-[#555] focus:ring-2 focus:ring-[#e5e4f0]">
             </div>
             <div>
-              <label for="email" class="block text-sm font-medium text-[#a6a4b6] mb-1">Email</label>
-              <input type="email" id="email" name="email" required class="w-full rounded-md border-0 bg-[#17171c] p-2 text-white placeholder-[#555] focus:ring-2 focus:ring-[#e5e4f0]">
+              <label for="email" class="block text-sm font-medium text-gray-600 dark:text-[#a6a4b6] mb-1">Email</label>
+              <input type="email" id="email" name="email" required class="w-full rounded-md border-0 bg-gray-100 text-black dark:bg-[#17171c] dark:text-white p-2 placeholder-[#555] focus:ring-2 focus:ring-[#e5e4f0]">
             </div>
             <div>
-              <label for="phone-number" class="block text-sm font-medium text-[#a6a4b6] mb-1">Phone Number (Optional)</label>
-              <input type="tel" id="phone-number" name="phone-number" class="w-full rounded-md border-0 bg-[#17171c] p-2 text-white placeholder-[#555] focus:ring-2 focus:ring-[#e5e4f0]">
+              <label for="phone-number" class="block text-sm font-medium text-gray-600 dark:text-[#a6a4b6] mb-1">Phone Number (Optional)</label>
+              <input type="tel" id="phone-number" name="phone-number" class="w-full rounded-md border-0 bg-gray-100 text-black dark:bg-[#17171c] dark:text-white p-2 placeholder-[#555] focus:ring-2 focus:ring-[#e5e4f0]">
             </div>
           </div>
           <div class="mt-6">
-            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-full shadow-sm text-sm font-bold text-[#17171c] bg-[#e5e4f0] hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#23222a] focus:ring-[#e5e4f0]">
+            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-full shadow-sm text-sm font-bold bg-black text-white dark:bg-[#e5e4f0] dark:text-[#17171c] hover:bg-gray-800 dark:hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-[#23222a] focus:ring-gray-500 dark:focus:ring-[#e5e4f0]">
               Submit
             </button>
           </div>
@@ -267,6 +282,7 @@
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
+        // Modal script
         const modal = document.getElementById('briefing-modal');
         const openModalButtons = document.querySelectorAll('.open-modal-button');
         const closeModalButton = document.getElementById('close-modal-button');
@@ -290,7 +306,7 @@
                 }
             });
         }
-        
+
         if(form) {
             form.addEventListener('submit', (event) => {
                 event.preventDefault();
@@ -298,8 +314,45 @@
                 closeModal();
             });
         }
+
+        // Theme toggle script
+        const root = document.documentElement;
+        const logo = document.getElementById('theme-toggle-logo');
+        const darkSrc = logo.getAttribute('data-dark-src');
+        const lightSrc = logo.getAttribute('data-light-src');
+
+        const applyTheme = (theme) => {
+          if (theme === 'dark') {
+            root.classList.add('dark');
+            logo.src = darkSrc;
+          } else {
+            root.classList.remove('dark');
+            logo.src = lightSrc;
+          }
+          localStorage.setItem('theme', theme);
+        };
+
+        const toggleTheme = () => {
+          const currentTheme = root.classList.contains('dark') ? 'dark' : 'light';
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          applyTheme(newTheme);
+        };
+
+        logo.addEventListener('click', toggleTheme);
+
+        // Initialize theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme) {
+          applyTheme(savedTheme);
+        } else if (prefersDark) {
+          applyTheme('dark');
+        } else {
+          applyTheme('light');
+        }
       });
     </script>
+    <script src="animation.js"></script>
   </body>
 </html>
 
