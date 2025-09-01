@@ -228,10 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- SETUP HTML INCIDENT LIST ---
         const incidentListContainer = document.getElementById('incident-list');
         
-        // Create rows in reverse chronological order for display (latest first)
-        const reversedLocations = [...validLocations].reverse();
-        
-        reversedLocations.forEach((d, i) => {
+        validLocations.forEach((d, i) => {
             // Create incident row
             const incidentRow = document.createElement('div');
             incidentRow.className = 'incident-row bg-slate-600 dark:bg-slate-700 p-3 border-b border-slate-500 dark:border-slate-600 cursor-pointer hover:bg-slate-500 dark:hover:bg-slate-600 transition-colors';
@@ -349,28 +346,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Apply initial map colors
         updateMapColors();
-        
-        // TEST: Color specific states to verify individual control works
-        setTimeout(() => {
-            console.log("Testing individual state control...");
-            
-            // Try to color California red
-            mapGroup.selectAll(".state")
-                .filter(d => d.properties.name === "California")
-                .attr("fill", "#FF0000");
-                
-            // Try to color Texas green  
-            mapGroup.selectAll(".state")
-                .filter(d => d.properties.name === "Texas")
-                .attr("fill", "#00FF00");
-                
-            // Try to color New York blue
-            mapGroup.selectAll(".state")
-                .filter(d => d.properties.name === "New York")
-                .attr("fill", "#0000FF");
-                
-            console.log("Individual state coloring test applied");
-        }, 2000); // Wait 2 seconds after map loads
 
     }).catch(error => {
         console.error("Error loading data:", error);

@@ -6,10 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const width = mapWidth + (columnWidth * 2);
     let height = 600; // Will be updated based on container
 
-    // Remove hardcoded scale and translate. They will be set dynamically.
-    const projection = d3.geoAlbersUsa();
-    const path = d3.geoPath().projection(projection);
-
     // Get the container dimensions
     const container = document.getElementById("walmart-growth-map");
     const containerRect = container.getBoundingClientRect();
@@ -38,17 +34,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const labelColor = "#E2E8F0"; // Light gray
         const yearColor = "rgba(255, 255, 255, 0.1)"; // Semi-transparent white
 
-        // Fill individual states with gray
-        mapGroup.selectAll(".state")
+        // Fill US outline with gray
+        mapGroup.selectAll("#contiguous-us")
             .attr("fill", fillColor)
             .attr("fill-opacity", 1);
 
-        // Style state borders
-        mapGroup.selectAll(".state-borders")
-            .attr("stroke", strokeColor);
+        mapGroup.selectAll("#alaska")
+            .attr("fill", fillColor)
+            .attr("fill-opacity", 1);
 
-        mapGroup.selectAll(".country-outline")
-            .attr("stroke", "#000000");
+        mapGroup.selectAll("#hawaii circle")
+            .attr("fill", fillColor);
+
+        // Style borders
+        mapGroup.selectAll("#state-borders line")
+            .attr("stroke", strokeColor);
 
         pointsGroup.selectAll("circle:not(.highlighted)")
             .attr("fill", pointColor);
@@ -56,7 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
         labelsGroup.selectAll("text:not(.highlighted)")
             .attr("fill", labelColor);
             
-        yearText.attr("fill", yearColor);
+        if (yearText) {
+            yearText.attr("fill", yearColor);
+        }
     }
     
     function highlightElements(d) {
@@ -110,12 +112,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Restore ransom amount to orange
             const ransomElement = d.incidentRow.querySelector('.ransom-amount');
             if (ransomElement) {
-                ransomElement.style.color = '#fb923c'; // orange-400
+                ransomElement.style.color = '#FB923C'; // orange-400
             }
         }
     }
     
-    // Auto-scroll function to ensure row is visible
     function scrollToRowIfNotVisible(row) {
         const container = document.getElementById('incident-list');
         if (!container || !row) return;
@@ -123,23 +124,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const containerRect = container.getBoundingClientRect();
         const rowRect = row.getBoundingClientRect();
         
-        // Check if row is not fully visible
         const isAbove = rowRect.top < containerRect.top;
         const isBelow = rowRect.bottom > containerRect.bottom;
         
         if (isAbove || isBelow) {
-            // Calculate target scroll position
             let targetScrollTop;
-            
             if (isAbove) {
-                // Scroll up to show row at top with padding
                 targetScrollTop = container.scrollTop + (rowRect.top - containerRect.top) - 10;
             } else {
-                // Scroll down to show row at bottom with padding  
                 targetScrollTop = container.scrollTop + (rowRect.bottom - containerRect.bottom) + 10;
             }
             
-            // Smooth scroll to target position
             container.scrollTo({
                 top: targetScrollTop,
                 behavior: 'smooth'
@@ -147,67 +142,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Load the simple SVG and CSV data
     Promise.all([
-        d3.json("Assets/us-10m-v1-json-data/2061c02cb3c747daf6ea7c406a5151f4-5d4c901bbf597838fbb8e34922d33c48c8aad7d8/us-states.topojson"),
+        d3.xml("Assets/us-map-simple.svg"),
         d3.csv("Assets/locations.csv")
-    ]).then(([us, locations]) => {
+    ]).then(([svgDoc, locations]) => {
         
-        // --- DYNAMIC PROJECTION FIT ---
-        const states = topojson.feature(us, us.objects['us-states']);
-        // Add a small padding so strokes at the outer edges aren't clipped
-        const pad = 6;
-        // Account for title space at top (64px = 4rem)
-        const titleSpace = 64;
-        projection.fitExtent([[pad, pad + titleSpace], [mapWidth - pad, height - pad]], states);
+        // Import the SVG map
+        const importedSvg = svgDoc.documentElement;
+        const mapSvgGroup = mapGroup.node().appendChild(importedSvg.cloneNode(true));
         
-        // Get the actual bounds of the projected map for year text positioning
-        const bounds = path.bounds(states);
-        const mapBounds = {
-            left: bounds[0][0],
-            top: bounds[0][1], 
-            right: bounds[1][0],
-            bottom: bounds[1][1]
-        };
+        // Set up simple projection for coordinate mapping
+        // This is a basic projection that maps lat/lon to our SVG coordinates
+        const projection = d3.geoAlbersUsa()
+            .scale(1000)
+            .translate([mapWidth/2, height/2]);
         
-        // Position year text based on actual map bounds
+        // Position year text
         yearText = svg.append("text")
             .attr("class", "year-text")
-            .attr("x", mapBounds.right - 20)
-            .attr("y", mapBounds.bottom - 20)
+            .attr("x", mapWidth - 40)
+            .attr("y", height - 40)
             .attr("dominant-baseline", "baseline")
             .attr("text-anchor", "end")
             .style("font-size", "56px")
             .style("font-weight", "bold");
-        
-        // --- RENDER MAP ---
-        // Create individual state paths with fills
-        mapGroup.selectAll(".state")
-            .data(states.features)
-            .enter().append("path")
-            .attr("class", "state")
-            .attr("d", path);
-            
-        // Add US country outline (external borders)
-        mapGroup.append("path")
-            .datum(topojson.mesh(us, us.objects['us-states'], (a, b) => a === b))
-            .attr("class", "country-outline")
-            .attr("d", path)
-            .attr("fill", "none")
-            .attr("stroke-width", 2)
-            .attr("stroke-linejoin", "round")
-            .attr("stroke-linecap", "round")
-            .attr("vector-effect", "non-scaling-stroke");
-
-        // Add state borders for clear boundaries between states
-        mapGroup.append("path")
-            .datum(topojson.mesh(us, us.objects['us-states'], (a, b) => a !== b))
-            .attr("class", "state-borders")
-            .attr("d", path)
-            .attr("fill", "none")
-            .attr("stroke-width", 0.75)
-            .attr("stroke-linejoin", "round")
-            .attr("stroke-linecap", "round")
-            .attr("vector-effect", "non-scaling-stroke");
             
         // --- PROCESS DATA ---
         const parseDate = d3.timeParse("%m/%d/%Y");
@@ -228,10 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- SETUP HTML INCIDENT LIST ---
         const incidentListContainer = document.getElementById('incident-list');
         
-        // Create rows in reverse chronological order for display (latest first)
-        const reversedLocations = [...validLocations].reverse();
-        
-        reversedLocations.forEach((d, i) => {
+        validLocations.forEach((d, i) => {
             // Create incident row
             const incidentRow = document.createElement('div');
             incidentRow.className = 'incident-row bg-slate-600 dark:bg-slate-700 p-3 border-b border-slate-500 dark:border-slate-600 cursor-pointer hover:bg-slate-500 dark:hover:bg-slate-600 transition-colors';
@@ -253,11 +209,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
             
-            // Store references for hover interactions
+            // Store references
             d.incidentRow = incidentRow;
             d.circleElement = null; // Will be set when circle is created
             
-            // Add hover interactions
+            // Add event listeners
             incidentRow.addEventListener('mouseenter', () => {
                 highlightElements(d);
             });
@@ -266,81 +222,81 @@ document.addEventListener('DOMContentLoaded', () => {
                 unhighlightElements(d);
             });
             
-            // Add to container (initially hidden)
+            // Initially hide the row
             incidentRow.style.display = 'none';
+            
+            // Add to container
             incidentListContainer.appendChild(incidentRow);
         });
 
-
-        // --- ANIMATION LOGIC ---
-        let currentIndex = 0;
+        // --- SETUP ANIMATION ---
+        const startDate = d3.min(validLocations, d => d.date);
+        const endDate = d3.max(validLocations, d => d.date);
         const timeScale = d3.scaleTime()
-            .domain(d3.extent(validLocations, d => d.date))
-            .range([0, 20000]); // Animation duration in milliseconds
+            .domain([startDate, endDate])
+            .range([0, 10000]); // 10 second animation
 
-        let animationTimer;
+        let timer;
+        let currentTime = 0;
 
-        const startAnimation = () => {
-            if (animationTimer) animationTimer.stop();
-
-            const timer = d3.timer(elapsed => {
+        function startAnimation() {
+            if (timer) timer.stop();
+            
+            timer = d3.timer((elapsed) => {
+                currentTime = elapsed;
                 const currentDate = timeScale.invert(elapsed);
-                yearText.text(currentDate.getFullYear());
-
-                while (currentIndex < validLocations.length && validLocations[currentIndex].date <= currentDate) {
-                    const d = validLocations[currentIndex];
-                    if (d.proj) {
-                        const circle = pointsGroup.append("circle")
-                            .attr("cx", d.proj[0])
-                            .attr("cy", d.proj[1])
-                            .attr("r", 3)
-                            .style("cursor", "pointer");
+                
+                // Show/hide incidents based on current date
+                const visibleIncidents = validLocations.filter(d => d.date <= currentDate);
+                
+                // Update circles
+                const circles = pointsGroup.selectAll("circle")
+                    .data(visibleIncidents, d => d.OrgName + d.date);
+                
+                circles.enter()
+                    .append("circle")
+                    .attr("cx", d => d.proj[0])
+                    .attr("cy", d => d.proj[1])
+                    .attr("r", 3)
+                    .each(function(d) {
+                        d.circleElement = d3.select(this);
                         
-                        // Store circle reference for hover interactions
-                        d.circleElement = circle;
-                        
-                        // Add hover interactions to the map dot
-                        circle.on("mouseenter", function() {
-                            highlightElements(d);
-                        })
-                        .on("mouseleave", function() {
-                            unhighlightElements(d);
-                        });
-                        
-                        // Show the HTML incident row
+                        // Add hover events to circles
+                        d3.select(this)
+                            .on("mouseenter", function() {
+                                highlightElements(d);
+                            })
+                            .on("mouseleave", function() {
+                                unhighlightElements(d);
+                            });
+                    });
+                
+                // Update incident list visibility
+                validLocations.forEach(d => {
+                    if (d.date <= currentDate) {
                         d.incidentRow.style.display = 'block';
+                    } else {
+                        d.incidentRow.style.display = 'none';
                     }
-                    currentIndex++;
-                }
+                });
+                
+                // Update year display
+                yearText.text(currentDate.getFullYear());
                 
                 updateMapColors();
 
-                if (currentIndex >= validLocations.length) {
+                if (currentTime >= 10000) {
                     timer.stop();
                 }
             });
-            animationTimer = timer;
-        };
+        }
 
-        const resetAnimation = () => {
-            currentIndex = 0;
-            pointsGroup.selectAll("circle").remove();
-            // Hide all incident rows
-            validLocations.forEach(d => {
-                d.incidentRow.style.display = 'none';
-                d.circleElement = null;
-            });
-            yearText.text("");
-            if (animationTimer) animationTimer.stop();
-        };
-
-        const observer = new IntersectionObserver(entries => {
+        // Setup intersection observer to start animation when map comes into view
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    resetAnimation();
                     startAnimation();
-                } else {
-                    if (animationTimer) animationTimer.stop();
+                    observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.5 });
@@ -349,28 +305,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Apply initial map colors
         updateMapColors();
-        
-        // TEST: Color specific states to verify individual control works
-        setTimeout(() => {
-            console.log("Testing individual state control...");
-            
-            // Try to color California red
-            mapGroup.selectAll(".state")
-                .filter(d => d.properties.name === "California")
-                .attr("fill", "#FF0000");
-                
-            // Try to color Texas green  
-            mapGroup.selectAll(".state")
-                .filter(d => d.properties.name === "Texas")
-                .attr("fill", "#00FF00");
-                
-            // Try to color New York blue
-            mapGroup.selectAll(".state")
-                .filter(d => d.properties.name === "New York")
-                .attr("fill", "#0000FF");
-                
-            console.log("Individual state coloring test applied");
-        }, 2000); // Wait 2 seconds after map loads
 
     }).catch(error => {
         console.error("Error loading data:", error);

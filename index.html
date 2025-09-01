@@ -10,40 +10,62 @@
     <script src="https://d3js.org/topojson.v3.min.js"></script>
   </head>
   <body
-    class="relative flex size-full min-h-screen flex-col bg-white dark:bg-[#17171c] group/design-root overflow-x-hidden"
+    class="relative flex size-full min-h-screen flex-col bg-white dark:bg-[#1f2a44] group/design-root overflow-x-hidden"
     style="font-family: Cambria, serif"
   >
     <div class="layout-container flex h-full grow flex-col">
-      <header class="sticky top-0 z-40 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#31303b] bg-white dark:bg-[#17171c] px-10 py-3">
-        <div class="flex items-center gap-4 text-black dark:text-white">
-          <img
-            id="theme-toggle-logo"
-            src="Assets/Logo Files/svg/White logo - no background.svg"
-            data-dark-src="Assets/Logo Files/svg/White logo - no background.svg"
-            data-light-src="Assets/Logo Files/svg/Black logo - no background.svg"
-            alt="Sudo CTI Logo"
-            class="h-10 w-auto cursor-pointer"
-          />
-        </div>
-        <div class="flex flex-1 justify-end gap-8">
-          <div class="flex items-center gap-9">
-            <a class="text-black dark:text-white text-sm font-medium leading-normal" href="#">Platform</a>
-            <a class="text-black dark:text-white text-sm font-medium leading-normal" href="#">Intelligence</a>
-            <a class="text-black dark:text-white text-sm font-medium leading-normal" href="#">Resources</a>
-            <a class="text-black dark:text-white text-sm font-medium leading-normal" href="#">Company</a>
+      <header class="fixed top-0 left-0 right-0 z-40 bg-white dark:bg-[#17171c]">
+        <div class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#31303b] px-10 py-3">
+          <div class="flex items-center gap-4 text-black dark:text-white">
+            <img
+              src="Assets/Logo Files/svg/White logo - no background.svg"
+              alt="Sudo CTI Logo"
+              class="h-10 w-auto"
+            />
           </div>
-          <button
-            class="open-modal-button flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-black text-white dark:bg-[#e5e4f0] dark:text-[#17171c] text-sm font-bold leading-normal tracking-[0.015em]"
-          >
-            <span class="truncate">Schedule Your Briefing</span>
-          </button>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-black dark:text-white text-sm font-medium leading-normal" href="#">Platform</a>
+              <a class="text-black dark:text-white text-sm font-medium leading-normal" href="#">Intelligence</a>
+              <a class="text-black dark:text-white text-sm font-medium leading-normal" href="#">Resources</a>
+              <a class="text-black dark:text-white text-sm font-medium leading-normal" href="#">Company</a>
+            </div>
+            <button
+              class="open-modal-button flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-black text-white dark:bg-[#e5e4f0] dark:text-[#17171c] text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              <span class="truncate">Schedule Your Briefing</span>
+            </button>
+          </div>
+        </div>
+        <!-- Scroll Progress Indicator -->
+        <div class="w-full h-1 bg-gray-200 dark:bg-gray-700">
+                     <div id="scroll-progress" class="h-full transition-all duration-150 ease-out" style="width: 0%; background-color: #c0c0c0;"></div>
         </div>
       </header>
       <div
-        class="min-h-[480px] bg-contain bg-center bg-no-repeat"
+        class="min-h-[480px] bg-contain bg-center bg-no-repeat mt-16"
         style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("Assets/hero shot v3.png");'
       ></div>
-      <div id="walmart-growth-map" class="flex justify-center bg-white dark:bg-[#17171c] py-10"></div>
+      <div id="walmart-growth-map" class="flex justify-center relative h-[600px] bg-[#1f2a44]">
+        <!-- Map Title positioned above map area -->
+        <div class="absolute top-0 left-0 w-2/3 flex justify-center py-4 bg-white dark:bg-[#1f2a44] z-10">
+          <h1 class="text-2xl font-bold text-black dark:text-white">US Critical Infrastructure Ransomware Timeline</h1>
+        </div>
+        <!-- Incident List Container -->
+        <div id="incident-list-container" class="absolute right-0 top-16 bottom-0 w-1/3 bg-slate-700 dark:bg-slate-800 bg-opacity-95 rounded-lg shadow-lg border border-slate-600 dark:border-slate-500 overflow-hidden flex flex-col">
+          <!-- Frozen Header -->
+          <div class="bg-slate-800 dark:bg-slate-900 border-b border-slate-500 dark:border-slate-600 px-4 py-3 flex-shrink-0">
+            <div class="grid grid-cols-2 gap-2 text-white text-sm font-bold">
+              <div class="text-center">Location</div>
+              <div class="text-center border-l border-slate-400 pl-2">Date Ransom Paid</div>
+            </div>
+          </div>
+          <!-- Scrollable Content -->
+          <div id="incident-list" class="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-slate-700">
+            <!-- Incidents will be populated here by JavaScript -->
+          </div>
+        </div>
+      </div>
       <div class="px-40 flex flex-1 justify-center py-5">
         <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
           <div class="flex flex-col gap-10 px-4 py-10 @container">
@@ -184,13 +206,13 @@
           </div>
           <div class="@container">
             <div class="flex flex-col justify-end gap-6 px-4 py-10 @[480px]:gap-8 @[480px]:px-10 @[480px]:py-20">
-              <div class="flex flex-col gap-2 text-center">
+              <div class="flex flex-col gap-2 text-center items-center">
                 <h1
                   class="text-black dark:text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px] text-center"
                 >
                   Ready to enhance your cyber defenses?
                 </h1>
-                <p class="text-black dark:text-white text-base font-normal leading-normal max-w-[720px] text-justify">
+                <p class="text-black dark:text-white text-base font-normal leading-normal max-w-[720px] text-center">
                   Schedule your briefing today and see how our platform can help you stay ahead of cyber threats.
                 </p>
               </div>
@@ -257,19 +279,19 @@
           <div class="space-y-4">
             <div>
               <label for="full-name" class="block text-sm font-medium text-gray-600 dark:text-[#a6a4b6] mb-1">Full Name</label>
-              <input type="text" id="full-name" name="full-name" required class="w-full rounded-md border-0 bg-gray-100 text-black dark:bg-[#17171c] dark:text-white p-2 placeholder-[#555] focus:ring-2 focus:ring-[#e5e4f0]">
+              <input type="text" id="full-name" name="full-name" required class="w-full rounded-md border-0 bg-gray-100 text-black dark:bg-[#1f2a44] dark:text-white p-2 placeholder-[#555] focus:ring-2 focus:ring-[#e5e4f0]">
             </div>
             <div>
               <label for="organization" class="block text-sm font-medium text-gray-600 dark:text-[#a6a4b6] mb-1">Organization</label>
-              <input type="text" id="organization" name="organization" required class="w-full rounded-md border-0 bg-gray-100 text-black dark:bg-[#17171c] dark:text-white p-2 placeholder-[#555] focus:ring-2 focus:ring-[#e5e4f0]">
+              <input type="text" id="organization" name="organization" required class="w-full rounded-md border-0 bg-gray-100 text-black dark:bg-[#1f2a44] dark:text-white p-2 placeholder-[#555] focus:ring-2 focus:ring-[#e5e4f0]">
             </div>
             <div>
               <label for="email" class="block text-sm font-medium text-gray-600 dark:text-[#a6a4b6] mb-1">Email</label>
-              <input type="email" id="email" name="email" required class="w-full rounded-md border-0 bg-gray-100 text-black dark:bg-[#17171c] dark:text-white p-2 placeholder-[#555] focus:ring-2 focus:ring-[#e5e4f0]">
+              <input type="email" id="email" name="email" required class="w-full rounded-md border-0 bg-gray-100 text-black dark:bg-[#1f2a44] dark:text-white p-2 placeholder-[#555] focus:ring-2 focus:ring-[#e5e4f0]">
             </div>
             <div>
               <label for="phone-number" class="block text-sm font-medium text-gray-600 dark:text-[#a6a4b6] mb-1">Phone Number (Optional)</label>
-              <input type="tel" id="phone-number" name="phone-number" class="w-full rounded-md border-0 bg-gray-100 text-black dark:bg-[#17171c] dark:text-white p-2 placeholder-[#555] focus:ring-2 focus:ring-[#e5e4f0]">
+              <input type="tel" id="phone-number" name="phone-number" class="w-full rounded-md border-0 bg-gray-100 text-black dark:bg-[#1f2a44] dark:text-white p-2 placeholder-[#555] focus:ring-2 focus:ring-[#e5e4f0]">
             </div>
           </div>
           <div class="mt-6">
@@ -308,51 +330,111 @@
         }
 
         if(form) {
-            form.addEventListener('submit', (event) => {
+            form.addEventListener('submit', async (event) => {
                 event.preventDefault();
-                alert('Thank you! Your briefing request has been received.');
-                closeModal();
+                
+                // Get form data
+                const formData = new FormData(form);
+                const data = {
+                    fullName: formData.get('full-name'),
+                    organization: formData.get('organization'),
+                    email: formData.get('email'),
+                    phoneNumber: formData.get('phone-number') || 'Not provided',
+                    timestamp: new Date().toISOString()
+                };
+                
+                // Show loading state
+                const submitButton = form.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                submitButton.textContent = 'Sending...';
+                submitButton.disabled = true;
+                
+                try {
+                    // Option 1: Use Formspree (recommended for static sites)
+                    const response = await fetch('https://formspree.io/f/xnnbjeep', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            email: data.email,
+                            message: `New briefing request from ${data.fullName}
+                            
+Organization: ${data.organization}
+Email: ${data.email}
+Phone: ${data.phoneNumber}
+Submitted: ${new Date(data.timestamp).toLocaleString()}`,
+                            _replyto: data.email,
+                            _subject: 'New Briefing Request - Sudo CTI',
+                            _to: 'koby.noguchi@sudocti.com'
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        alert('Thank you! Your briefing request has been received. We will contact you soon.');
+                        form.reset();
+                        closeModal();
+                    } else {
+                        throw new Error('Failed to send');
+                    }
+                } catch (error) {
+                    console.error('Error sending form:', error);
+                    
+                    // Fallback: mailto link
+                    const subject = encodeURIComponent('Briefing Request - Sudo CTI');
+                    const body = encodeURIComponent(`Hello,
+
+I would like to schedule a briefing.
+
+Name: ${data.fullName}
+Organization: ${data.organization}
+Email: ${data.email}
+Phone: ${data.phoneNumber}
+
+Thank you!`);
+                    
+                    window.location.href = `mailto:koby.noguchi@sudocti.com?subject=${subject}&body=${body}`;
+                    
+                    alert('Opening your email client. Please send the pre-filled email to complete your request.');
+                    closeModal();
+                } finally {
+                    // Reset button state
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                }
             });
         }
 
-        // Theme toggle script
+        // Set default dark theme
         const root = document.documentElement;
-        const logo = document.getElementById('theme-toggle-logo');
-        const darkSrc = logo.getAttribute('data-dark-src');
-        const lightSrc = logo.getAttribute('data-light-src');
+        root.classList.add('dark');
 
-        const applyTheme = (theme) => {
-          if (theme === 'dark') {
-            root.classList.add('dark');
-            logo.src = darkSrc;
-          } else {
-            root.classList.remove('dark');
-            logo.src = lightSrc;
+        // Scroll Progress Indicator
+        const scrollProgress = document.getElementById('scroll-progress');
+        
+        function updateScrollProgress() {
+          const windowHeight = window.innerHeight;
+          const documentHeight = document.documentElement.scrollHeight;
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const maxScroll = documentHeight - windowHeight;
+          
+          if (maxScroll > 0) {
+            const scrollPercentage = (scrollTop / maxScroll) * 100;
+            scrollProgress.style.width = `${Math.min(scrollPercentage, 100)}%`;
           }
-          localStorage.setItem('theme', theme);
-        };
-
-        const toggleTheme = () => {
-          const currentTheme = root.classList.contains('dark') ? 'dark' : 'light';
-          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-          applyTheme(newTheme);
-        };
-
-        logo.addEventListener('click', toggleTheme);
-
-        // Initialize theme on page load
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (savedTheme) {
-          applyTheme(savedTheme);
-        } else if (prefersDark) {
-          applyTheme('dark');
-        } else {
-          applyTheme('light');
         }
+        
+        // Update progress on scroll
+        window.addEventListener('scroll', updateScrollProgress);
+        
+        // Update progress on resize (in case content height changes)
+        window.addEventListener('resize', updateScrollProgress);
+        
+        // Initial update
+        updateScrollProgress();
       });
     </script>
-    <script src="animation.js"></script>
+    <script src="animation.js?v=1.2"></script>
   </body>
 </html>
 
