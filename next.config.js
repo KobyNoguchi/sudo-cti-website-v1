@@ -1,17 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Cloudflare Pages compatibility
-  output: 'standalone',
+  // Cloudflare Pages with Next.js runtime - no output needed
+  // Cloudflare automatically detects Next.js and uses their runtime
   images: {
     domains: [],
     formats: ['image/avif', 'image/webp'],
-    unoptimized: false, // Cloudflare handles optimization
+    unoptimized: false,
   },
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
-  // Ensure static assets are served correctly
-  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
 }
 
 module.exports = nextConfig
