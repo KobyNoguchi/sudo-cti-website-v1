@@ -2,6 +2,7 @@ import Hero from '@/components/sections/Hero'
 import Features from '@/components/sections/Features'
 import ContentBlock from '@/components/sections/ContentBlock'
 import Stats from '@/components/sections/Stats'
+import RansomwareMap from '@/components/sections/RansomwareMap'
 import CTA from '@/components/sections/CTA'
 
 export default function HomePage() {
@@ -19,6 +20,7 @@ export default function HomePage() {
         buttonHref="/about"
       />
       <Stats />
+      <RansomwareMap />
       <ContentBlock
         image="/Assets/OT Specific Threat Analysis.webp"
         imageAlt="OT threat analysis"
