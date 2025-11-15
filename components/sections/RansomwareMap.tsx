@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import * as d3 from 'd3'
 import { feature, mesh } from 'topojson-client'
+import { FeatureCollection } from 'geojson'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Play, Pause, RotateCcw, AlertTriangle } from 'lucide-react'
 
@@ -31,6 +32,133 @@ export default function RansomwareMap() {
   const animationTimerRef = useRef<d3.Timer | null>(null)
   const currentIndexRef = useRef(0)
   const validLocationsRef = useRef<Incident[]>([])
+
+  const scrollToRow = useCallback((row: HTMLDivElement) => {
+    const container = incidentListRef.current
+    if (!container || !row) return
+
+    const containerRect = container.getBoundingClientRect()
+    const rowRect = row.getBoundingClientRect()
+
+    const isAbove = rowRect.top < containerRect.top
+    const isBelow = rowRect.bottom > containerRect.bottom
+
+    if (isAbove || isBelow) {
+      const offset = isAbove ? -10 : 10
+      container.scrollTo({
+        top: container.scrollTop + (rowRect.top - containerRect.top) + offset,
+        behavior: 'smooth',
+      })
+    }
+  }, [])
+
+  const highlightIncident = useCallback((
+    incident: Incident,
+    pointsGroup: d3.Selection<SVGGElement, unknown, null, undefined>
+  ) => {
+    if (incident.circleElement) {
+      incident.circleElement
+        .classed('highlighted', true)
+        .attr('fill', '#0066FF')
+        .attr('r', 6)
+        .style('filter', 'drop-shadow(0 0 8px #0066FF)')
+    }
+
+    if (incident.incidentRow) {
+      incident.incidentRow.style.backgroundColor = '#0066FF'
+      incident.incidentRow.style.transform = 'scale(1.02)'
+      const ransomEl = incident.incidentRow.querySelector('.ransom-amount')
+      if (ransomEl) {
+        ;(ransomEl as HTMLElement).style.color = '#FFFFFF'
+      }
+      scrollToRow(incident.incidentRow)
+    }
+  }, [scrollToRow])
+
+  const unhighlightIncident = useCallback((
+    incident: Incident,
+    pointsGroup: d3.Selection<SVGGElement, unknown, null, undefined>
+  ) => {
+    if (incident.circleElement) {
+      incident.circleElement
+        .classed('highlighted', false)
+        .attr('fill', '#3385FF')
+        .attr('r', 3)
+        .style('filter', 'none')
+    }
+
+    if (incident.incidentRow) {
+      incident.incidentRow.style.backgroundColor = ''
+      incident.incidentRow.style.transform = ''
+      const ransomEl = incident.incidentRow.querySelector('.ransom-amount')
+      if (ransomEl) {
+        ;(ransomEl as HTMLElement).style.color = '#0066FF'
+      }
+    }
+  }, [])
+
+  const startAnimation = useCallback((
+    pointsGroup: d3.Selection<SVGGElement, unknown, null, undefined>,
+    yearText: d3.Selection<SVGTextElement, unknown, null, undefined>,
+    validLocations: Incident[]
+  ) => {
+    if (animationTimerRef.current) {
+      animationTimerRef.current.stop()
+    }
+
+    setIsPlaying(true)
+    currentIndexRef.current = 0
+    setIncidentCount(0)
+
+    const timeScale = d3
+      .scaleTime()
+      .domain(d3.extent(validLocations, (d) => d.date) as [Date, Date])
+      .range([0, 20000]) // 20 second animation
+
+    const timer = d3.timer((elapsed) => {
+      const currentDate = timeScale.invert(elapsed)
+      const year = currentDate.getFullYear()
+      setCurrentYear(year)
+      yearText.text(year.toString())
+
+      while (
+        currentIndexRef.current < validLocations.length &&
+        validLocations[currentIndexRef.current].date <= currentDate
+      ) {
+        const incident = validLocations[currentIndexRef.current]
+        if (incident.proj) {
+          const circle = pointsGroup
+            .append('circle')
+            .attr('cx', incident.proj[0])
+            .attr('cy', incident.proj[1])
+            .attr('r', 3)
+            .attr('fill', '#3385FF')
+            .attr('opacity', '0.8')
+            .style('cursor', 'pointer')
+
+          incident.circleElement = circle
+
+          circle
+            .on('mouseenter', () => highlightIncident(incident, pointsGroup))
+            .on('mouseleave', () => unhighlightIncident(incident, pointsGroup))
+
+          if (incident.incidentRow) {
+            incident.incidentRow.style.display = 'block'
+          }
+
+          setIncidentCount((prev) => prev + 1)
+        }
+        currentIndexRef.current++
+      }
+
+      if (currentIndexRef.current >= validLocations.length) {
+        timer.stop()
+        setIsPlaying(false)
+      }
+    })
+
+    animationTimerRef.current = timer
+  }, [highlightIncident, unhighlightIncident])
 
   useEffect(() => {
     if (!mapContainerRef.current) return
@@ -73,7 +201,7 @@ export default function RansomwareMap() {
         const locations = locationsData as any[]
 
         // Render map
-        const states = feature(us, us.objects['us-states'])
+        const states = feature(us, us.objects['us-states']) as unknown as FeatureCollection
         const pad = 6
         projection.fitExtent(
           [
@@ -131,18 +259,19 @@ export default function RansomwareMap() {
 
         // Process incidents
         const parseDate = d3.timeParse('%m/%d/%Y')
-        const validLocations: Incident[] = locations
+        const validLocations = locations
           .filter((d) => {
             const lat = parseFloat(d.latitude)
             const lon = parseFloat(d.longitude)
             return !isNaN(lat) && !isNaN(lon) && d.event_date
           })
-          .map((d) => {
+          .map((d): Incident | null => {
             const date = parseDate(d.event_date)
             if (!date) return null
             const lat = parseFloat(d.latitude)
             const lon = parseFloat(d.longitude)
             const proj = projection([lon, lat])
+            if (!proj) return null
             return {
               latitude: lat,
               longitude: lon,
@@ -150,10 +279,10 @@ export default function RansomwareMap() {
               OrgName: d.OrgName || 'Unknown',
               location: d['Location (State)'] || 'Unknown',
               AmtPaid: d.AmtPaid || 'N/A',
-              proj: proj || undefined,
+              proj: proj,
             }
           })
-          .filter((d): d is Incident => d !== null && d.proj !== undefined)
+          .filter((d): d is Incident => d !== null)
           .sort((a, b) => a.date.getTime() - b.date.getTime())
 
         validLocationsRef.current = validLocations
@@ -224,134 +353,7 @@ export default function RansomwareMap() {
       }
       d3.select(container).selectAll('*').remove()
     }
-  }, [])
-
-  const highlightIncident = (
-    incident: Incident,
-    pointsGroup: d3.Selection<SVGGElement, unknown, null, undefined>
-  ) => {
-    if (incident.circleElement) {
-      incident.circleElement
-        .classed('highlighted', true)
-        .attr('fill', '#0066FF')
-        .attr('r', 6)
-        .style('filter', 'drop-shadow(0 0 8px #0066FF)')
-    }
-
-    if (incident.incidentRow) {
-      incident.incidentRow.style.backgroundColor = '#0066FF'
-      incident.incidentRow.style.transform = 'scale(1.02)'
-      const ransomEl = incident.incidentRow.querySelector('.ransom-amount')
-      if (ransomEl) {
-        ;(ransomEl as HTMLElement).style.color = '#FFFFFF'
-      }
-      scrollToRow(incident.incidentRow)
-    }
-  }
-
-  const unhighlightIncident = (
-    incident: Incident,
-    pointsGroup: d3.Selection<SVGGElement, unknown, null, undefined>
-  ) => {
-    if (incident.circleElement) {
-      incident.circleElement
-        .classed('highlighted', false)
-        .attr('fill', '#3385FF')
-        .attr('r', 3)
-        .style('filter', 'none')
-    }
-
-    if (incident.incidentRow) {
-      incident.incidentRow.style.backgroundColor = ''
-      incident.incidentRow.style.transform = ''
-      const ransomEl = incident.incidentRow.querySelector('.ransom-amount')
-      if (ransomEl) {
-        ;(ransomEl as HTMLElement).style.color = '#0066FF'
-      }
-    }
-  }
-
-  const scrollToRow = (row: HTMLDivElement) => {
-    const container = incidentListRef.current
-    if (!container || !row) return
-
-    const containerRect = container.getBoundingClientRect()
-    const rowRect = row.getBoundingClientRect()
-
-    const isAbove = rowRect.top < containerRect.top
-    const isBelow = rowRect.bottom > containerRect.bottom
-
-    if (isAbove || isBelow) {
-      const offset = isAbove ? -10 : 10
-      container.scrollTo({
-        top: container.scrollTop + (rowRect.top - containerRect.top) + offset,
-        behavior: 'smooth',
-      })
-    }
-  }
-
-  const startAnimation = (
-    pointsGroup: d3.Selection<SVGGElement, unknown, null, undefined>,
-    yearText: d3.Selection<SVGTextElement, unknown, null, undefined>,
-    validLocations: Incident[]
-  ) => {
-    if (animationTimerRef.current) {
-      animationTimerRef.current.stop()
-    }
-
-    setIsPlaying(true)
-    currentIndexRef.current = 0
-    setIncidentCount(0)
-
-    const timeScale = d3
-      .scaleTime()
-      .domain(d3.extent(validLocations, (d) => d.date) as [Date, Date])
-      .range([0, 20000]) // 20 second animation
-
-    const timer = d3.timer((elapsed) => {
-      const currentDate = timeScale.invert(elapsed)
-      const year = currentDate.getFullYear()
-      setCurrentYear(year)
-      yearText.text(year.toString())
-
-      while (
-        currentIndexRef.current < validLocations.length &&
-        validLocations[currentIndexRef.current].date <= currentDate
-      ) {
-        const incident = validLocations[currentIndexRef.current]
-        if (incident.proj) {
-          const circle = pointsGroup
-            .append('circle')
-            .attr('cx', incident.proj[0])
-            .attr('cy', incident.proj[1])
-            .attr('r', 3)
-            .attr('fill', '#3385FF')
-            .attr('opacity', '0.8')
-            .style('cursor', 'pointer')
-
-          incident.circleElement = circle
-
-          circle
-            .on('mouseenter', () => highlightIncident(incident, pointsGroup))
-            .on('mouseleave', () => unhighlightIncident(incident, pointsGroup))
-
-          if (incident.incidentRow) {
-            incident.incidentRow.style.display = 'block'
-          }
-
-          setIncidentCount((prev) => prev + 1)
-        }
-        currentIndexRef.current++
-      }
-
-      if (currentIndexRef.current >= validLocations.length) {
-        timer.stop()
-        setIsPlaying(false)
-      }
-    })
-
-    animationTimerRef.current = timer
-  }
+  }, [highlightIncident, isPlaying, startAnimation])
 
   const resetAnimation = (
     pointsGroup: d3.Selection<SVGGElement, unknown, null, undefined>,
