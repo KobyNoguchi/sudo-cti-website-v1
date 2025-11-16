@@ -54,7 +54,7 @@ NEXT_PUBLIC_SITE_URL=https://sudocti.com
    - **Production branch**: `main` (or `master`)
    - **Framework preset**: `Next.js`
    - **Build command**: `npm run build`
-   - **Build output directory**: `.next`
+   - **Build output directory**: Leave EMPTY (Cloudflare Pages Next.js runtime handles this automatically)
    - **Root directory**: `/` (leave as root)
 
 4. **Environment Variables** (if needed)
@@ -179,6 +179,135 @@ Proxy: Enabled (if using Cloudflare)
 - Use `dig sudocti.com` or `nslookup sudocti.com` to check DNS
 - Ensure CNAME records are correct
 - Wait for DNS propagation (can take up to 48 hours)
+
+### Stale Content / Old Content Still Showing
+
+**🚨 CRITICAL: If even the Pages URL (`*.pages.dev`) shows old content:**
+
+This is **NOT** a cache issue. The Framework preset is likely set to **"None"** instead of **"Next.js"**.
+
+**IMMEDIATE ACTION REQUIRED:**
+1. Go to Cloudflare Pages → Settings → Builds & deployments
+2. Check **Framework preset** - it MUST say **"Next.js"** (not "None")
+3. If it says "None", change it to "Next.js" and save
+4. Wait for automatic redeployment
+5. Test your Pages URL again
+
+See `DEPLOYMENT_FIX.md` for detailed instructions.
+
+---
+
+If your Git branch is up to date but the website still shows old content **after clearing build cache**:
+
+**IMPORTANT**: Build cache and CDN cache are DIFFERENT. You need to clear BOTH.
+
+#### Step 1: Clear Cloudflare CDN Cache (CRITICAL - Often Missed!)
+
+This is different from build cache. The CDN cache stores HTML responses:
+
+1. Go to Cloudflare Dashboard (NOT Pages dashboard)
+2. Select your domain (`sudocti.com`)
+3. Navigate to **Caching** → **Configuration**
+4. Click **Purge Everything** (or **Custom Purge** → enter `https://sudocti.com/*`)
+5. Wait 30 seconds for purge to complete
+
+#### Step 2: Verify Deployment Commit
+
+1. In Cloudflare Pages Dashboard → **Deployments** tab
+2. Check the latest deployment's commit SHA (e.g., `77ba62e...`)
+3. Compare with your GitHub repository's latest commit
+4. If they don't match:
+   - Push your latest changes: `git push origin main`
+   - Or manually trigger deployment in Cloudflare Pages
+
+#### Step 3: Test in Incognito/Private Mode
+
+1. Open an incognito/private browser window
+2. Visit `https://sudocti.com`
+3. If content is correct in incognito but wrong in normal browser:
+   - Your browser cache is the issue
+   - Clear browser cache or hard refresh: `Ctrl+Shift+R` (Windows) or `Cmd+Shift+R` (Mac)
+
+#### Step 4: Verify Build Configuration
+
+In Cloudflare Pages Dashboard → **Settings** → **Builds & deployments**:
+
+- ✅ **Framework preset**: Must be `Next.js` (NOT "None")
+- ✅ **Build output directory**: Should be EMPTY (not `.next`)
+- ✅ **Build command**: `npm run build`
+- ✅ **Production branch**: `main`
+
+#### Step 5: Check for Old Files
+
+Ensure no `index.html` exists in your repository root (it should be `index.html.old` or deleted):
+- Old HTML files can interfere with Next.js routing
+- Check GitHub repository to confirm
+
+#### Step 6: Force Fresh Deployment
+
+1. Make a small change (add a comment or whitespace)
+2. Commit and push:
+   ```bash
+   git commit --allow-empty -m "Force fresh deployment"
+   git push origin main
+   ```
+3. Wait for deployment to complete
+4. Clear CDN cache again (Step 1)
+5. Test in incognito mode
+
+#### Step 7: Verify Content Directly
+
+Check the actual deployed content:
+1. Visit your Pages URL directly: `https://your-project.pages.dev` (not custom domain)
+2. Compare with `https://sudocti.com`
+3. If Pages URL shows correct content but custom domain shows old:
+   - CDN cache issue - repeat Step 1
+   - DNS propagation issue - wait 5-10 minutes
+
+#### Step 8: Add Cache-Control Headers (NEW)
+
+A `_headers` file has been added to `public/_headers` to prevent HTML caching:
+- This file tells Cloudflare to never cache HTML pages
+- Static assets (images, JS, CSS) are still cached for performance
+- After adding this file, commit and push:
+  ```bash
+  git add public/_headers
+  git commit -m "Add cache-control headers to prevent HTML caching"
+  git push origin main
+  ```
+- Wait for deployment, then purge CDN cache again
+
+#### Step 9: Critical Diagnostic Checklist
+
+If you've tried everything above and still see old content, verify these **CRITICAL** settings:
+
+**In Cloudflare Pages Dashboard → Settings → Builds & deployments:**
+
+1. **Framework preset**: 
+   - ❌ If set to "None" → Change to "Next.js" (THIS IS CRITICAL!)
+   - ✅ Must be "Next.js" for Next.js runtime to work
+
+2. **Build output directory**:
+   - ❌ If set to `.next` → Clear it (leave EMPTY)
+   - ✅ Should be EMPTY when Framework preset is "Next.js"
+
+3. **Production branch**:
+   - ✅ Should be `main` (or `master`)
+
+4. **Build command**:
+   - ✅ Should be `npm run build`
+
+**Verify the deployed commit:**
+- Check Cloudflare Pages → Deployments → Latest deployment
+- Note the commit SHA (e.g., `77ba62e308d72af7a566368fbe63c2d708c42407`)
+- Go to your GitHub repository
+- Compare: Does the deployed commit match your latest commit?
+- If NO: Your latest changes aren't deployed yet → Push to trigger deployment
+
+**Check what content you're seeing:**
+- What specific "old content" are you seeing?
+- Is it the entire page, or specific sections?
+- Can you describe what the old content says vs what it should say?
 
 ### Performance
 - Cloudflare Pages automatically provides CDN
