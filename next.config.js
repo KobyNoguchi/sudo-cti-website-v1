@@ -11,10 +11,9 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react'],
   },
   // Disable webpack cache for Cloudflare Pages (prevents 25MB file size limit error)
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.cache = false
-    }
+  webpack: (config) => {
+    // Disable cache for both client and server builds
+    config.cache = false
     return config
   },
 }
