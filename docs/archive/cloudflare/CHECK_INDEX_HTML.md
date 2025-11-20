@@ -1,5 +1,7 @@
 # Check for index.html in GitHub Repository
 
+> **Status:** Archived Cloudflare guidance. Production now uses GitHub Pages.
+
 ## Critical Check
 
 Even though your configuration is correct, if there's an `index.html` file in your GitHub repository root, Cloudflare might be serving it instead of your Next.js app.
@@ -48,4 +50,7 @@ Even with Framework preset set to "Next.js", if an `index.html` exists in the ro
 ```
 
 If there's no `index.html` in your GitHub repo, then we need to investigate further.
+
+
+
 

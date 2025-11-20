@@ -1,5 +1,7 @@
 # CRITICAL FIX: Old Content on Pages URL
 
+> **Status:** Archived Cloudflare guidance. Production now uses GitHub Pages.
+
 ## The Problem
 
 If even the **Pages URL** (`*.pages.dev`) shows old content, this means:

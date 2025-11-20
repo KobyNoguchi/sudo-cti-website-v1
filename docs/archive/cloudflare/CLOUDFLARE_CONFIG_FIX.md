@@ -1,5 +1,7 @@
 # Cloudflare Pages Configuration Fix
 
+> **Status:** Archived Cloudflare guidance. Production now uses GitHub Pages.
+
 ## Issue Identified
 
 Your build settings look mostly correct, but there's a **critical missing piece**: The **Framework preset** must be set to **"Next.js"**.

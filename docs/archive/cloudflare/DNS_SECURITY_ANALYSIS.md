@@ -1,5 +1,7 @@
 # DNS Records Analysis for sudocti.com
 
+> **Status:** Archived Cloudflare guidance. Production now uses GitHub Pages.
+
 ## ✅ LEGITIMATE Records (Keep These)
 
 ### Essential for Your Website:

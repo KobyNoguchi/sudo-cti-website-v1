@@ -112,16 +112,20 @@ The contact form uses Formspree. To change the endpoint, edit `app/contact/page.
 
 ## Deployment
 
-The site can be deployed to:
-- **Vercel** (recommended for Next.js)
-- **Netlify**
-- **Any Node.js hosting**
+- **Production**: GitHub Pages via `.github/workflows/deploy.yml`. Push to `main` and the workflow builds `out/` using `npm run build` (`output: 'export'`) and publishes it automatically. Custom domain + DNS details live in `DEPLOYMENT.md`.
+- **Local preview of export**:
+  ```bash
+  npm ci
+  npm run build
+  npx serve out
+  ```
+- Alternative hosts (Vercel, Netlify, etc.) still work if they can serve static exports. Remove `output: 'export'` if you ever need SSR again.
 
-For Vercel:
-```bash
-npm install -g vercel
-vercel
-```
+## Documentation
+
+- `DEPLOYMENT.md` – complete GitHub Pages deployment + DNS guide.
+- `docs/github-pages/troubleshooting.md` – common failures and fixes.
+- `docs/archive/cloudflare/` – legacy Cloudflare Pages notes kept only for reference.
 
 ## Notes
 

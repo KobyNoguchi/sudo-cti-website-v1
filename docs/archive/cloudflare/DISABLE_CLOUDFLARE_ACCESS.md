@@ -1,5 +1,7 @@
 # Disable Cloudflare Access on Pages Site
 
+> **Status:** Archived Cloudflare guidance. Production now uses GitHub Pages.
+
 ## What You're Seeing
 
 **Cloudflare Access** is a Zero Trust security feature that's protecting your Pages deployment. This is why you see a login screen asking for an email code when trying to access `*.pages.dev`.
@@ -93,4 +95,7 @@ Common reasons Access gets enabled:
 - Previous team member's configuration
 
 For a public marketing website like yours, Access should typically be **disabled**.
+
+
+
 

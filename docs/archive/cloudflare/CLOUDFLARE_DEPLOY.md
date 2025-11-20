@@ -1,5 +1,7 @@
 # Cloudflare Pages Deployment
 
+> **Status:** Archived Cloudflare guidance. Production now uses GitHub Pages.
+
 ## Quick Start
 
 1. **Push your code to Git** (GitHub, GitLab, or Bitbucket)

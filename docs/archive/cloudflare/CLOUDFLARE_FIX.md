@@ -1,5 +1,7 @@
 # IMPORTANT: Cloudflare Pages Build Settings
 
+> **Status:** Archived Cloudflare guidance. Production now uses GitHub Pages.
+
 ## Correct Build Configuration
 
 When deploying to Cloudflare Pages, use these EXACT settings:
