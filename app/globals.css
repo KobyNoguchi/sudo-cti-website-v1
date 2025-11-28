@@ -12,6 +12,51 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .hero-heading {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+
+  .hero-body {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .cyber-gradient {
+    position: relative;
+    background: radial-gradient(circle at 25% 20%, rgba(0, 102, 255, 0.4), transparent 50%),
+      radial-gradient(circle at 75% 30%, rgba(255, 0, 64, 0.25), transparent 55%),
+      linear-gradient(135deg, #050816, #0a172d 70%, #001b2b);
+  }
+
+  .starfield::before,
+  .starfield::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(1px 1px at 10px 10px, rgba(255, 255, 255, 0.5), transparent),
+      radial-gradient(1px 1px at 50px 80px, rgba(0, 102, 255, 0.5), transparent),
+      radial-gradient(1px 1px at 130px 40px, rgba(255, 0, 64, 0.4), transparent);
+    animation: starScroll 30s linear infinite;
+    opacity: 0.4;
+  }
+
+  .starfield::after {
+    animation-duration: 50s;
+    opacity: 0.3;
+  }
+
+  .globe-tooltip {
+    background: rgba(5, 8, 22, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    backdrop-filter: blur(8px);
+  }
 }
 
 /* Smooth scroll behavior */
@@ -35,5 +80,14 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #0052CC;
+}
+
+@keyframes starScroll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-200px);
+  }
 }
 

@@ -22,3 +22,20 @@ export interface Stat {
   description: string
 }
 
+export type RansomwareSeverity = 'low' | 'medium' | 'high' | 'critical'
+
+export interface RansomwareAttack {
+  id: number
+  organization: string
+  city: string
+  state: string
+  lat: number
+  lng: number
+  ransomAmount: number
+  ransomDisplay: string
+  date: string
+  ransomwareFamily: string
+  severity: RansomwareSeverity
+  attackerOrigin?: { lat: number; lng: number }
+}
+
