@@ -6,12 +6,12 @@ import { ArrowRight, Shield } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[85vh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-primary pt-24 pb-16 sm:pt-32">
+    <section className="relative min-h-[75vh] sm:min-h-[82vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-primary pt-12 pb-8 sm:pt-12 sm:pb-24">
       {/* Animated Background Gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,102,255,0.3),transparent_50%)] animate-pulse" />
       <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary-dark/70 to-primary/90" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -31,9 +31,9 @@ export default function Hero() {
           </motion.div>
 
           <h1 className="hero-heading text-white mb-6 text-balance tracking-tight">
-            Purpose-Built Cyber Threat Intelligence
-            <br />
-            <span className="text-secondary">for Critical Infrastructure</span>
+            <span className="block">Purpose-Built</span>
+            <span className="block">Cyber Threat Intelligence</span>
+            <span className="text-secondary block">for Critical Infrastructure</span>
           </h1>
 
           <p className="hero-body text-white/85 max-w-2xl mx-auto mb-10 text-balance">
