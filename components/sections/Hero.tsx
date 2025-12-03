@@ -42,13 +42,18 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center">
-            <Button variant="secondary" size="lg" className="group">
+            <Button variant="secondary" size="lg" className="group" href="/contact">
               <span className="flex items-center">
                 Schedule Your Briefing
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </Button>
-            <Button variant="outline" size="lg" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+            <Button
+              variant="outline"
+              size="lg"
+              className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+              href="#features"
+            >
               Explore Features
             </Button>
           </div>
