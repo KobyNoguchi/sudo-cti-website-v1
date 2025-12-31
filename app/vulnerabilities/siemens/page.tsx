@@ -62,7 +62,7 @@ export default function SiemensVulnerabilitiesPage() {
                 Comprehensive database of security vulnerabilities affecting Siemens industrial products. 
                 Data sourced from{' '}
                 <a 
-                  href="https://cert-portal.siemens.com/productcert/html/"
+                  href="https://www.siemens.com/global/en/products/services/cert.html"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2"
@@ -163,7 +163,7 @@ export default function SiemensVulnerabilitiesPage() {
               Siemens ProductCERT security advisories for informational purposes. Always refer to the 
               official{' '}
               <a 
-                href="https://cert-portal.siemens.com/productcert/html/"
+                href="https://www.siemens.com/global/en/products/services/cert.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2"
