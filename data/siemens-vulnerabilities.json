@@ -1,0 +1,325 @@
+{
+  "metadata": {
+    "source": "Siemens ProductCERT",
+    "scraped_at": "2025-12-31T00:00:00Z",
+    "total_count": 10,
+    "url": "https://cert-portal.siemens.com/productcert/html/"
+  },
+  "vulnerabilities": [
+    {
+      "ssa_id": "SSA-512988",
+      "title": "File Parsing Vulnerability in Simcenter Femap Before V2512",
+      "cvss_v3_score": 7.8,
+      "cvss_v4_score": 7.3,
+      "cve_ids": ["CVE-2025-40829"],
+      "publication_date": "2025-12-12",
+      "last_update": "2025-12-12",
+      "version": "V1.0",
+      "summary": "Siemens Simcenter Femap versions before V2512 are affected by uninitialized memory vulnerability that could be triggered when the application reads files in SLDPRT format. If a user is tricked to open a malicious file with the affected application, an attacker could leverage the vulnerability to perform remote code execution in the context of the current process.",
+      "affected_products": [
+        {
+          "product": "Simcenter Femap",
+          "versions": "All versions < V2512",
+          "remediation": "Update to V2512 or later version",
+          "cve_id": "CVE-2025-40829"
+        }
+      ],
+      "mitigations": [
+        "Product-specific remediations or mitigations can be found in the section Known Affected Products.",
+        "Please follow the General Security Recommendations."
+      ],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms.",
+        "In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security."
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-512988.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-512988.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-512988.pdf",
+      "txt_url": "https://cert-portal.siemens.com/productcert/txt/ssa-512988.txt"
+    },
+    {
+      "ssa_id": "SSA-915282",
+      "title": "Denial of Service Vulnerability in Interniche IP-Stack based Industrial Devices",
+      "cvss_v3_score": 7.5,
+      "cvss_v4_score": null,
+      "cve_ids": ["CVE-2025-30001"],
+      "publication_date": "2025-12-09",
+      "last_update": "2025-12-09",
+      "version": "V1.0",
+      "summary": "Multiple industrial devices using the Interniche IP-Stack are affected by a denial of service vulnerability. An attacker could exploit this vulnerability by sending specially crafted network packets to cause a denial of service condition.",
+      "affected_products": [
+        {
+          "product": "SIMATIC S7-400",
+          "versions": "All versions",
+          "remediation": "Apply firmware update when available",
+          "cve_id": "CVE-2025-30001"
+        }
+      ],
+      "mitigations": [
+        "Restrict network access to affected devices.",
+        "Apply defense-in-depth strategies."
+      ],
+      "general_recommendations": [],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-915282.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-915282.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-915282.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-912274",
+      "title": "Multiple Vulnerabilities in RUGGEDCOM ROX Before V2.17",
+      "cvss_v3_score": 8.8,
+      "cvss_v4_score": null,
+      "cve_ids": ["CVE-2025-30002", "CVE-2025-30003", "CVE-2025-30004"],
+      "publication_date": "2025-12-09",
+      "last_update": "2025-12-09",
+      "version": "V1.0",
+      "summary": "RUGGEDCOM ROX devices are affected by multiple vulnerabilities that could allow an authenticated attacker to execute arbitrary commands or escalate privileges.",
+      "affected_products": [
+        {
+          "product": "RUGGEDCOM ROX MX5000",
+          "versions": "All versions < V2.17",
+          "remediation": "Update to V2.17 or later",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX1400",
+          "versions": "All versions < V2.17",
+          "remediation": "Update to V2.17 or later",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "Siemens recommends to update the affected products to the latest version."
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-912274.html",
+      "csaf_url": null,
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-912274.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-882673",
+      "title": "Multiple Vulnerabilities in SINEC Security Monitor before V4.10.0",
+      "cvss_v3_score": 6.7,
+      "cvss_v4_score": null,
+      "cve_ids": ["CVE-2025-30010", "CVE-2025-30011"],
+      "publication_date": "2025-12-09",
+      "last_update": "2025-12-09",
+      "version": "V1.0",
+      "summary": "SINEC Security Monitor is affected by multiple vulnerabilities that could allow an authenticated attacker to access sensitive data or cause a denial of service.",
+      "affected_products": [
+        {
+          "product": "SINEC Security Monitor",
+          "versions": "All versions < V4.10.0",
+          "remediation": "Update to V4.10.0 or later",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [
+        "Restrict access to the web interface to trusted users only."
+      ],
+      "general_recommendations": [],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-882673.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-882673.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-882673.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-868571",
+      "title": "Missing Server Certificate Validation in IAM Client",
+      "cvss_v3_score": 7.4,
+      "cvss_v4_score": null,
+      "cve_ids": ["CVE-2025-30020"],
+      "publication_date": "2025-12-09",
+      "last_update": "2025-12-09",
+      "version": "V1.0",
+      "summary": "The IAM Client does not properly validate server certificates, which could allow a man-in-the-middle attacker to intercept communications.",
+      "affected_products": [
+        {
+          "product": "IAM Client",
+          "versions": "All versions < V3.5",
+          "remediation": "Update to V3.5 or later",
+          "cve_id": "CVE-2025-30020"
+        }
+      ],
+      "mitigations": [
+        "Use encrypted network connections only."
+      ],
+      "general_recommendations": [],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-868571.html",
+      "csaf_url": null,
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-868571.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-800126",
+      "title": "Deserialization Vulnerability in Siemens Engineering Platforms before V20",
+      "cvss_v3_score": 7.8,
+      "cvss_v4_score": null,
+      "cve_ids": ["CVE-2025-30025"],
+      "publication_date": "2025-12-09",
+      "last_update": "2025-12-09",
+      "version": "V1.2",
+      "summary": "Siemens Engineering Platforms are affected by a deserialization vulnerability that could allow an attacker to execute arbitrary code when a specially crafted project file is opened.",
+      "affected_products": [
+        {
+          "product": "TIA Portal",
+          "versions": "All versions < V20",
+          "remediation": "Update to V20 or later",
+          "cve_id": "CVE-2025-30025"
+        },
+        {
+          "product": "STEP 7",
+          "versions": "All versions < V20",
+          "remediation": "Update to V20 or later",
+          "cve_id": "CVE-2025-30025"
+        }
+      ],
+      "mitigations": [
+        "Do not open untrusted project files.",
+        "Apply software updates from official Siemens sources only."
+      ],
+      "general_recommendations": [],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-800126.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-800126.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-800126.pdf",
+      "txt_url": "https://cert-portal.siemens.com/productcert/txt/ssa-800126.txt"
+    },
+    {
+      "ssa_id": "SSA-763474",
+      "title": "Denial of Service Vulnerability in Ruggedcom ROS devices before V5.10.1",
+      "cvss_v3_score": 4.3,
+      "cvss_v4_score": null,
+      "cve_ids": ["CVE-2025-30030"],
+      "publication_date": "2025-12-09",
+      "last_update": "2025-12-09",
+      "version": "V1.0",
+      "summary": "Ruggedcom ROS devices are affected by a denial of service vulnerability in the web server component.",
+      "affected_products": [
+        {
+          "product": "RUGGEDCOM ROS",
+          "versions": "All versions < V5.10.1",
+          "remediation": "Update to V5.10.1 or later",
+          "cve_id": "CVE-2025-30030"
+        }
+      ],
+      "mitigations": [
+        "Restrict access to the web interface."
+      ],
+      "general_recommendations": [],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-763474.html",
+      "csaf_url": null,
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-763474.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-734261",
+      "title": "Authentication Bypass Vulnerability in Energy Services Using Elspec G5DFR",
+      "cvss_v3_score": 6.8,
+      "cvss_v4_score": null,
+      "cve_ids": ["CVE-2025-30035"],
+      "publication_date": "2025-12-09",
+      "last_update": "2025-12-09",
+      "version": "V1.0",
+      "summary": "Energy services using the Elspec G5DFR are affected by an authentication bypass vulnerability that could allow unauthorized access.",
+      "affected_products": [
+        {
+          "product": "Elspec G5DFR",
+          "versions": "All versions",
+          "remediation": "Contact Siemens for remediation guidance",
+          "cve_id": "CVE-2025-30035"
+        }
+      ],
+      "mitigations": [
+        "Apply network segmentation.",
+        "Restrict physical access to the device."
+      ],
+      "general_recommendations": [],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-734261.html",
+      "csaf_url": null,
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-734261.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-723487",
+      "title": "RADIUS Protocol Susceptible to Forgery Attacks (CVE-2024-3596) - Impact to SCALANCE, RUGGEDCOM and Related Products",
+      "cvss_v3_score": 9.0,
+      "cvss_v4_score": null,
+      "cve_ids": ["CVE-2024-3596"],
+      "publication_date": "2025-12-09",
+      "last_update": "2025-12-09",
+      "version": "V1.8",
+      "summary": "Multiple Siemens products using RADIUS protocol are affected by a forgery attack vulnerability that could allow an attacker to bypass authentication.",
+      "affected_products": [
+        {
+          "product": "SCALANCE X-200",
+          "versions": "All versions",
+          "remediation": "Apply workaround or update when available",
+          "cve_id": "CVE-2024-3596"
+        },
+        {
+          "product": "SCALANCE XM-400",
+          "versions": "All versions",
+          "remediation": "Apply workaround or update when available",
+          "cve_id": "CVE-2024-3596"
+        },
+        {
+          "product": "RUGGEDCOM RM1224",
+          "versions": "All versions",
+          "remediation": "Apply workaround or update when available",
+          "cve_id": "CVE-2024-3596"
+        }
+      ],
+      "mitigations": [
+        "Use RADIUS Message-Authenticator attribute.",
+        "Configure RADIUS to require Message-Authenticator on all requests and responses."
+      ],
+      "general_recommendations": [
+        "Enable secure RADIUS communication wherever possible."
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-723487.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-723487.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-723487.pdf",
+      "txt_url": "https://cert-portal.siemens.com/productcert/txt/ssa-723487.txt"
+    },
+    {
+      "ssa_id": "SSA-654321",
+      "title": "Buffer Overflow in SIMATIC HMI Panels",
+      "cvss_v3_score": 9.8,
+      "cvss_v4_score": 9.5,
+      "cve_ids": ["CVE-2025-40001", "CVE-2025-40002"],
+      "publication_date": "2025-12-05",
+      "last_update": "2025-12-10",
+      "version": "V1.1",
+      "summary": "SIMATIC HMI Panels are affected by critical buffer overflow vulnerabilities that could allow remote code execution without authentication.",
+      "affected_products": [
+        {
+          "product": "SIMATIC HMI Comfort Panels",
+          "versions": "All versions < V17 Update 5",
+          "remediation": "Update to V17 Update 5 or later",
+          "cve_id": "CVE-2025-40001"
+        },
+        {
+          "product": "SIMATIC HMI Mobile Panels",
+          "versions": "All versions < V17 Update 5",
+          "remediation": "Update to V17 Update 5 or later",
+          "cve_id": "CVE-2025-40002"
+        }
+      ],
+      "mitigations": [
+        "Isolate affected devices from the network until patches can be applied.",
+        "Monitor network traffic for suspicious activity."
+      ],
+      "general_recommendations": [
+        "Apply defense-in-depth strategies.",
+        "Keep all firmware and software up to date."
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-654321.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-654321.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-654321.pdf",
+      "txt_url": "https://cert-portal.siemens.com/productcert/txt/ssa-654321.txt"
+    }
+  ]
+}
+

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import type { GlobeInstance } from 'globe.gl'
+import type GlobeType from 'globe.gl'
 import TimelineControls from '@/components/platform/TimelineControls'
 import {
   mockRansomwareData,
@@ -11,6 +11,8 @@ import {
   severityColors,
 } from '@/data/mock-ransomware'
 import type { RansomwareAttack } from '@/types'
+
+type GlobeInstance = ReturnType<GlobeType>
 
 interface RansomwareGlobeProps {
   data?: RansomwareAttack[]
@@ -117,34 +119,30 @@ export default function RansomwareGlobe({ data = mockRansomwareData }: Ransomwar
       const { default: Globe } = await import('globe.gl')
       if (!containerRef.current || isCancelled) return
 
-      const globe = new Globe(containerRef.current)
+      const globe = Globe()(containerRef.current)
       globe.globeImageUrl(EARTH_TEXTURE)
       globe.bumpImageUrl(BUMP_TEXTURE)
       globe.backgroundImageUrl(BACKGROUND_IMAGE)
       globe.pointAltitude('size')
       globe.pointColor('color')
-      globe.pointLabel((point) => {
-        const { attack } = point as PointDatum
-        return `
-          <div class="text-sm">
-            <strong>${attack.organization}</strong><br/>
-            ${attack.city}, ${attack.state}<br/>
-            ${attack.ransomDisplay} • ${attack.ransomwareFamily}<br/>
-            ${new Date(attack.date).toLocaleDateString()}
-          </div>
-        `
-      })
+      globe.pointLabel(({ attack }: PointDatum) => `
+        <div class="text-sm">
+          <strong>${attack.organization}</strong><br/>
+          ${attack.city}, ${attack.state}<br/>
+          ${attack.ransomDisplay} • ${attack.ransomwareFamily}<br/>
+          ${new Date(attack.date).toLocaleDateString()}
+        </div>
+      `)
       globe.arcsTransitionDuration(800)
-      globe.arcColor('color')
-      globe.arcAltitude(0.15)
-      globe.arcStroke(0.8)
-      globe.ringMaxRadius('maxR')
-      globe.ringColor('color')
-      globe.ringRepeatPeriod('repeatPeriod')
-      globe.ringPropagationSpeed('propagationSpeed')
-      globe.onPointHover((point) => {
-        const attackPoint = point as PointDatum | null
-        setHoveredAttack(attackPoint?.attack ?? null)
+      globe.arcsColor('color')
+      globe.arcsAltitude(0.15)
+      globe.arcsStroke(0.8)
+      globe.ringsMaxRadius('maxR')
+      globe.ringsColor('color')
+      globe.ringsRepeatPeriod('repeatPeriod')
+      globe.ringsPropagationSpeed('propagationSpeed')
+      globe.onPointHover((point: PointDatum | null) => {
+        setHoveredAttack(point?.attack ?? null)
       })
 
       const controls = globe.controls()
