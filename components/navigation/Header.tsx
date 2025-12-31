@@ -118,7 +118,7 @@ export default function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-1">
               {navigationItems.map((item) => (
                 <div
                   key={item.label}
@@ -128,7 +128,7 @@ export default function Header() {
                 >
                   <Link
                     href={item.href}
-                    className="text-gray-700 hover:text-primary font-medium text-sm transition-colors"
+                    className="text-gray-700 hover:text-primary font-medium text-sm transition-colors px-4 py-6 block"
                   >
                     {item.label}
                   </Link>

@@ -19,10 +19,12 @@ export default function MegaMenu({ columns }: MegaMenuProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.2 }}
-      className="absolute top-full left-0 mt-2 w-screen max-w-4xl bg-white shadow-xl border-t border-gray-200"
-      onMouseLeave={() => {}}
+      className="absolute top-full left-0 pt-4 w-screen max-w-4xl"
     >
-      <div className="max-w-7xl mx-auto px-8 py-8">
+      {/* Invisible bridge to maintain hover */}
+      <div className="absolute top-0 left-0 right-0 h-4" />
+      <div className="bg-white shadow-xl border-t border-gray-200 rounded-b-lg">
+        <div className="max-w-7xl mx-auto px-8 py-8">
         <div className="grid grid-cols-3 gap-8">
           {columns.map((column, idx) => (
             <div key={idx}>
@@ -44,6 +46,7 @@ export default function MegaMenu({ columns }: MegaMenuProps) {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </motion.div>
   )
