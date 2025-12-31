@@ -18,7 +18,7 @@ const navigationItems = [
           title: 'Features',
           links: [
             { label: 'Threat Intelligence', href: '/platform/threat-intelligence' },
-            { label: 'Vulnerability Management', href: '/platform/vulnerability-management' },
+            { label: 'Vulnerabilities', href: '/vulnerabilities' },
             { label: 'Executive Reporting', href: '/platform/reporting' },
           ],
         },

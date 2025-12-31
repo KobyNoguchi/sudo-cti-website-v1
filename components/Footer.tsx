@@ -7,7 +7,7 @@ import { Twitter, Linkedin, Mail } from 'lucide-react'
 const footerLinks = {
   platform: [
     { label: 'Threat Intelligence', href: '/platform/threat-intelligence' },
-    { label: 'Vulnerability Management', href: '/platform/vulnerability-management' },
+    { label: 'Vulnerabilities', href: '/vulnerabilities' },
     { label: 'Executive Reporting', href: '/platform/reporting' },
     { label: 'OT-Specific Analysis', href: '/platform/ot-analysis' },
   ],

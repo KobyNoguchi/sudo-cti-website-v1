@@ -13,9 +13,9 @@ const features = [
   },
   {
     icon: Search,
-    title: 'Vulnerability Management',
+    title: 'Vulnerability Intelligence',
     description:
-      'Identify and prioritize vulnerabilities with detailed risk assessments and remediation guidance.',
+      'Track ICS/OT vulnerabilities from major vendors with detailed risk assessments and remediation guidance.',
   },
   {
     icon: BarChart3,
