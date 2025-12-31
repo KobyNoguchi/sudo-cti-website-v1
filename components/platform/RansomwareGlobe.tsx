@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import type GlobeType from 'globe.gl'
 import TimelineControls from '@/components/platform/TimelineControls'
 import {
   mockRansomwareData,
@@ -12,7 +11,17 @@ import {
 } from '@/data/mock-ransomware'
 import type { RansomwareAttack } from '@/types'
 
-type GlobeInstance = ReturnType<GlobeType>
+// Globe instance type - simplified for compatibility
+interface GlobeInstance {
+  pointOfView: (pov?: object, ms?: number) => GlobeInstance
+  pointsData: (data: object[]) => GlobeInstance
+  arcsData: (data: object[]) => GlobeInstance
+  ringsData: (data: object[]) => GlobeInstance
+  controls: () => { autoRotate: boolean }
+  scene: () => { background: unknown }
+  width: (val: number) => GlobeInstance
+  height: (val: number) => GlobeInstance
+}
 
 interface RansomwareGlobeProps {
   data?: RansomwareAttack[]
@@ -116,6 +125,7 @@ export default function RansomwareGlobe({ data = mockRansomwareData }: Ransomwar
     let isCancelled = false
 
     const initGlobe = async () => {
+      // @ts-expect-error - globe.gl types not resolving correctly
       const { default: Globe } = await import('globe.gl')
       if (!containerRef.current || isCancelled) return
 
@@ -125,14 +135,17 @@ export default function RansomwareGlobe({ data = mockRansomwareData }: Ransomwar
       globe.backgroundImageUrl(BACKGROUND_IMAGE)
       globe.pointAltitude('size')
       globe.pointColor('color')
-      globe.pointLabel(({ attack }: PointDatum) => `
-        <div class="text-sm">
-          <strong>${attack.organization}</strong><br/>
-          ${attack.city}, ${attack.state}<br/>
-          ${attack.ransomDisplay} • ${attack.ransomwareFamily}<br/>
-          ${new Date(attack.date).toLocaleDateString()}
-        </div>
-      `)
+      globe.pointLabel((obj: object) => {
+        const { attack } = obj as PointDatum
+        return `
+          <div class="text-sm">
+            <strong>${attack.organization}</strong><br/>
+            ${attack.city}, ${attack.state}<br/>
+            ${attack.ransomDisplay} • ${attack.ransomwareFamily}<br/>
+            ${new Date(attack.date).toLocaleDateString()}
+          </div>
+        `
+      })
       globe.arcsTransitionDuration(800)
       globe.arcsColor('color')
       globe.arcsAltitude(0.15)
@@ -161,8 +174,8 @@ export default function RansomwareGlobe({ data = mockRansomwareData }: Ransomwar
 
     return () => {
       isCancelled = true
-      const controls = globeRef.current?.controls()
-      if (controls) {
+      const controls = globeRef.current?.controls() as { autoRotate: boolean; dispose?: () => void } | undefined
+      if (controls?.dispose) {
         controls.dispose()
       }
       globeRef.current = null

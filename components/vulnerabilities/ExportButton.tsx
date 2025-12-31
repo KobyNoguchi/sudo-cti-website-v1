@@ -99,9 +99,9 @@ export default function ExportButton({ vulnerabilities, filename = 'siemens_vuln
       const wsLinks = XLSX.utils.json_to_sheet(linksData)
       XLSX.utils.book_append_sheet(wb, wsLinks, 'Links')
 
-      // Set column widths
-      const setColumnWidths = (ws: XLSX.WorkSheet, widths: number[]) => {
-        ws['!cols'] = widths.map(w => ({ wch: w }))
+      // Set column widths (using permissive type for xlsx compatibility)
+      const setColumnWidths = (ws: Record<string, unknown>, widths: number[]) => {
+        ws['!cols'] = widths.map((w: number) => ({ wch: w }))
       }
 
       setColumnWidths(wsOverview, [15, 60, 10, 10, 12, 40, 15, 15, 10, 80])
