@@ -217,9 +217,9 @@ export default function RansomwareGlobe({ data = mockRansomwareData }: Ransomwar
     <section className="cyber-gradient relative overflow-hidden rounded-3xl border border-white/5 p-8 shadow-2xl">
       <div className="starfield pointer-events-none" />
       <div className="relative z-10 flex">
-        {/* Globe container - full width */}
+        {/* Globe container - full width, shifted left and scaled down */}
         <div className="relative min-h-[520px] w-full rounded-2xl bg-black/30 backdrop-blur overflow-hidden">
-          <div ref={containerRef} className="absolute inset-0" />
+          <div ref={containerRef} className="absolute inset-0 -translate-x-[40%] scale-75" />
         </div>
 
         {/* Sidebar - positioned on the right, overlaying the globe */}
