@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import Button from '@/components/ui/Button'
 import { ArrowRight, Shield } from 'lucide-react'
 
@@ -48,9 +49,11 @@ export default function Hero() {
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </Button>
-            <Button variant="outline" size="lg" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
-              Explore Features
-            </Button>
+            <Link href="/intelligence">
+              <Button variant="outline" size="lg" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+                Explore Features
+              </Button>
+            </Link>
           </div>
         </motion.div>
       </div>
