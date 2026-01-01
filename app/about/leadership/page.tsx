@@ -31,7 +31,7 @@ export default function LeadershipPage() {
             {/* Header */}
             <div className="mb-8">
               <h2 className="text-3xl font-bold text-white mb-2">Koby Noguchi</h2>
-              <p className="text-cyan-400 text-lg">Founder & Cyber Threat Intelligence Analyst</p>
+              <p className="text-cyan-400 text-lg">Founder, CEO and Principal Cyber Threat Intelligence Analyst</p>
             </div>
 
             {/* About */}
