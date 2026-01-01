@@ -146,14 +146,14 @@ export default function RansomwareGlobe({ data = mockRansomwareData }: Ransomwar
           </div>
         `
       })
-      globe.arcsTransitionDuration(800)
-      globe.arcsColor('color')
-      globe.arcsAltitude(0.15)
-      globe.arcsStroke(0.8)
-      globe.ringsMaxRadius('maxR')
-      globe.ringsColor('color')
-      globe.ringsRepeatPeriod('repeatPeriod')
-      globe.ringsPropagationSpeed('propagationSpeed')
+      globe.arcTransitionDuration(800)
+      globe.arcColor('color')
+      globe.arcAltitude(0.15)
+      globe.arcStroke(0.8)
+      globe.ringMaxRadius('maxR')
+      globe.ringColor('color')
+      globe.ringRepeatPeriod('repeatPeriod')
+      globe.ringPropagationSpeed('propagationSpeed')
       globe.onPointHover((point: PointDatum | null) => {
         setHoveredAttack(point?.attack ?? null)
       })
