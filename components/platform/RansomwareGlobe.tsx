@@ -44,9 +44,10 @@ interface ArcDatum {
   attack: RansomwareAttack
 }
 
-const EARTH_TEXTURE = 'https://unpkg.com/three-globe/example/img/earth-night.jpg'
-const BUMP_TEXTURE = 'https://unpkg.com/three-globe/example/img/earth-topology.png'
-const BACKGROUND_IMAGE = 'https://unpkg.com/three-globe/example/img/night-sky.png'
+// Earth textures - local files for reliability  
+const EARTH_TEXTURE = '/earth-texture.jpg'
+const BUMP_TEXTURE = 'https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png'
+const BACKGROUND_IMAGE = 'https://cdn.jsdelivr.net/npm/three-globe/example/img/night-sky.png'
 
 export default function RansomwareGlobe({ data = mockRansomwareData }: RansomwareGlobeProps) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -129,10 +130,22 @@ export default function RansomwareGlobe({ data = mockRansomwareData }: Ransomwar
       const { default: Globe } = await import('globe.gl')
       if (!containerRef.current || isCancelled) return
 
+      console.log('Creating globe...')
+      
       const globe = Globe()(containerRef.current)
-      globe.globeImageUrl(EARTH_TEXTURE)
-      globe.bumpImageUrl(BUMP_TEXTURE)
-      globe.backgroundImageUrl(BACKGROUND_IMAGE)
+        .showAtmosphere(true)
+        .atmosphereColor('#63b3ed')
+        .atmosphereAltitude(0.2)
+        .backgroundImageUrl(BACKGROUND_IMAGE)
+      
+      // Set texture after a short delay to ensure globe is ready
+      setTimeout(() => {
+        console.log('Setting globe texture:', EARTH_TEXTURE)
+        globe.globeImageUrl(EARTH_TEXTURE)
+        globe.bumpImageUrl(BUMP_TEXTURE)
+      }, 100)
+      
+      console.log('Globe created')
       globe.pointAltitude('size')
       globe.pointColor('color')
       globe.pointLabel((obj: object) => {
@@ -219,7 +232,7 @@ export default function RansomwareGlobe({ data = mockRansomwareData }: Ransomwar
       <div className="relative z-10 flex">
         {/* Globe container - full width, shifted left and scaled down */}
         <div className="relative min-h-[520px] w-full rounded-2xl bg-black/30 backdrop-blur overflow-hidden">
-          <div ref={containerRef} className="absolute inset-0 -translate-x-[55%] scale-[0.65]" />
+          <div ref={containerRef} className="absolute inset-0 -translate-x-[30%] scale-[0.8]" />
         </div>
 
         {/* Sidebar - positioned on the right, overlaying the globe */}
