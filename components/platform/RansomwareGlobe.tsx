@@ -44,9 +44,9 @@ interface ArcDatum {
   attack: RansomwareAttack
 }
 
-const EARTH_TEXTURE = '//unpkg.com/three-globe/example/img/earth-night.jpg'
-const BUMP_TEXTURE = '//unpkg.com/three-globe/example/img/earth-topology.png'
-const BACKGROUND_IMAGE = '//unpkg.com/three-globe/example/img/night-sky.png'
+const EARTH_TEXTURE = 'https://unpkg.com/three-globe/example/img/earth-night.jpg'
+const BUMP_TEXTURE = 'https://unpkg.com/three-globe/example/img/earth-topology.png'
+const BACKGROUND_IMAGE = 'https://unpkg.com/three-globe/example/img/night-sky.png'
 
 export default function RansomwareGlobe({ data = mockRansomwareData }: RansomwareGlobeProps) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -146,10 +146,10 @@ export default function RansomwareGlobe({ data = mockRansomwareData }: Ransomwar
           </div>
         `
       })
-      globe.arcTransitionDuration(800)
       globe.arcColor('color')
       globe.arcAltitude(0.15)
       globe.arcStroke(0.8)
+      globe.arcDashAnimateTime(2000)
       globe.ringMaxRadius('maxR')
       globe.ringColor('color')
       globe.ringRepeatPeriod('repeatPeriod')
@@ -160,11 +160,14 @@ export default function RansomwareGlobe({ data = mockRansomwareData }: Ransomwar
 
       const controls = globe.controls()
       controls.autoRotate = true
-      controls.autoRotateSpeed = 0.7
+      controls.autoRotateSpeed = 0.5
       controls.enableDamping = true
       controls.dampingFactor = 0.05
-      controls.minDistance = 200
-      controls.maxDistance = 800
+      controls.minDistance = 150
+      controls.maxDistance = 600
+
+      // Set initial view to show US - centered in the globe container
+      globe.pointOfView({ lat: 39.8, lng: -98.5, altitude: 2.5 }, 0)
 
       globeRef.current = globe
       setIsInitialized(true)
@@ -213,12 +216,12 @@ export default function RansomwareGlobe({ data = mockRansomwareData }: Ransomwar
   return (
     <section className="cyber-gradient relative overflow-hidden rounded-3xl border border-white/5 p-8 shadow-2xl">
       <div className="starfield pointer-events-none" />
-      <div className="relative grid gap-12 lg:grid-cols-[2fr_1fr]">
-        <div className="min-h-[520px] rounded-2xl bg-black/30 p-4 backdrop-blur">
-          <div ref={containerRef} className="h-full w-full" />
+      <div className="relative z-10 grid gap-8 lg:grid-cols-[3fr_1fr]">
+        <div className="relative min-h-[520px] rounded-2xl bg-black/30 p-4 backdrop-blur overflow-hidden">
+          <div ref={containerRef} className="absolute inset-0" />
         </div>
 
-        <div className="flex flex-col gap-8">
+        <div className="relative z-20 flex flex-col gap-8">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-secondary-light">
               Platform Preview
