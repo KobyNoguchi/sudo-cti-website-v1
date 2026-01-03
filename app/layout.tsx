@@ -10,6 +10,18 @@ export const metadata: Metadata = {
   title: 'Sudo CTI - Cyber Threat Intelligence for Critical Infrastructure',
   description: 'Purpose-built cyber threat intelligence platform for utilities and critical infrastructure. Trusted by Fortune 500 utilities across North America.',
   keywords: ['cyber threat intelligence', 'critical infrastructure', 'utilities', 'OT security', 'ICS security'],
+  icons: {
+    icon: '/Assets/Logo Files/Favicons/Android.png',
+    apple: '/Assets/Logo Files/Favicons/iPhone.png',
+    other: [
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '192x192',
+        url: '/Assets/Logo Files/Favicons/Android.png',
+      },
+    ],
+  },
 }
 
 export default function RootLayout({
