@@ -168,7 +168,7 @@ export default function ResourcesPage() {
             Need Custom Intelligence?
           </h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Our analysts can prepare tailored threat reports specific to your organization's 
+            Our analysts can prepare tailored threat reports specific to your organization&apos;s 
             infrastructure, threat landscape, and operational requirements.
           </p>
           <Button variant="primary" size="lg" href="/contact">
