@@ -147,8 +147,11 @@ export default function Header() {
               >
                 <Search size={20} />
               </button>
-              <Button variant="primary" size="md">
+              <Button variant="outline" size="md" href="/contact">
                 Schedule Briefing
+              </Button>
+              <Button variant="primary" size="md" href="/login">
+                Login
               </Button>
             </div>
 

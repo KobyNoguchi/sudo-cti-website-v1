@@ -119,6 +119,24 @@ export default function MobileMenu({ isOpen, onClose, items }: MobileMenuProps) 
                   </div>
                 ))}
               </nav>
+
+              {/* CTA Buttons */}
+              <div className="mt-8 pt-6 border-t border-gray-200 space-y-3">
+                <Link
+                  href="/contact"
+                  onClick={onClose}
+                  className="block w-full py-3 px-6 text-center border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-all"
+                >
+                  Schedule Briefing
+                </Link>
+                <Link
+                  href="/login"
+                  onClick={onClose}
+                  className="block w-full py-3 px-6 text-center bg-primary text-white font-semibold rounded-full hover:bg-primary-dark transition-all"
+                >
+                  Login
+                </Link>
+              </div>
             </div>
           </motion.div>
         </>
