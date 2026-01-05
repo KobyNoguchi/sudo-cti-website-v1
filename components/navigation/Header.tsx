@@ -7,6 +7,9 @@ import { Menu, X, Search } from 'lucide-react'
 import MegaMenu from './MegaMenu'
 import MobileMenu from './MobileMenu'
 import Button from '@/components/ui/Button'
+import LoginModal from '@/components/auth/LoginModal'
+import ProfileDropdown from '@/components/auth/ProfileDropdown'
+import { useAuth } from '@/contexts/AuthContext'
 
 const navigationItems = [
   {
@@ -75,7 +78,10 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
+  
+  const { user, loading } = useAuth()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -150,9 +156,21 @@ export default function Header() {
               <Button variant="outline" size="md" href="/contact">
                 Schedule Briefing
               </Button>
-              <Button variant="primary" size="md" href="/login">
-                Login
-              </Button>
+              
+              {/* Auth Button - Show Login or Profile based on auth state */}
+              {loading ? (
+                <div className="w-24 h-10 bg-gray-200 animate-pulse rounded-full" />
+              ) : user ? (
+                <ProfileDropdown />
+              ) : (
+                <Button 
+                  variant="primary" 
+                  size="md" 
+                  onClick={() => setIsLoginModalOpen(true)}
+                >
+                  Login
+                </Button>
+              )}
             </div>
 
             {/* Mobile Menu Button */}
@@ -180,8 +198,17 @@ export default function Header() {
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
         items={navigationItems}
+        onLoginClick={() => {
+          setIsMobileMenuOpen(false)
+          setIsLoginModalOpen(true)
+        }}
+      />
+
+      {/* Login Modal */}
+      <LoginModal 
+        isOpen={isLoginModalOpen} 
+        onClose={() => setIsLoginModalOpen(false)} 
       />
     </>
   )
 }
-
