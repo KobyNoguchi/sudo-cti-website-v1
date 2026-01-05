@@ -2,9 +2,15 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
-import { X, User, Home, FileText, Shield, LogOut } from 'lucide-react'
+import { X, User, Home, FileText, Shield, LogOut, Lock } from 'lucide-react'
 import { useState } from 'react'
 import { useAuth } from '@/contexts/AuthContext'
+
+interface MenuLink {
+  label: string
+  href: string
+  requiresAuth?: boolean
+}
 
 interface NavItem {
   label: string
@@ -12,7 +18,7 @@ interface NavItem {
   megaMenu?: {
     columns: Array<{
       title: string
-      links: Array<{ label: string; href: string }>
+      links: MenuLink[]
     }>
   }
 }
@@ -104,17 +110,32 @@ export default function MobileMenu({ isOpen, onClose, items, onLoginClick }: Mob
                                   {column.title}
                                 </h4>
                                 <ul className="space-y-2">
-                                  {column.links.map((link) => (
-                                    <li key={link.href}>
-                                      <Link
-                                        href={link.href}
-                                        onClick={onClose}
-                                        className="text-sm text-gray-600 hover:text-secondary"
-                                      >
-                                        {link.label}
-                                      </Link>
-                                    </li>
-                                  ))}
+                                  {column.links.map((link) => {
+                                    const isLocked = link.requiresAuth && !user
+                                    
+                                    if (isLocked) {
+                                      return (
+                                        <li key={link.href}>
+                                          <span className="text-sm text-gray-400 flex items-center gap-2 cursor-not-allowed">
+                                            <Lock size={12} className="text-gray-300" />
+                                            {link.label}
+                                          </span>
+                                        </li>
+                                      )
+                                    }
+                                    
+                                    return (
+                                      <li key={link.href}>
+                                        <Link
+                                          href={link.href}
+                                          onClick={onClose}
+                                          className="text-sm text-gray-600 hover:text-secondary"
+                                        >
+                                          {link.label}
+                                        </Link>
+                                      </li>
+                                    )
+                                  })}
                                 </ul>
                               </div>
                             ))}

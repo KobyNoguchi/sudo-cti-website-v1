@@ -2,10 +2,18 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { Lock } from 'lucide-react'
+import { useAuth } from '@/contexts/AuthContext'
+
+interface MenuLink {
+  label: string
+  href: string
+  requiresAuth?: boolean
+}
 
 interface Column {
   title: string
-  links: Array<{ label: string; href: string }>
+  links: MenuLink[]
 }
 
 interface MegaMenuProps {
@@ -13,6 +21,8 @@ interface MegaMenuProps {
 }
 
 export default function MegaMenu({ columns }: MegaMenuProps) {
+  const { user } = useAuth()
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -10 }}
@@ -32,16 +42,34 @@ export default function MegaMenu({ columns }: MegaMenuProps) {
                 {column.title}
               </h3>
               <ul className="space-y-3">
-                {column.links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-gray-700 hover:text-secondary text-sm transition-colors block"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
+                {column.links.map((link) => {
+                  const isLocked = link.requiresAuth && !user
+                  
+                  if (isLocked) {
+                    return (
+                      <li key={link.href}>
+                        <span
+                          className="text-gray-400 text-sm flex items-center gap-2 cursor-not-allowed"
+                          title="Login required"
+                        >
+                          <Lock size={14} className="text-gray-300" />
+                          {link.label}
+                        </span>
+                      </li>
+                    )
+                  }
+                  
+                  return (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-gray-700 hover:text-secondary text-sm transition-colors block"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           ))}
@@ -51,4 +79,3 @@ export default function MegaMenu({ columns }: MegaMenuProps) {
     </motion.div>
   )
 }
-

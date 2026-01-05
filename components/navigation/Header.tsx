@@ -33,6 +33,12 @@ const navigationItems = [
             { label: 'Incident Response', href: '/platform/incident-response' },
           ],
         },
+        {
+          title: 'AI',
+          links: [
+            { label: 'Sudo', href: '/platform/ai/sudo', requiresAuth: true },
+          ],
+        },
       ],
     },
   },
