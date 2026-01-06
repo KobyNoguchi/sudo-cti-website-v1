@@ -42,10 +42,66 @@ export interface GreyNoiseItem {
   description: ParsedDescription
 }
 
+export interface TransformedGreyNoiseFeed {
+  feedTitle: string
+  feedLink: string
+  feedDescription: string
+  items: GreyNoiseItem[]
+}
+
 export interface UploadedFileContext {
   id: string
   name: string
   type: string
   content: string
+}
+
+// NVD Types
+export interface NvdCveDescription {
+  lang: string
+  value: string
+}
+
+export interface NvdCve {
+  id: string
+  sourceIdentifier?: string
+  published: string
+  lastModified: string
+  vulnStatus?: string
+  descriptions: NvdCveDescription[]
+  metrics?: {
+    cvssMetricV31?: Array<{
+      cvssData: {
+        baseScore: number
+        baseSeverity: string
+      }
+    }>
+    cvssMetricV2?: Array<{
+      cvssData: {
+        baseScore: number
+      }
+      baseSeverity: string
+    }>
+  }
+  references?: Array<{
+    url: string
+    source?: string
+    tags?: string[]
+  }>
+}
+
+export interface NvdVulnerability {
+  cve: NvdCve
+}
+
+// MITRE Types
+export interface Technique {
+  id: string
+  name: string
+}
+
+export interface Tactic {
+  name: string
+  techniques: Technique[]
 }
 

@@ -7,7 +7,14 @@ import ReactMarkdown from 'react-markdown'
 import { useAIConfig } from '@/contexts/AIConfigContext'
 import { AIProvider } from '@/lib/ai/constants'
 import { AIConfigurator } from './AIConfigurator'
-import { UploadedFileContext, CisaVulnerability } from '@/lib/ai/types'
+import { UploadedFileContext, CisaVulnerability, NvdVulnerability, GreyNoiseItem, Technique } from '@/lib/ai/types'
+
+// Import data source popups
+import CisaKevPopup from './CisaKevPopup'
+import NvdPopup from './NvdPopup'
+import GreyNoisePopup from './GreyNoisePopup'
+import MitreAttackMatrixModal from './MitreAttackMatrixModal'
+import MitreEnterpriseMatrixModal from './MitreEnterpriseMatrixModal'
 
 // Prompt template interface
 interface PromptTemplate {
@@ -15,21 +22,24 @@ interface PromptTemplate {
   content: string
 }
 
-// MITRE Technique interface
-interface Technique {
-  id: string
-  name: string
-}
-
 export default function SudoChat() {
   // File and context state
   const [uploadedFileContexts, setUploadedFileContexts] = useState<UploadedFileContext[]>([])
   const [contextVulnerabilities, setContextVulnerabilities] = useState<CisaVulnerability[]>([])
+  const [contextNvdVulnerabilities, setContextNvdVulnerabilities] = useState<NvdVulnerability[]>([])
+  const [contextGreyNoiseItems, setContextGreyNoiseItems] = useState<GreyNoiseItem[]>([])
   const [contextMitreTechniques, setContextMitreTechniques] = useState<Technique[]>([])
   const fileInputRef = useRef<HTMLInputElement>(null)
   const scrollAnchorRef = useRef<HTMLDivElement>(null)
 
-  // Data source state
+  // Data source popup states
+  const [isCisaKevPopupOpen, setIsCisaKevPopupOpen] = useState(false)
+  const [isNvdPopupOpen, setIsNvdPopupOpen] = useState(false)
+  const [isGreyNoisePopupOpen, setIsGreyNoisePopupOpen] = useState(false)
+  const [isMitreIcsModalOpen, setIsMitreIcsModalOpen] = useState(false)
+  const [isMitreEnterpriseModalOpen, setIsMitreEnterpriseModalOpen] = useState(false)
+
+  // Data source state (for sidebar highlight)
   const [selectedDataSource, setSelectedDataSource] = useState<string | null>(null)
   const [isMitreDropdownOpen, setIsMitreDropdownOpen] = useState(false)
 
@@ -89,6 +99,20 @@ On {xx numbered day format} {Month with the first letter capitalized} {Year, all
       finalSystemPrompt += `\n\n--- CISA KEV In-Context ---\n${cisaContext}`
     }
 
+    if (contextNvdVulnerabilities.length > 0) {
+      const nvdContext = contextNvdVulnerabilities.map(vuln =>
+        `NVD Vulnerability ID: ${vuln.cve.id}\nDescription: ${vuln.cve.descriptions.find(d => d.lang === 'en')?.value || 'N/A'}\nPublished: ${vuln.cve.published}`
+      ).join('\n\n')
+      finalSystemPrompt += `\n\n--- NVD Vulnerabilities In-Context ---\n${nvdContext}`
+    }
+
+    if (contextGreyNoiseItems.length > 0) {
+      const greyNoiseContext = contextGreyNoiseItems.map(item =>
+        `GreyNoise: ${item.title}\nSummary: ${item.description.summaryText || 'N/A'}\nIntention: ${item.description.intention || 'Unknown'}\nCategory: ${item.description.category || 'Unknown'}`
+      ).join('\n\n')
+      finalSystemPrompt += `\n\n--- GreyNoise Intelligence In-Context ---\n${greyNoiseContext}`
+    }
+
     if (contextMitreTechniques.length > 0) {
       const mitreContext = contextMitreTechniques.map(tech =>
         `MITRE ATT&CK Technique ID: ${tech.id}\nTechnique Name: ${tech.name}`
@@ -103,7 +127,7 @@ On {xx numbered day format} {Month with the first letter capitalized} {Year, all
     }
 
     return finalSystemPrompt.trim()
-  }, [activeTemplate?.content, selectedPreset?.systemPrompt, systemPrompt, contextVulnerabilities, contextMitreTechniques, uploadedFileContexts])
+  }, [activeTemplate?.content, selectedPreset?.systemPrompt, systemPrompt, contextVulnerabilities, contextNvdVulnerabilities, contextGreyNoiseItems, contextMitreTechniques, uploadedFileContexts])
 
   const { messages, input, handleInputChange, handleSubmit, isLoading, error, stop } = useChat({
     api: apiPath,
@@ -231,6 +255,69 @@ On {xx numbered day format} {Month with the first letter capitalized} {Year, all
     setIsSamplePromptsDropdownOpen(false)
   }
 
+  // Toggle functions for context items
+  const toggleCisaVulnerability = (vuln: CisaVulnerability) => {
+    setContextVulnerabilities(prev => {
+      const exists = prev.some(v => v.cveID === vuln.cveID)
+      if (exists) {
+        return prev.filter(v => v.cveID !== vuln.cveID)
+      }
+      return [...prev, vuln]
+    })
+  }
+
+  const toggleNvdVulnerability = (vuln: NvdVulnerability) => {
+    setContextNvdVulnerabilities(prev => {
+      const exists = prev.some(v => v.cve.id === vuln.cve.id)
+      if (exists) {
+        return prev.filter(v => v.cve.id !== vuln.cve.id)
+      }
+      return [...prev, vuln]
+    })
+  }
+
+  const toggleGreyNoiseItem = (item: GreyNoiseItem) => {
+    setContextGreyNoiseItems(prev => {
+      const exists = prev.some(i => i.guid === item.guid)
+      if (exists) {
+        return prev.filter(i => i.guid !== item.guid)
+      }
+      return [...prev, item]
+    })
+  }
+
+  const toggleMitreTechnique = (technique: Technique) => {
+    setContextMitreTechniques(prev => {
+      const exists = prev.some(t => t.id === technique.id)
+      if (exists) {
+        return prev.filter(t => t.id !== technique.id)
+      }
+      return [...prev, technique]
+    })
+  }
+
+  // Open data source popups
+  const openDataSourcePopup = (source: string) => {
+    setSelectedDataSource(source)
+    switch (source) {
+      case 'CISA KEV':
+        setIsCisaKevPopupOpen(true)
+        break
+      case 'NVD':
+        setIsNvdPopupOpen(true)
+        break
+      case 'GreyNoise':
+        setIsGreyNoisePopupOpen(true)
+        break
+      case 'MITRE ATT&CK (ICS)':
+        setIsMitreIcsModalOpen(true)
+        break
+      case 'MITRE ATT&CK (Enterprise)':
+        setIsMitreEnterpriseModalOpen(true)
+        break
+    }
+  }
+
   const hasMessages = messages.length > 0
 
   return (
@@ -262,36 +349,36 @@ On {xx numbered day format} {Month with the first letter capitalized} {Year, all
 
           <nav className="space-y-2">
             <button
-              onClick={() => setSelectedDataSource('CISA KEV')}
+              onClick={() => openDataSourcePopup('CISA KEV')}
               className={`w-full text-left px-3 py-2 rounded-md transition-colors ${
-                selectedDataSource === 'CISA KEV'
+                selectedDataSource === 'CISA KEV' || contextVulnerabilities.length > 0
                   ? 'bg-cyan-600 text-white'
                   : 'text-slate-300 hover:bg-slate-700'
               }`}
             >
-              CISA KEV
+              CISA KEV {contextVulnerabilities.length > 0 && `(${contextVulnerabilities.length})`}
             </button>
 
             <button
-              onClick={() => setSelectedDataSource('NVD')}
+              onClick={() => openDataSourcePopup('NVD')}
               className={`w-full text-left px-3 py-2 rounded-md transition-colors ${
-                selectedDataSource === 'NVD'
+                selectedDataSource === 'NVD' || contextNvdVulnerabilities.length > 0
                   ? 'bg-cyan-600 text-white'
                   : 'text-slate-300 hover:bg-slate-700'
               }`}
             >
-              NVD
+              NVD {contextNvdVulnerabilities.length > 0 && `(${contextNvdVulnerabilities.length})`}
             </button>
 
             <button
-              onClick={() => setSelectedDataSource('GreyNoise')}
+              onClick={() => openDataSourcePopup('GreyNoise')}
               className={`w-full text-left px-3 py-2 rounded-md transition-colors ${
-                selectedDataSource === 'GreyNoise'
+                selectedDataSource === 'GreyNoise' || contextGreyNoiseItems.length > 0
                   ? 'bg-cyan-600 text-white'
                   : 'text-slate-300 hover:bg-slate-700'
               }`}
             >
-              GreyNoise
+              GreyNoise {contextGreyNoiseItems.length > 0 && `(${contextGreyNoiseItems.length})`}
             </button>
 
             {/* MITRE ATT&CK Dropdown */}
@@ -299,19 +386,19 @@ On {xx numbered day format} {Month with the first letter capitalized} {Year, all
               <button
                 onClick={() => setIsMitreDropdownOpen(!isMitreDropdownOpen)}
                 className={`w-full flex items-center justify-between px-3 py-2 rounded-md transition-colors ${
-                  selectedDataSource?.includes('MITRE')
+                  selectedDataSource?.includes('MITRE') || contextMitreTechniques.length > 0
                     ? 'bg-cyan-600 text-white'
                     : 'text-slate-300 hover:bg-slate-700'
                 }`}
               >
-                <span>MITRE ATT&CK</span>
+                <span>MITRE ATT&CK {contextMitreTechniques.length > 0 && `(${contextMitreTechniques.length})`}</span>
                 <ChevronDown size={16} className={`transition-transform ${isMitreDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
               {isMitreDropdownOpen && (
                 <div className="mt-1 bg-slate-700 rounded-md overflow-hidden">
                   <button
                     onClick={() => {
-                      setSelectedDataSource('MITRE ATT&CK (ICS)')
+                      openDataSourcePopup('MITRE ATT&CK (ICS)')
                       setIsMitreDropdownOpen(false)
                     }}
                     className="w-full text-left px-4 py-2 text-slate-300 hover:bg-slate-600"
@@ -320,7 +407,7 @@ On {xx numbered day format} {Month with the first letter capitalized} {Year, all
                   </button>
                   <button
                     onClick={() => {
-                      setSelectedDataSource('MITRE ATT&CK (Enterprise)')
+                      openDataSourcePopup('MITRE ATT&CK (Enterprise)')
                       setIsMitreDropdownOpen(false)
                     }}
                     className="w-full text-left px-4 py-2 text-slate-300 hover:bg-slate-600"
@@ -502,6 +589,36 @@ On {xx numbered day format} {Month with the first letter capitalized} {Year, all
                 <button
                   onClick={() => setContextVulnerabilities(prev => prev.filter(v => v.cveID !== vuln.cveID))}
                   className="ml-1 hover:text-red-100"
+                >
+                  <X size={12} />
+                </button>
+              </span>
+            ))}
+
+            {contextNvdVulnerabilities.map((vuln) => (
+              <span
+                key={vuln.cve.id}
+                className="inline-flex items-center gap-1 px-3 py-1 bg-orange-900/50 text-orange-300 text-xs rounded-full border border-orange-700"
+              >
+                {vuln.cve.id}
+                <button
+                  onClick={() => setContextNvdVulnerabilities(prev => prev.filter(v => v.cve.id !== vuln.cve.id))}
+                  className="ml-1 hover:text-orange-100"
+                >
+                  <X size={12} />
+                </button>
+              </span>
+            ))}
+
+            {contextGreyNoiseItems.map((item) => (
+              <span
+                key={item.guid}
+                className="inline-flex items-center gap-1 px-3 py-1 bg-yellow-900/50 text-yellow-300 text-xs rounded-full border border-yellow-700"
+              >
+                {item.title.substring(0, 25)}...
+                <button
+                  onClick={() => setContextGreyNoiseItems(prev => prev.filter(i => i.guid !== item.guid))}
+                  className="ml-1 hover:text-yellow-100"
                 >
                   <X size={12} />
                 </button>
@@ -777,6 +894,42 @@ On {xx numbered day format} {Month with the first letter capitalized} {Year, all
           </div>
         </div>
       )}
+
+      {/* Data Source Popups */}
+      <CisaKevPopup
+        isOpen={isCisaKevPopupOpen}
+        onOpenChange={setIsCisaKevPopupOpen}
+        selectedVulnerabilitiesForContext={contextVulnerabilities}
+        onToggleVulnerabilityForContext={toggleCisaVulnerability}
+      />
+
+      <NvdPopup
+        isOpen={isNvdPopupOpen}
+        onOpenChange={setIsNvdPopupOpen}
+        selectedVulnerabilitiesForContext={contextNvdVulnerabilities}
+        onToggleVulnerabilityForContext={toggleNvdVulnerability}
+      />
+
+      <GreyNoisePopup
+        isOpen={isGreyNoisePopupOpen}
+        onOpenChange={setIsGreyNoisePopupOpen}
+        selectedItems={contextGreyNoiseItems}
+        onToggleItem={toggleGreyNoiseItem}
+      />
+
+      <MitreAttackMatrixModal
+        isOpen={isMitreIcsModalOpen}
+        onOpenChange={setIsMitreIcsModalOpen}
+        selectedTechniquesForContext={contextMitreTechniques}
+        onToggleTechniqueForContext={toggleMitreTechnique}
+      />
+
+      <MitreEnterpriseMatrixModal
+        isOpen={isMitreEnterpriseModalOpen}
+        onOpenChange={setIsMitreEnterpriseModalOpen}
+        selectedTechniquesForContext={contextMitreTechniques}
+        onToggleTechniqueForContext={toggleMitreTechnique}
+      />
     </div>
   )
 }
