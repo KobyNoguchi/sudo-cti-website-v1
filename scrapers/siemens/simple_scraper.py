@@ -1,22 +1,40 @@
 """
 Simple Siemens CERT Scraper - Fetches CSAF JSON files directly.
 
+Features:
+- Fetches vulnerability data from Siemens ProductCERT CSAF JSON files
+- Comprehensive logging to both console and file
+- Tracks success/failure rates and timing
+- Exports to JSON format for website consumption
+
 Usage:
     python simple_scraper.py
+    python simple_scraper.py --quiet  # Minimal console output
 """
+import argparse
+import logging
 import requests
 import json
 import time
-from datetime import datetime
+import sys
+from datetime import datetime, timezone
 from pathlib import Path
+from typing import Optional
 
-# Known SSA IDs from Siemens CERT (add more as needed)
+# ============================================================================
+# Configuration
+# ============================================================================
+
+# Known SSA IDs from Siemens CERT
 # These can be found on https://www.siemens.com/global/en/products/services/cert.html
 SSA_IDS = [
-    # Page 1 (most recent)
+    # Page 1 (most recent - December 2025)
     "SSA-512988", "SSA-915282", "SSA-912274", "SSA-882673", "SSA-868571",
-    "SSA-800126", "SSA-763474", "SSA-734261", "SSA-723487", "SSA-654321",
-    "SSA-640476", "SSA-563922", "SSA-534283", "SSA-503939", "SSA-494539",
+    "SSA-800126", "SSA-763474", "SSA-734261", "SSA-723487", "SSA-710408",
+    "SSA-693808", "SSA-673996", "SSA-654321", "SSA-640476", "SSA-626856",
+    "SSA-563922", "SSA-534283", "SSA-503939", "SSA-494539", "SSA-493396",
+    "SSA-471761", "SSA-420375", "SSA-416652", "SSA-408105", "SSA-392859",
+    "SSA-356310", "SSA-282044", "SSA-212953", "SSA-202008",
     # Page 2
     "SSA-481506", "SSA-446545", "SSA-434032", "SSA-432758", "SSA-398330",
     "SSA-392912", "SSA-364175", "SSA-357412", "SSA-337522", "SSA-321292",
@@ -36,18 +54,107 @@ SSA_IDS = [
 ]
 
 CSAF_BASE_URL = "https://cert-portal.siemens.com/productcert/csaf"
+REQUEST_TIMEOUT = 15
+REQUEST_DELAY = 0.3  # Seconds between requests to be polite
 
-def fetch_csaf(ssa_id: str) -> dict | None:
-    """Fetch CSAF JSON for a single advisory."""
-    url = f"{CSAF_BASE_URL}/{ssa_id.lower()}.json"
+# ============================================================================
+# Logging Setup
+# ============================================================================
+
+def setup_logging(log_dir: Path, quiet: bool = False) -> logging.Logger:
+    """
+    Configure logging to both console and file.
+    
+    Args:
+        log_dir: Directory to store log files
+        quiet: If True, only show warnings and errors on console
+    
+    Returns:
+        Configured logger instance
+    """
+    log_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Create logger
+    logger = logging.getLogger("siemens_scraper")
+    logger.setLevel(logging.DEBUG)
+    
+    # Clear any existing handlers
+    logger.handlers = []
+    
+    # File handler - detailed logging with timestamps
+    log_filename = f"scraper_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+    file_handler = logging.FileHandler(log_dir / log_filename, encoding='utf-8')
+    file_handler.setLevel(logging.DEBUG)
+    file_formatter = logging.Formatter(
+        '%(asctime)s | %(levelname)-8s | %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
+    file_handler.setFormatter(file_formatter)
+    logger.addHandler(file_handler)
+    
+    # Console handler - concise output
+    console_handler = logging.StreamHandler(sys.stdout)
+    console_handler.setLevel(logging.WARNING if quiet else logging.INFO)
+    console_formatter = logging.Formatter('%(message)s')
+    console_handler.setFormatter(console_formatter)
+    logger.addHandler(console_handler)
+    
+    # Also create/update a 'latest.log' symlink/copy for easy access
+    latest_log = log_dir / "latest.log"
     try:
-        r = requests.get(url, timeout=15)
-        if r.status_code == 200:
-            return r.json()
-        return None
+        if latest_log.exists():
+            latest_log.unlink()
+        # On Windows, just copy the reference
+        with open(latest_log, 'w', encoding='utf-8') as f:
+            f.write(f"# Latest scraper log: {log_filename}\n")
+            f.write(f"# Started: {datetime.now().isoformat()}\n\n")
+    except Exception:
+        pass  # Non-critical
+    
+    return logger
+
+
+# ============================================================================
+# Scraper Functions
+# ============================================================================
+
+def fetch_csaf(ssa_id: str, logger: logging.Logger) -> tuple[Optional[dict], int, str]:
+    """
+    Fetch CSAF JSON for a single advisory.
+    
+    Args:
+        ssa_id: The SSA identifier (e.g., "SSA-512988")
+        logger: Logger instance
+    
+    Returns:
+        Tuple of (data dict or None, HTTP status code, error message)
+    """
+    url = f"{CSAF_BASE_URL}/{ssa_id.lower()}.json"
+    
+    try:
+        response = requests.get(url, timeout=REQUEST_TIMEOUT)
+        status_code = response.status_code
+        
+        if status_code == 200:
+            return response.json(), status_code, ""
+        elif status_code == 404:
+            return None, status_code, "Not found (CSAF file does not exist)"
+        else:
+            return None, status_code, f"HTTP {status_code}"
+            
+    except requests.Timeout:
+        logger.debug(f"Timeout fetching {ssa_id}")
+        return None, 0, "Request timeout"
+    except requests.ConnectionError as e:
+        logger.debug(f"Connection error fetching {ssa_id}: {e}")
+        return None, 0, "Connection error"
+    except json.JSONDecodeError as e:
+        logger.debug(f"JSON decode error for {ssa_id}: {e}")
+        return None, 200, "Invalid JSON response"
     except Exception as e:
-        print(f"  Error fetching {ssa_id}: {e}")
-        return None
+        logger.debug(f"Unexpected error fetching {ssa_id}: {e}")
+        return None, 0, str(e)
+
 
 def parse_csaf(csaf: dict, ssa_id: str) -> dict:
     """Parse CSAF JSON into our simplified format."""
@@ -122,56 +229,193 @@ def parse_csaf(csaf: dict, ssa_id: str) -> dict:
         "txt_url": None
     }
 
-def main():
-    print("=" * 60)
-    print("Simple Siemens CERT Scraper")
-    print("=" * 60)
-    print(f"\nFetching {len(SSA_IDS)} advisories...")
+
+def run_scraper(logger: logging.Logger) -> dict:
+    """
+    Main scraper execution.
+    
+    Args:
+        logger: Logger instance
+    
+    Returns:
+        Dictionary with scrape results and statistics
+    """
+    start_time = datetime.now()
+    
+    logger.info("=" * 60)
+    logger.info("Siemens CERT Scraper - Starting")
+    logger.info("=" * 60)
+    logger.info(f"Start time: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
+    logger.info(f"SSA IDs to fetch: {len(SSA_IDS)}")
+    logger.info("")
     
     vulnerabilities = []
     
+    # Track statistics
+    stats = {
+        "total_attempted": len(SSA_IDS),
+        "successful": 0,
+        "failed": 0,
+        "failures": [],  # List of (ssa_id, status_code, error)
+        "total_cves": 0,
+        "total_products": 0,
+    }
+    
     for i, ssa_id in enumerate(SSA_IDS, 1):
-        print(f"[{i}/{len(SSA_IDS)}] {ssa_id}...", end=" ")
+        logger.info(f"[{i:3}/{len(SSA_IDS)}] Fetching {ssa_id}...")
         
-        csaf = fetch_csaf(ssa_id)
+        csaf, status_code, error = fetch_csaf(ssa_id, logger)
+        
         if csaf:
             vuln = parse_csaf(csaf, ssa_id)
             vulnerabilities.append(vuln)
-            print(f"✓ ({len(vuln['cve_ids'])} CVEs)")
+            
+            cve_count = len(vuln['cve_ids'])
+            product_count = len(vuln['affected_products'])
+            stats["successful"] += 1
+            stats["total_cves"] += cve_count
+            stats["total_products"] += product_count
+            
+            logger.info(f"         [OK] Success ({cve_count} CVEs, {product_count} products)")
+            logger.debug(f"         Title: {vuln['title'][:60]}...")
         else:
-            print("✗ Not found")
+            stats["failed"] += 1
+            stats["failures"].append({
+                "ssa_id": ssa_id,
+                "status_code": status_code,
+                "error": error
+            })
+            logger.warning(f"         [FAIL] {error} (HTTP {status_code})")
         
-        time.sleep(0.3)  # Be polite
+        # Be polite with request rate
+        time.sleep(REQUEST_DELAY)
     
-    print(f"\n✓ Successfully fetched {len(vulnerabilities)} advisories")
+    end_time = datetime.now()
+    duration = (end_time - start_time).total_seconds()
     
-    # Export to JSON
+    # Log summary
+    logger.info("")
+    logger.info("=" * 60)
+    logger.info("Scrape Complete - Summary")
+    logger.info("=" * 60)
+    logger.info(f"Duration: {duration:.1f} seconds")
+    logger.info(f"Total attempted: {stats['total_attempted']}")
+    logger.info(f"Successful: {stats['successful']} ({100*stats['successful']/stats['total_attempted']:.1f}%)")
+    logger.info(f"Failed: {stats['failed']} ({100*stats['failed']/stats['total_attempted']:.1f}%)")
+    logger.info(f"Total CVEs collected: {stats['total_cves']}")
+    logger.info(f"Total affected products: {stats['total_products']}")
+    
+    if stats["failures"]:
+        logger.info("")
+        logger.info("Failed SSA IDs:")
+        for failure in stats["failures"]:
+            logger.info(f"  - {failure['ssa_id']}: {failure['error']} (HTTP {failure['status_code']})")
+    
+    return {
+        "vulnerabilities": vulnerabilities,
+        "stats": stats,
+        "start_time": start_time.isoformat(),
+        "end_time": end_time.isoformat(),
+        "duration_seconds": duration
+    }
+
+
+def export_results(vulnerabilities: list, output_dir: Path, website_data_path: Path, logger: logging.Logger) -> None:
+    """
+    Export vulnerabilities to JSON files.
+    
+    Args:
+        vulnerabilities: List of vulnerability dictionaries
+        output_dir: Directory for scraper output
+        website_data_path: Path to website data file
+        logger: Logger instance
+    """
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
     output = {
         "metadata": {
             "source": "Siemens ProductCERT",
-            "scraped_at": datetime.utcnow().isoformat() + "Z",
+            "scraped_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             "total_count": len(vulnerabilities),
             "url": "https://www.siemens.com/global/en/products/services/cert.html"
         },
         "vulnerabilities": vulnerabilities
     }
     
-    output_dir = Path("output")
-    output_dir.mkdir(exist_ok=True)
-    
+    # Save to scraper output directory
     output_path = output_dir / "siemens_vulnerabilities.json"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
+    logger.info(f"[OK] Saved to {output_path}")
     
-    print(f"✓ Saved to {output_path}")
-    
-    # Also copy to website data folder
-    website_data = Path("../../data/siemens-vulnerabilities.json")
-    with open(website_data, "w", encoding="utf-8") as f:
+    # Copy to website data folder
+    website_data_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(website_data_path, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
+    logger.info(f"[OK] Copied to {website_data_path}")
+
+
+def main():
+    """Main entry point with CLI arguments."""
+    parser = argparse.ArgumentParser(
+        description="Scrape Siemens ProductCERT security advisories"
+    )
+    parser.add_argument(
+        '--quiet', '-q',
+        action='store_true',
+        help='Minimal console output (warnings and errors only)'
+    )
+    parser.add_argument(
+        '--output', '-o',
+        type=str,
+        default='./output',
+        help='Output directory for generated files (default: ./output)'
+    )
     
-    print(f"✓ Copied to {website_data}")
+    args = parser.parse_args()
+    
+    # Setup paths
+    script_dir = Path(__file__).parent
+    log_dir = script_dir / "logs"
+    output_dir = Path(args.output) if Path(args.output).is_absolute() else script_dir / args.output
+    website_data_path = script_dir.parent.parent / "data" / "siemens-vulnerabilities.json"
+    
+    # Setup logging
+    logger = setup_logging(log_dir, quiet=args.quiet)
+    
+    try:
+        # Run the scraper
+        results = run_scraper(logger)
+        
+        if not results["vulnerabilities"]:
+            logger.error("No vulnerabilities scraped. Exiting.")
+            sys.exit(1)
+        
+        # Export results
+        logger.info("")
+        export_results(
+            results["vulnerabilities"],
+            output_dir,
+            website_data_path,
+            logger
+        )
+        
+        logger.info("")
+        logger.info("Done!")
+        
+        # Return exit code based on success rate
+        success_rate = results["stats"]["successful"] / results["stats"]["total_attempted"]
+        if success_rate < 0.5:
+            logger.warning("Warning: Less than 50% success rate")
+            sys.exit(2)
+            
+    except KeyboardInterrupt:
+        logger.warning("\nScraper interrupted by user")
+        sys.exit(130)
+    except Exception as e:
+        logger.exception(f"Fatal error: {e}")
+        sys.exit(1)
+
 
 if __name__ == "__main__":
     main()
-

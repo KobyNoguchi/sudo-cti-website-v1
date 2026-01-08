@@ -1,8 +1,8 @@
 {
   "metadata": {
     "source": "Siemens ProductCERT",
-    "scraped_at": "2025-12-31T00:59:27.832513Z",
-    "total_count": 53,
+    "scraped_at": "2026-01-08T18:30:49.861173Z",
+    "total_count": 67,
     "url": "https://www.siemens.com/global/en/products/services/cert.html"
   },
   "vulnerabilities": [
@@ -4663,6 +4663,378 @@
       "txt_url": null
     },
     {
+      "ssa_id": "SSA-710408",
+      "title": "SSA-710408: Missing Server Certificate Validation in Siemens Advanced Licensing (SALT) Toolkit",
+      "cvss_v3_score": 8.1,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2025-40801"
+      ],
+      "publication_date": "2025-12-09",
+      "last_update": "2025-12-09",
+      "version": "1",
+      "summary": "Multiple Siemens products are affected by improper certificate validation in Siemens Advanced Licensing (SALT) Toolkit. This could allow an unauthenticated remote attacker to perform man in the middle attacks.\n\nSiemens has released new versions for several affected products and recommends to update to the latest versions. Siemens recommends countermeasures for products where fixes are not, or not yet available.",
+      "affected_products": [
+        {
+          "product": "COMOS V10.6",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "JT Bi-Directional Translator for STEP",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "NX V2412",
+          "versions": "vers:intdot/<2412.8900",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "NX V2506",
+          "versions": "vers:intdot/<2506.6000",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Simcenter 3D",
+          "versions": "vers:intdot/<2506.6000",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Simcenter Femap",
+          "versions": "vers:intdot/<2506.0002",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Simcenter Studio",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Simcenter System Architect",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Tecnomatix Plant Simulation",
+          "versions": "vers:intdot/<2504.0007",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-710408.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-710408.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-710408.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-693808",
+      "title": "SSA-693808: Deserialization Vulnerability in Siemens Engineering Platforms",
+      "cvss_v3_score": 8.2,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2024-54678"
+      ],
+      "publication_date": "2025-08-12",
+      "last_update": "2025-12-09",
+      "version": "3",
+      "summary": "Affected products do not properly restrict access permissions to a local Windows Named Pipe and do not properly sanitize user-controllable input sent to that Named Pipe. This could allow a local authenticated attacker to cause a type confusion and execute arbitrary code within the affected application and its privileges.\n\nSiemens has released new versions for several affected products and recommends to update to the latest versions. Siemens is preparing further fix versions and recommends specific countermeasures for products where fixes are not, or not yet available.",
+      "affected_products": [
+        {
+          "product": "SIMATIC PCS neo V4.1",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS neo V5.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS neo V6.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC S7-PLCSIM V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC STEP 7 V17",
+          "versions": "All versions < V17 Update 9",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC STEP 7 V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC STEP 7 V19",
+          "versions": "All versions < V19 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC STEP 7 V20",
+          "versions": "All versions < V20 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC V17",
+          "versions": "All versions < V17 Update 9",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC V19",
+          "versions": "All versions < V19 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC V20",
+          "versions": "All versions < V20 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOCODE ES V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOCODE ES V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOCODE ES V19",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOCODE ES V20",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOTION SCOUT TIA V5.4",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOTION SCOUT TIA V5.5",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOTION SCOUT TIA V5.6",
+          "versions": "All versions < V5.6 SP1 HF7",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOTION SCOUT TIA V5.7",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SINAMICS Startdrive V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SINAMICS Startdrive V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SINAMICS Startdrive V19",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SINAMICS Startdrive V20",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Safety ES V17 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Safety ES V18 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Safety ES V19 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Safety ES V20 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Soft Starter ES V17 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Soft Starter ES V18 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Soft Starter ES V19 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Soft Starter ES V20 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Portal Cloud V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Portal Cloud V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Portal Cloud V19",
+          "versions": "vers:intdot/<5.2.1.1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Portal Cloud V20",
+          "versions": "vers:intdot/<5.2.2.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Portal Test Suite V20",
+          "versions": "All versions < V20 Update 4",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-693808.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-693808.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-693808.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-673996",
+      "title": "SSA-673996: Buffer Overflow Vulnerability in Third-Party Component in SICAM and SITIPE Products",
+      "cvss_v3_score": 8.2,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2024-34057"
+      ],
+      "publication_date": "2024-09-10",
+      "last_update": "2025-12-09",
+      "version": "4",
+      "summary": "Multiple SICAM products are affected by buffer overflow vulnerability in the IEC 61850 Client libraries from Triangle MicroWorks that could allow an unauthenticated remote attacker to create a denial of service condition by sending specially crafted MMS messages.\n\nAffected SICAM and SITIPE products:\n\n- \nSICAM A8000 Device firmware \n\n- ET85 for CP-8000/CP-8021/CP-8022\n- ETI5 for CP-8031/CP-8050\n\n\n- \nSICAM EGS Device firmware \n\n- ETI5\n\n\n- \nSICAM S8000\n\n- ETI5 \n\n\n- \nSICAM SCC\n\n\n- SITIPE AT\n\nSiemens has released new versions for the affected products and recommends to update to the latest versions.",
+      "affected_products": [
+        {
+          "product": "ET85 Ethernet Interface IEC61850 Ed.2",
+          "versions": "vers:intdot/<03.27",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "ETI5 Ethernet Int. 1x100TX IEC61850",
+          "versions": "vers:intdot/<05.30",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SICAM SCC",
+          "versions": "All versions < V9.14 HF2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SITIPE AT",
+          "versions": "vers:intdot/<3.21",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "Operators of critical power systems (e.g. TSOs or DSOs) worldwide are usually required by regulations to build resilience into the power grids by applying multi-level redundant secondary protection schemes. It is therefore recommended that the operators check whether appropriate resilient protection measures are in place. The risk of cyber incidents impacting the grid's reliability can thus be minimized by virtue of the grid design.\nSiemens strongly recommends applying the provided security updates using the corresponding tooling and documented procedures made available with the product. If supported by the product, an automated means to apply the security updates across multiple product instances may be used. Siemens strongly recommends prior validation of any security update before being applied, and supervision by trained staff of the update process in the target environment. \nAs a general security measure Siemens strongly recommends to protect network access with appropriate mechanisms (e.g. firewalls, segmentation, VPN). It is advised to configure the environment according to our operational guidelines in order to run the devices in a protected IT environment.\n\nRecommended security guidelines can be found at:\nhttps://www.siemens.com/gridsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-673996.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-673996.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-673996.pdf",
+      "txt_url": null
+    },
+    {
       "ssa_id": "SSA-640476",
       "title": "SSA-640476: Denial of Service Vulnerability in Industrial Edge Management",
       "cvss_v3_score": 7.5,
@@ -4690,6 +5062,37 @@
       "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-640476.html",
       "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-640476.json",
       "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-640476.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-626856",
+      "title": "SSA-626856: Multiple Vulnerabilities in SINEMA Remote Connect Sever Before V3.2 SP4",
+      "cvss_v3_score": 4.3,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2025-40818",
+        "CVE-2025-40819"
+      ],
+      "publication_date": "2025-12-09",
+      "last_update": "2025-12-09",
+      "version": "1",
+      "summary": "SINEMA Remote Connect Server Before V3.2 SP4 is affected by multiple vulnerabilities.\n\nSiemens has released a new version for SINEMA Remote Connect Server and recommends to update to the latest version.",
+      "affected_products": [
+        {
+          "product": "SINEMA Remote Connect Server",
+          "versions": "All versions < V3.2 SP4",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-626856.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-626856.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-626856.pdf",
       "txt_url": null
     },
     {
@@ -4853,6 +5256,1751 @@
       "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-494539.html",
       "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-494539.json",
       "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-494539.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-493396",
+      "title": "SSA-493396: Deserialization Vulnerability in Siemens Engineering Platforms",
+      "cvss_v3_score": 7.8,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2025-40759"
+      ],
+      "publication_date": "2025-08-12",
+      "last_update": "2025-12-09",
+      "version": "3",
+      "summary": "Affected products do not properly sanitize user-controllable input when parsing project files. This could allow an attacker to cause a type confusion and execute arbitrary code within the affected application.\n\nSiemens has released new versions for several affected products and recommends to update to the latest versions. Siemens is preparing further fix versions and recommends specific countermeasures for products where fixes are not, or not yet available.",
+      "affected_products": [
+        {
+          "product": "SIMATIC S7-PLCSIM V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC STEP 7 V17",
+          "versions": "All versions < V17 Update 9",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC STEP 7 V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC STEP 7 V19",
+          "versions": "All versions < V19 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC STEP 7 V20",
+          "versions": "All versions < V20 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC V17",
+          "versions": "All versions < V17 Update 9",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC V19",
+          "versions": "All versions < V19 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC V20",
+          "versions": "All versions < V20 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOCODE ES V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOCODE ES V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOCODE ES V19",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOCODE ES V20",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOTION SCOUT TIA V5.4",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOTION SCOUT TIA V5.5",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOTION SCOUT TIA V5.6",
+          "versions": "All versions < V5.6 SP1 HF7",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOTION SCOUT TIA V5.7",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SINAMICS Startdrive V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SINAMICS Startdrive V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SINAMICS Startdrive V19",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SINAMICS Startdrive V20",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Safety ES V17 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Safety ES V18 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Safety ES V19 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Safety ES V20 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Soft Starter ES V17 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Soft Starter ES V18 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Soft Starter ES V19 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Soft Starter ES V20 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Portal Cloud V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Portal Cloud V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Portal Cloud V19",
+          "versions": "vers:intdot/<5.2.1.1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Portal Cloud V20",
+          "versions": "vers:intdot/<5.2.2.2",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-493396.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-493396.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-493396.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-471761",
+      "title": "SSA-471761: Multiple Vulnerabilities in SICAM T Before V3.0",
+      "cvss_v3_score": 5.5,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2022-29872",
+        "CVE-2022-29873",
+        "CVE-2022-29874",
+        "CVE-2022-29876",
+        "CVE-2022-29878",
+        "CVE-2022-29879",
+        "CVE-2022-29880",
+        "CVE-2022-29881",
+        "CVE-2022-29882",
+        "CVE-2022-29883",
+        "CVE-2022-40226",
+        "CVE-2022-41665",
+        "CVE-2022-43439",
+        "CVE-2023-30901",
+        "CVE-2023-31238"
+      ],
+      "publication_date": "2025-12-09",
+      "last_update": "2025-12-09",
+      "version": "1",
+      "summary": "SICAM T before V3.0 contain multiple vulnerabilities. These include critical issues such as improper parameter and input validation, various Cross-Site Scripting (XSS) vulnerabilities , and a Cross-Site Request Forgery (CSRF) vulnerability . Additional weaknesses comprise session fixation, authentication and authorization bypasses , missing HTTPS protection, and missing cookie protection flags. These issues could potentially lead to remote code execution, denial of service, unauthorized access to web-interface functionality, session hijacking, impersonation of legitimate users, or allow an attacker to perform arbitrary actions on the device on behalf of a user.\n\nSiemens has released a new version for SICAM T and recommends to update to the latest version.",
+      "affected_products": [
+        {
+          "product": "SICAM T",
+          "versions": "vers:intdot/<3.0",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "Operators of critical power systems (e.g. TSOs or DSOs) worldwide are usually required by regulations to build resilience into the power grids by applying multi-level redundant secondary protection schemes. It is therefore recommended that the operators check whether appropriate resilient protection measures are in place. The risk of cyber incidents impacting the grid's reliability can thus be minimized by virtue of the grid design.\nSiemens strongly recommends applying the provided security updates using the corresponding tooling and documented procedures made available with the product. If supported by the product, an automated means to apply the security updates across multiple product instances may be used. Siemens strongly recommends prior validation of any security update before being applied, and supervision by trained staff of the update process in the target environment. \nAs a general security measure Siemens strongly recommends to protect network access with appropriate mechanisms (e.g. firewalls, segmentation, VPN). It is advised to configure the environment according to our operational guidelines in order to run the devices in a protected IT environment.\n\nRecommended security guidelines can be found at:\nhttps://www.siemens.com/gridsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-471761.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-471761.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-471761.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-420375",
+      "title": "SSA-420375: Improper Integrity Check of Firmware Updates in Building X - Security Manager Edge Controller (ACC-AP)",
+      "cvss_v3_score": 6.2,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2022-31807"
+      ],
+      "publication_date": "2025-12-09",
+      "last_update": "2025-12-09",
+      "version": "1",
+      "summary": "Building X - Security Manager Edge Controller (ACC-AP) devices do not properly check the integrity of firmware updates. This could allow an attacker to upload a maliciously modified firmware onto the device.\n\nSiemens is preparing fix versions and recommends specific countermeasures for products where fixes are not, or not yet available.",
+      "affected_products": [
+        {
+          "product": "Building X - Security Manager Edge Controller (ACC-AP)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure Siemens strongly recommends to protect network access to affected products with appropriate mechanisms. It is advised to follow recommended security practices in order to run the devices in a protected IT environment.",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-420375.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-420375.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-420375.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-416652",
+      "title": "SSA-416652: Multiple Vulnerabilities in SIMATIC CN 4100 Before V4.0.1",
+      "cvss_v3_score": 4.3,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2025-40937",
+        "CVE-2025-40938",
+        "CVE-2025-40939",
+        "CVE-2025-40940",
+        "CVE-2025-40941"
+      ],
+      "publication_date": "2025-12-09",
+      "last_update": "2025-12-09",
+      "version": "1",
+      "summary": "SIMATIC CN 4100  contains multiple vulnerabilities which could potentially lead to a compromise in availability, integrity and confidentiality. \n\nSiemens has released a new version for SIMATIC CN 4100 and recommends to update to the latest version.",
+      "affected_products": [
+        {
+          "product": "SIMATIC CN 4100",
+          "versions": "vers:intdot/<4.0.1",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-416652.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-416652.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-416652.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-408105",
+      "title": "SSA-408105: Buffer Overflow Vulnerabilities in OpenSSL 3.0 Affecting Siemens Products",
+      "cvss_v3_score": 7.5,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2022-3602",
+        "CVE-2022-3786"
+      ],
+      "publication_date": "2022-12-13",
+      "last_update": "2025-12-09",
+      "version": "4",
+      "summary": "The openSSL component, versions 3.0.0 through 3.0.6, contains two buffer overflow vulnerabilities (CVE-2022-3602, CVE-2022-3786) in the X.509 certificate verification [0]. They could allow an attacker to create a denial of service condition or execute arbitrary code on a vulnerable TLS server (if the server requests client certificate authentication), or on a vulnerable TLS client.\n\nSiemens has released updates for several affected products and recommends to update to the latest versions. Siemens is preparing further updates and recommends specific countermeasures for products where updates are not, or not yet available.\n\n[0] https://www.openssl.org/news/secadv/20221101.txt",
+      "affected_products": [
+        {
+          "product": "Calibre ICE",
+          "versions": "vers:intdot/>=2022.4|<2023.1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Mcenter",
+          "versions": "vers:intdot/>=5.2.1|<5.3.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE X-200RNA family",
+          "versions": "vers:intdot/>=3.2.7|<3.2.8",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SICAM GridPass",
+          "versions": "vers:intdot/>=1.80|<2.20",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC RTLS Locating Manager",
+          "versions": "vers:intdot/>=2.13.0.0|<2.13.0.3",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-408105.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-408105.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-408105.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-392859",
+      "title": "SSA-392859: Local Arbitrary Code Execution Vulnerability in Siemens Engineering Platforms before V20",
+      "cvss_v3_score": 7.3,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2024-52051"
+      ],
+      "publication_date": "2024-12-10",
+      "last_update": "2025-12-09",
+      "version": "3",
+      "summary": "Affected products contain a local arbitrary code execution vulnerability that could allow an attacker to perform actions against the operation system of that environment.\n\nSiemens has released new versions for several affected products and recommends to update to the latest versions. Siemens is preparing further fix versions and recommends countermeasures for products where fixes are not, or not yet available.\n\nSiemens has released products based on the Totally Integrated Automation Portal (TIA Portal) V20 which are not affected by CVE-2024-52051. See the chapter \"Additional Information\" below for more details.",
+      "affected_products": [
+        {
+          "product": "SIMATIC S7-PLCSIM V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC S7-PLCSIM V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC STEP 7 Safety V17",
+          "versions": "All versions < V17 Update 9",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC STEP 7 Safety V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC STEP 7 Safety V19",
+          "versions": "All versions < V19 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC STEP 7 V17",
+          "versions": "All versions < V17 Update 9",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC STEP 7 V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC STEP 7 V19",
+          "versions": "All versions < V19 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Unified PC Runtime V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Unified PC Runtime V19",
+          "versions": "All versions < V19 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Unified V17",
+          "versions": "All versions < V17 Update 9",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Unified V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Unified V19",
+          "versions": "All versions < V19 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC V17",
+          "versions": "All versions < V17 Update 9",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC V19",
+          "versions": "All versions < V19 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOCODE ES V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOCODE ES V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOCODE ES V19",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOTION SCOUT TIA V5.4",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOTION SCOUT TIA V5.5",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMOTION SCOUT TIA V5.6",
+          "versions": "All versions < V5.6 SP1 HF7",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SINAMICS Startdrive V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SINAMICS Startdrive V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SINAMICS Startdrive V19",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Safety ES V17 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Safety ES V18 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Safety ES V19 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Soft Starter ES V17 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Soft Starter ES V18 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIRIUS Soft Starter ES V19 (TIA Portal)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Portal Cloud V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Portal Cloud V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Portal Cloud V19",
+          "versions": "vers:intdot/<5.2.1.1",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-392859.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-392859.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-392859.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-356310",
+      "title": "SSA-356310: Multiple Vulnerabilities in Gridscale X Prepay",
+      "cvss_v3_score": 6.3,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2025-40806",
+        "CVE-2025-40807"
+      ],
+      "publication_date": "2025-12-09",
+      "last_update": "2025-12-09",
+      "version": "1",
+      "summary": "Gridscale X Prepay contains multiple vulnerabilities that could allow an attacker to enumerate valid user names and to bypass locked-out user sessions.\n\nSiemens has released a new version for Gridscale X Prepay and recommends to update to the latest version.",
+      "affected_products": [
+        {
+          "product": "Gridscale X Prepay",
+          "versions": "vers:intdot/<4.2.1",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "Operators of critical power systems (e.g. TSOs or DSOs) worldwide are usually required by regulations to build resilience into the power grids by applying multi-level redundant secondary protection schemes. It is therefore recommended that the operators check whether appropriate resilient protection measures are in place. The risk of cyber incidents impacting the grid's reliability can thus be minimized by virtue of the grid design. Siemens strongly recommends applying the provided security updates using the corresponding tooling and documented procedures made available with the product. If supported by the product, an automated means to apply the security updates across multiple product instances may be used. Siemens strongly recommends prior validation of any security update before being applied, and supervision by trained staff of the update process in the target environment. As a general security measure Siemens strongly recommends to protect network access with appropriate mechanisms (e.g. firewalls, segmentation, VPN). It is advised to configure the environment according to our operational guidelines in order to run the devices in a protected IT environment.",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-356310.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-356310.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-356310.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-282044",
+      "title": "SSA-282044: DLL Hijacking Vulnerability in Siemens Web Installer used by the Online Software Delivery",
+      "cvss_v3_score": 7.8,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2025-30033"
+      ],
+      "publication_date": "2025-08-12",
+      "last_update": "2025-12-09",
+      "version": "5",
+      "summary": "The installers used to install several Siemens products are affected by a DLL hijacking vulnerability. This could allow an attacker to execute arbitrary code when a legitimate user installs an application that uses the affected installer component. This vulnerability poses a risk only during setup and installation phase of the affected applications downloaded e.g. via OSD (Online Software Delivery).\n\nSiemens has released new versions for several affected products and recommends using the latest versions during setup and installation. Siemens is preparing further fix versions and recommends specific countermeasures for products where fixes are not, or not yet available.",
+      "affected_products": [
+        {
+          "product": "Automation License Manager V6.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Automation License Manager V6.2",
+          "versions": "All versions < V6.2 Upd3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "CEMAT V10.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "CP PtP Param configuring interface",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Create MyConfig (CMC)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Energy Support Library (EnSL)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "FM Configuration Package",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Modular PID CTRL Tool",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "MultiFieldbus Configuration Tool (MFCT)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "OpenPCS 7 V10.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "OpenPCS 7 V9.1",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Siemens Network Planner (SINETPLAN)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Automation Tool",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Automation Tool SDK Windows",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC BATCH V10.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC BATCH V9.1",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Control Function Library (CFL) V1.x",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Control Function Library (CFL) V2.x",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Control Function Library (CFL) V3.x",
+          "versions": "vers:intdot/<3.1.0.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Control Function Library (CFL) V4.x",
+          "versions": "vers:intdot/<4.1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC D7-SYS",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC eaSie Core Package (6DL5424-0AX00-0AV8)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC eaSie Document Skills",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC eaSie PCS 7 Skill Package (6DL5424-0BX00-0AV8)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC eaSie Workflow Skills",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Energy Suite V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Energy Suite V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Energy Suite V19",
+          "versions": "All versions < V19 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Logon V1.6",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Logon V2.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Management Agent",
+          "versions": "All versions < V9.1 SP1 Upd8",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Management Console",
+          "versions": "All versions < V9.1 SP1 Upd8",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC MTP CREATOR V2.x",
+          "versions": "vers:intdot/<2.1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC MTP CREATOR V3.x",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC MTP CREATOR V4.x",
+          "versions": "vers:intdot/<4.1.0.1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC MTP CREATOR V5.x",
+          "versions": "vers:intdot/<5.0.0.1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC MTP Integrator V1.x",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC MTP Integrator V2.x",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC NET PC Software V16",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC NET PC Software V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC NET PC Software V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC NET PC Software V19",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC NET PC Software V20",
+          "versions": "All versions < V20.0 Update 1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC ODK 1500S",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 Advanced Process Faceplates V9.1",
+          "versions": "All versions < V9.1 SP2 Upd4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 Advanced Process Functions V2.1",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 Advanced Process Functions V2.2",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 Advanced Process Graphics V10.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 Advanced Process Graphics V9.1",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 Advanced Process Library incl. Faceplates V10.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 Advanced Process Library V9.1",
+          "versions": "All versions < V9.1 SP2 Upd6",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 Basis Faceplates V9.1",
+          "versions": "All versions < V9.1 SP2 Upd2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 Basis Library V10.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 Basis Library V9.1",
+          "versions": "All versions < V9.1 SP2 Upd8",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 Industry Library V10.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 Industry Library V9.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 Industry Library V9.1",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 Logic Matrix V10.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 Logic Matrix V9.1",
+          "versions": "All versions < V9.1 Upd8",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 MPC Configurator",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 PowerControl",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 Standard Chemical Library V10.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 Standard Chemical Library V9.1",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 TeleControl",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 V10.0",
+          "versions": "All versions < V10.0 SP1 UC01",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7 V9.1",
+          "versions": "All versions < V9.1 SP1 UC08",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS 7/OPEN OS V9.1",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS neo V5.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS neo V6.0",
+          "versions": "All versions < V6.0 SP1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PDM Maintenance Station V5.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PDM V9.2",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PDM V9.3",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Process Function Library (PFL) V4.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Process Historian 2020",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Process Historian 2022",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Process Historian 2024",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC ProSave V17",
+          "versions": "All versions < V17 Update 9",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC ProSave V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC ProSave V19",
+          "versions": "All versions < V19 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC ProSave V20",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Route Control V10.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Route Control V9.1",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC S7 F Systems V6.3",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC S7 F Systems V6.4",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC S7-1500 Software Controller V2",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC S7-1500 Software Controller V3",
+          "versions": "vers:intdot/<31.1.5",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC S7-Fail-safe Configuration Tool (S7-FCT)",
+          "versions": "vers:intdot/<4.0.1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC S7-PCT",
+          "versions": "All versions < V3.5 SP4 Update 1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC S7-PLCSIM Advanced",
+          "versions": "All versions < V7.0 Update 1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC S7-PLCSIM V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC S7-PLCSIM V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC S7-PLCSIM V19",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC S7-PLCSIM V20",
+          "versions": "All versions < V20 Update 1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Safety Matrix",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC STEP 7 CFC V19",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC STEP 7 CFC V20",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC STEP 7 V5.7",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Target",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC flexible ES",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Runtime Advanced",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Runtime Professional",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Runtime Professional V20",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC TeleControl",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Unified Line Coordination",
+          "versions": "vers:intdot/<20",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Unified PC Runtime V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Unified PC Runtime V19",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Unified PC Runtime V20",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Unified Sequence",
+          "versions": "vers:intdot/<20",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC V7.5",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC V8.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC V8.1",
+          "versions": "All versions < V8.1 Update 3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Visualization Architect (SiVArc) V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Visualization Architect (SiVArc) V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Visualization Architect (SiVArc) V19",
+          "versions": "All versions < V19 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Visualization Architect (SiVArc) V20",
+          "versions": "All versions < V20 Update 3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMIT Rapid Tester",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMIT Simulation Platform",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SINAMICS Startdrive V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SINAMICS Startdrive V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SINAMICS Startdrive V19",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SINAMICS Startdrive V20",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SINEC NMS",
+          "versions": "vers:intdot/<4.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SINEMA Remote Connect Client",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SITRANS",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Standard PID CTRL Tool",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TeleControl Server Basic V3.1",
+          "versions": "vers:intdot/<3.1.2.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Administrator",
+          "versions": "vers:intdot/<3.0.6",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Portal Cloud Connector",
+          "versions": "vers:intdot/<2.3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Portal Test Suite V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Portal Test Suite V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Portal Test Suite V19",
+          "versions": "All versions < V19 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Portal Test Suite V20",
+          "versions": "All versions < V20 Update 3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Project-Server",
+          "versions": "vers:intdot/<2.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "TIA Project-Server V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Totally Integrated Automation Portal (TIA Portal) V17",
+          "versions": "All versions < V17 Update 9",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Totally Integrated Automation Portal (TIA Portal) V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Totally Integrated Automation Portal (TIA Portal) V19",
+          "versions": "All versions < V19 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Totally Integrated Automation Portal (TIA Portal) V20",
+          "versions": "All versions < V20 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "WinCC Panel Image Setup",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-282044.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-282044.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-282044.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-212953",
+      "title": "SSA-212953: Multiple Vulnerabilities in COMOS",
+      "cvss_v3_score": 8.1,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2024-11053",
+        "CVE-2024-47875",
+        "CVE-2025-2783",
+        "CVE-2025-10148",
+        "CVE-2025-40800",
+        "CVE-2025-40801"
+      ],
+      "publication_date": "2025-12-09",
+      "last_update": "2025-12-09",
+      "version": "1",
+      "summary": "COMOS is affected by multiple vulnerabilities that could allow an attacker to execute arbitrary code or cause denial of service condition, data infiltration or perform access control violations. \n\nSiemens has released new versions for several affected products and recommends to update to the latest versions. Siemens is preparing further fix versions and recommends countermeasures for products where fixes are not, or not yet available.",
+      "affected_products": [
+        {
+          "product": "COMOS V10.4",
+          "versions": "vers:intdot/<10.4.5",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "COMOS V10.4",
+          "versions": "vers:intdot/<10.4.5",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "COMOS V10.4.5",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "COMOS V10.5",
+          "versions": "vers:intdot/<10.5.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "COMOS V10.5",
+          "versions": "vers:intdot/<10.5.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "COMOS V10.5.2",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "COMOS V10.6",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-212953.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-212953.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-212953.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-202008",
+      "title": "SSA-202008: Multiple Vulnerabilities in Ruggedcom Rox Before V2.17.0",
+      "cvss_v3_score": 6.8,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2018-7169",
+        "CVE-2018-9234",
+        "CVE-2018-12934",
+        "CVE-2018-1000876",
+        "CVE-2019-9893",
+        "CVE-2019-12900",
+        "CVE-2019-14866",
+        "CVE-2020-12762",
+        "CVE-2020-21047",
+        "CVE-2020-22217",
+        "CVE-2020-35525",
+        "CVE-2021-35550",
+        "CVE-2021-35556",
+        "CVE-2021-35559",
+        "CVE-2021-35561",
+        "CVE-2021-35564",
+        "CVE-2021-35565",
+        "CVE-2021-35567",
+        "CVE-2021-35578",
+        "CVE-2021-35586",
+        "CVE-2021-35588",
+        "CVE-2021-35603",
+        "CVE-2021-36084",
+        "CVE-2021-36085",
+        "CVE-2021-36086",
+        "CVE-2021-36087",
+        "CVE-2021-38185",
+        "CVE-2021-47358",
+        "CVE-2021-47361",
+        "CVE-2022-0435",
+        "CVE-2022-0492",
+        "CVE-2022-0847",
+        "CVE-2022-0850",
+        "CVE-2022-1353",
+        "CVE-2022-1734",
+        "CVE-2022-2639",
+        "CVE-2022-2964",
+        "CVE-2022-3424",
+        "CVE-2022-20141",
+        "CVE-2022-23039",
+        "CVE-2022-23040",
+        "CVE-2022-24958",
+        "CVE-2022-27223",
+        "CVE-2022-28390",
+        "CVE-2022-30594",
+        "CVE-2022-34903",
+        "CVE-2022-36123",
+        "CVE-2022-37032",
+        "CVE-2022-37434",
+        "CVE-2022-41858",
+        "CVE-2022-48624",
+        "CVE-2022-48626",
+        "CVE-2022-48919",
+        "CVE-2022-48926",
+        "CVE-2022-48948",
+        "CVE-2022-48951",
+        "CVE-2022-48960",
+        "CVE-2022-48962",
+        "CVE-2022-48966",
+        "CVE-2022-48967",
+        "CVE-2022-49058",
+        "CVE-2023-4641",
+        "CVE-2023-27043",
+        "CVE-2023-28322",
+        "CVE-2023-29383",
+        "CVE-2023-29491",
+        "CVE-2023-41358",
+        "CVE-2023-46218",
+        "CVE-2023-46753",
+        "CVE-2023-47234",
+        "CVE-2024-0397",
+        "CVE-2024-5642",
+        "CVE-2024-6232",
+        "CVE-2024-6923",
+        "CVE-2024-7592",
+        "CVE-2024-11168",
+        "CVE-2024-12133",
+        "CVE-2024-12243",
+        "CVE-2024-28085",
+        "CVE-2024-32487",
+        "CVE-2024-50602",
+        "CVE-2024-52533",
+        "CVE-2025-0938"
+      ],
+      "publication_date": "2025-12-09",
+      "last_update": "2025-12-09",
+      "version": "1",
+      "summary": "Ruggedcom ROX familly contain multiple vulnerabilities before V2.17.0\n\nSiemens has released new versions for the affected products and recommends to update to the latest versions.",
+      "affected_products": [
+        {
+          "product": "RUGGEDCOM ROX MX5000",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX MX5000RE",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX1400",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX1500",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX1501",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX1510",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX1511",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX1512",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX1524",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX1536",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX5000",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-202008.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-202008.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-202008.pdf",
       "txt_url": null
     },
     {

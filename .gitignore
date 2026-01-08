@@ -35,3 +35,16 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Scraper logs
+scrapers/siemens/logs/*.log
+!scrapers/siemens/logs/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+
