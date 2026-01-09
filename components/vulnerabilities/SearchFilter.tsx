@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react'
 import { Search, Filter, X } from 'lucide-react'
+import DateRangeFilter from './DateRangeFilter'
 import type { SiemensVulnerability, VulnerabilitySeverity } from '@/types'
 
 interface SearchFilterProps {
@@ -9,10 +10,17 @@ interface SearchFilterProps {
   onFilterChange: (filtered: SiemensVulnerability[]) => void
 }
 
+interface DateRange {
+  from: Date | undefined
+  to: Date | undefined
+}
+
 export default function SearchFilter({ vulnerabilities, onFilterChange }: SearchFilterProps) {
   const [searchTerm, setSearchTerm] = useState('')
   const [severityFilter, setSeverityFilter] = useState<VulnerabilitySeverity | 'All'>('All')
   const [showFilters, setShowFilters] = useState(false)
+  const [dateRange, setDateRange] = useState<DateRange>({ from: undefined, to: undefined })
+  const [dateField, setDateField] = useState<'last_update' | 'publication_date'>('last_update')
 
   const getSeverity = (vuln: SiemensVulnerability): VulnerabilitySeverity => {
     const score = vuln.cvss_v3_score ?? vuln.cvss_v4_score
@@ -23,7 +31,12 @@ export default function SearchFilter({ vulnerabilities, onFilterChange }: Search
     return 'Low'
   }
 
-  const applyFilters = useCallback((search: string, severity: VulnerabilitySeverity | 'All') => {
+  const applyFilters = useCallback((
+    search: string, 
+    severity: VulnerabilitySeverity | 'All',
+    dates: DateRange,
+    field: 'last_update' | 'publication_date'
+  ) => {
     let filtered = [...vulnerabilities]
 
     // Apply search filter
@@ -45,26 +58,70 @@ export default function SearchFilter({ vulnerabilities, onFilterChange }: Search
       filtered = filtered.filter(vuln => getSeverity(vuln) === severity)
     }
 
+    // Apply date range filter
+    if (dates.from || dates.to) {
+      filtered = filtered.filter(vuln => {
+        const dateStr = field === 'last_update' ? vuln.last_update : vuln.publication_date
+        if (!dateStr) return false
+        
+        const vulnDate = new Date(dateStr)
+        if (isNaN(vulnDate.getTime())) return false
+        
+        // Set time to start/end of day for comparison
+        const vulnDateNormalized = new Date(vulnDate.getFullYear(), vulnDate.getMonth(), vulnDate.getDate())
+        
+        if (dates.from && dates.to) {
+          const fromNormalized = new Date(dates.from.getFullYear(), dates.from.getMonth(), dates.from.getDate())
+          const toNormalized = new Date(dates.to.getFullYear(), dates.to.getMonth(), dates.to.getDate())
+          return vulnDateNormalized >= fromNormalized && vulnDateNormalized <= toNormalized
+        } else if (dates.from) {
+          const fromNormalized = new Date(dates.from.getFullYear(), dates.from.getMonth(), dates.from.getDate())
+          return vulnDateNormalized >= fromNormalized
+        } else if (dates.to) {
+          const toNormalized = new Date(dates.to.getFullYear(), dates.to.getMonth(), dates.to.getDate())
+          return vulnDateNormalized <= toNormalized
+        }
+        
+        return true
+      })
+    }
+
     onFilterChange(filtered)
   }, [vulnerabilities, onFilterChange])
 
   const handleSearchChange = (value: string) => {
     setSearchTerm(value)
-    applyFilters(value, severityFilter)
+    applyFilters(value, severityFilter, dateRange, dateField)
   }
 
   const handleSeverityChange = (value: VulnerabilitySeverity | 'All') => {
     setSeverityFilter(value)
-    applyFilters(searchTerm, value)
+    applyFilters(searchTerm, value, dateRange, dateField)
+  }
+
+  const handleDateRangeChange = (range: DateRange) => {
+    setDateRange(range)
+    applyFilters(searchTerm, severityFilter, range, dateField)
+  }
+
+  const handleDateFieldChange = (field: 'last_update' | 'publication_date') => {
+    setDateField(field)
+    applyFilters(searchTerm, severityFilter, dateRange, field)
   }
 
   const clearFilters = () => {
     setSearchTerm('')
     setSeverityFilter('All')
+    setDateRange({ from: undefined, to: undefined })
     onFilterChange(vulnerabilities)
   }
 
-  const hasActiveFilters = searchTerm.trim() !== '' || severityFilter !== 'All'
+  const hasActiveFilters = searchTerm.trim() !== '' || severityFilter !== 'All' || dateRange.from !== undefined || dateRange.to !== undefined
+  
+  const activeFilterCount = 
+    (searchTerm.trim() ? 1 : 0) + 
+    (severityFilter !== 'All' ? 1 : 0) + 
+    (dateRange.from || dateRange.to ? 1 : 0)
 
   return (
     <div className="space-y-4">
@@ -93,7 +150,7 @@ export default function SearchFilter({ vulnerabilities, onFilterChange }: Search
           <span>Filters</span>
           {hasActiveFilters && (
             <span className="bg-cyan-500 text-slate-900 text-xs font-bold px-2 py-0.5 rounded-full">
-              {(searchTerm.trim() ? 1 : 0) + (severityFilter !== 'All' ? 1 : 0)}
+              {activeFilterCount}
             </span>
           )}
         </button>
@@ -104,33 +161,41 @@ export default function SearchFilter({ vulnerabilities, onFilterChange }: Search
             className="flex items-center gap-2 px-4 py-3 rounded-lg border border-slate-700 bg-slate-800/50 text-slate-400 hover:border-red-500/50 hover:text-red-400 transition-all"
           >
             <X className="w-5 h-5" />
-            <span>Clear</span>
+            <span>Clear All</span>
           </button>
         )}
       </div>
 
       {/* Filter Panel */}
       {showFilters && (
-        <div className="p-4 bg-slate-800/30 border border-slate-700 rounded-lg">
-          <div className="flex flex-wrap gap-4">
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-400">Severity</label>
-              <div className="flex flex-wrap gap-2">
-                {(['All', 'Critical', 'High', 'Medium', 'Low', 'Unknown'] as const).map((severity) => (
-                  <button
-                    key={severity}
-                    onClick={() => handleSeverityChange(severity)}
-                    className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
-                      severityFilter === severity
-                        ? getSeverityButtonActiveStyle(severity)
-                        : 'bg-slate-700/50 text-slate-400 hover:bg-slate-700'
-                    }`}
-                  >
-                    {severity}
-                  </button>
-                ))}
-              </div>
+        <div className="p-4 bg-slate-800/30 border border-slate-700 rounded-lg space-y-6">
+          {/* Severity Filter */}
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-slate-400">Severity</label>
+            <div className="flex flex-wrap gap-2">
+              {(['All', 'Critical', 'High', 'Medium', 'Low', 'Unknown'] as const).map((severity) => (
+                <button
+                  key={severity}
+                  onClick={() => handleSeverityChange(severity)}
+                  className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
+                    severityFilter === severity
+                      ? getSeverityButtonActiveStyle(severity)
+                      : 'bg-slate-700/50 text-slate-400 hover:bg-slate-700'
+                  }`}
+                >
+                  {severity}
+                </button>
+              ))}
             </div>
+          </div>
+
+          {/* Date Range Filter */}
+          <div className="pt-4 border-t border-slate-700">
+            <DateRangeFilter
+              onDateRangeChange={handleDateRangeChange}
+              dateField={dateField}
+              onDateFieldChange={handleDateFieldChange}
+            />
           </div>
         </div>
       )}
@@ -154,4 +219,3 @@ function getSeverityButtonActiveStyle(severity: VulnerabilitySeverity | 'All'): 
       return 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/50'
   }
 }
-
