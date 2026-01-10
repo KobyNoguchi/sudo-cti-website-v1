@@ -7,12 +7,12 @@ import { ArrowRight, Shield } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[85vh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-primary pt-24 pb-16 sm:pt-32">
+    <section className="relative min-h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-primary pt-20 pb-12 sm:pt-24 sm:pb-16">
       {/* Animated Background Gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,102,255,0.3),transparent_50%)] animate-pulse" />
       <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary-dark/70 to-primary/90" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -37,12 +37,12 @@ export default function Hero() {
             <span className="text-secondary">for Critical Infrastructure</span>
           </h1>
 
-          <p className="hero-body text-white/85 max-w-2xl mx-auto mb-10 text-balance">
+          <p className="hero-body text-white/85 max-w-2xl mx-auto mb-8 text-balance">
             Our platform aggregates, analyzes, and delivers actionable intelligence on cyber threats, 
             tailored for executives, vulnerability management teams, and OT executives in the Utility space.
           </p>
 
-          <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center">
+          <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center mb-4">
             <Button variant="secondary" size="lg" className="group">
               <span className="flex items-center">
                 Schedule Your Briefing
