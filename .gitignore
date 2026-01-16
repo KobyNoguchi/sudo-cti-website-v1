@@ -37,9 +37,7 @@ next-env.d.ts
 
 # Scraper logs
 scrapers/siemens/logs/*.log
-!scrapers/siemens/logs/.gitkeep
-
-# Python
+!scrapers/siemens/logs/.gitkeep# Python
 __pycache__/
 *.py[cod]
 *$py.class

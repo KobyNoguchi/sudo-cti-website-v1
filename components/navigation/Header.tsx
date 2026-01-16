@@ -8,6 +8,7 @@ import MegaMenu from './MegaMenu'
 import MobileMenu from './MobileMenu'
 import Button from '@/components/ui/Button'
 import LoginModal from '@/components/auth/LoginModal'
+import BriefingModal from '@/components/auth/BriefingModal'
 import ProfileDropdown from '@/components/auth/ProfileDropdown'
 import { useAuth } from '@/contexts/AuthContext'
 
@@ -85,6 +86,7 @@ export default function Header() {
   const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
+  const [isBriefingModalOpen, setIsBriefingModalOpen] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
   
   const { user, loading } = useAuth()
@@ -159,7 +161,11 @@ export default function Header() {
               >
                 <Search size={20} />
               </button>
-              <Button variant="outline" size="md" href="/contact">
+              <Button 
+                variant="outline" 
+                size="md" 
+                onClick={() => setIsBriefingModalOpen(true)}
+              >
                 Schedule Briefing
               </Button>
               
@@ -214,6 +220,12 @@ export default function Header() {
       <LoginModal 
         isOpen={isLoginModalOpen} 
         onClose={() => setIsLoginModalOpen(false)} 
+      />
+
+      {/* Briefing Modal */}
+      <BriefingModal 
+        isOpen={isBriefingModalOpen} 
+        onClose={() => setIsBriefingModalOpen(false)} 
       />
     </>
   )

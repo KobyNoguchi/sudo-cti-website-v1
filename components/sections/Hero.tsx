@@ -1,11 +1,15 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Button from '@/components/ui/Button'
+import BriefingModal from '@/components/auth/BriefingModal'
 import { ArrowRight, Shield } from 'lucide-react'
 
 export default function Hero() {
+  const [isBriefingModalOpen, setIsBriefingModalOpen] = useState(false)
+
   return (
     <section className="relative min-h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-primary pt-20 pb-12 sm:pt-24 sm:pb-16">
       {/* Animated Background Gradient */}
@@ -43,7 +47,12 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center mb-4">
-            <Button variant="secondary" size="lg" className="group">
+            <Button 
+              variant="secondary" 
+              size="lg" 
+              className="group"
+              onClick={() => setIsBriefingModalOpen(true)}
+            >
               <span className="flex items-center">
                 Schedule Your Briefing
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -57,6 +66,12 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
+
+      {/* Briefing Modal */}
+      <BriefingModal 
+        isOpen={isBriefingModalOpen} 
+        onClose={() => setIsBriefingModalOpen(false)} 
+      />
 
       {/* Scroll Indicator */}
       <motion.div
