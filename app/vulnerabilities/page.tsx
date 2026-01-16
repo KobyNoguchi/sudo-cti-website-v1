@@ -9,7 +9,7 @@ const vendors = [
     id: 'siemens',
     name: 'Siemens',
     description: 'Industrial automation, energy management, and building technologies',
-    logo: '/Assets/vendor-logos/siemens.svg', // Optional - can add logos later
+    logo: '/Assets/vendor-logos/siemens.svg',
     color: 'from-teal-500 to-cyan-600',
     stats: {
       advisories: 53,
@@ -18,6 +18,20 @@ const vendors = [
     },
     industries: ['Energy', 'Manufacturing', 'Building Technologies', 'Healthcare'],
     href: '/vulnerabilities/siemens',
+  },
+  {
+    id: 'hitachi',
+    name: 'Hitachi',
+    description: 'IT infrastructure, operational technology, and industrial software solutions',
+    logo: '/Assets/vendor-logos/hitachi.svg',
+    color: 'from-red-500 to-rose-600',
+    stats: {
+      advisories: 20,
+      critical: 0,
+      high: 5,
+    },
+    industries: ['IT Infrastructure', 'Manufacturing', 'Energy', 'Transportation'],
+    href: '/vulnerabilities/hitachi',
   },
   // Future vendors can be added here:
   // {
