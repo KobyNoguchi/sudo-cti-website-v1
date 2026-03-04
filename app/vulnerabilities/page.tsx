@@ -3,6 +3,35 @@
 import Link from 'next/link'
 import { Shield, ChevronRight, Building2, AlertTriangle, Database } from 'lucide-react'
 
+// Import vulnerability data
+import siemensData from '@/data/siemens-vulnerabilities.json'
+import hitachiData from '@/data/hitachi-vulnerabilities.json'
+
+// Calculate stats from actual data
+const siemensStats = {
+  advisories: siemensData.vulnerabilities.length,
+  critical: siemensData.vulnerabilities.filter((v: any) => {
+    const score = v.cvss_v3_score ?? v.cvss_v4_score
+    return score !== null && score >= 9.0
+  }).length,
+  high: siemensData.vulnerabilities.filter((v: any) => {
+    const score = v.cvss_v3_score ?? v.cvss_v4_score
+    return score !== null && score >= 7.0 && score < 9.0
+  }).length,
+}
+
+const hitachiStats = {
+  advisories: hitachiData.vulnerabilities.length,
+  critical: hitachiData.vulnerabilities.filter((v: any) => {
+    const scores = Object.values(v.cvss_scores || {}) as number[]
+    return scores.some(score => score >= 9.0)
+  }).length,
+  high: hitachiData.vulnerabilities.filter((v: any) => {
+    const scores = Object.values(v.cvss_scores || {}) as number[]
+    return scores.some(score => score >= 7.0 && score < 9.0)
+  }).length,
+}
+
 // Vendor data - add more vendors here as you expand
 const vendors = [
   {
@@ -11,11 +40,7 @@ const vendors = [
     description: 'Industrial automation, energy management, and building technologies',
     logo: '/Assets/vendor-logos/siemens.svg',
     color: 'from-teal-500 to-cyan-600',
-    stats: {
-      advisories: 53,
-      critical: 2,
-      high: 15,
-    },
+    stats: siemensStats,
     industries: ['Energy', 'Manufacturing', 'Building Technologies', 'Healthcare'],
     href: '/vulnerabilities/siemens',
   },
@@ -25,11 +50,7 @@ const vendors = [
     description: 'IT infrastructure, operational technology, and industrial software solutions',
     logo: '/Assets/vendor-logos/hitachi.svg',
     color: 'from-red-500 to-rose-600',
-    stats: {
-      advisories: 20,
-      critical: 0,
-      high: 5,
-    },
+    stats: hitachiStats,
     industries: ['IT Infrastructure', 'Manufacturing', 'Energy', 'Transportation'],
     href: '/vulnerabilities/hitachi',
   },

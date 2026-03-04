@@ -1,11 +1,1739 @@
 {
   "metadata": {
     "source": "Siemens ProductCERT",
-    "scraped_at": "2026-01-08T18:30:49.861173Z",
-    "total_count": 67,
+    "scraped_at": "2026-02-10T20:54:23.251579Z",
+    "total_count": 81,
     "url": "https://www.siemens.com/global/en/products/services/cert.html"
   },
   "vulnerabilities": [
+    {
+      "ssa_id": "SSA-192617",
+      "title": "SSA-192617: Local Privilege Escalation Vulnerability in TeleControl Server Basic Before V3.1.2.4",
+      "cvss_v3_score": 8.8,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2025-40942"
+      ],
+      "publication_date": "2026-01-13",
+      "last_update": "2026-01-13",
+      "version": "1",
+      "summary": "TeleControl Server Basic before V3.1.2.4 contains a local privilege escalation vulnerability that could allow an attacker to run arbitrary code with elevated privileges.\n\nSiemens has released a new version for TeleControl Server Basic and recommends to update to the latest version.",
+      "affected_products": [
+        {
+          "product": "TeleControl Server Basic",
+          "versions": "vers:intdot/<3.1.2.4",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-192617.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-192617.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-192617.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-014678",
+      "title": "SSA-014678: Authorization Bypass Vulnerability in Industrial Edge Device Kit",
+      "cvss_v3_score": 10.0,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2025-40805"
+      ],
+      "publication_date": "2026-01-13",
+      "last_update": "2026-01-13",
+      "version": "1",
+      "summary": "Users of Industrial Edge Devices are advised to consult the respective Security Advisories for their devices (for Siemens Industrial Edge devices see Additional Information).\n\nIndustrial Edge Device Kit contains an authorization bypass vulnerability that could facilitate an unauthenticated remote attacker to circumvent authentication and impersonate a legitimate user.\n\nSiemens has released new versions for several affected products and recommends to update to the latest versions. Siemens recommends specific countermeasures for products where fixes are not, or not yet available.",
+      "affected_products": [
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.10",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.11",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.12",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.13",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.14",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.15",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.16",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.19",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.20",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.21",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.22",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.23",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.24",
+          "versions": "vers:intdot/<1.24.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.25",
+          "versions": "vers:intdot/<1.25.1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.5",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.6",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.7",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.8",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - arm64 V1.9",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.10",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.11",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.12",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.13",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.14",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.15",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.16",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.19",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.20",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.21",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.22",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.23",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.24",
+          "versions": "vers:intdot/<1.24.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.25",
+          "versions": "vers:intdot/<1.25.1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.5",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.6",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.7",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.8",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Device Kit - x86-64 V1.9",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-014678.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-014678.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-014678.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-001536",
+      "title": "SSA-001536: Authorization Bypass Vulnerability in Siemens Industrial Edge Devices",
+      "cvss_v3_score": 10.0,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2025-40805"
+      ],
+      "publication_date": "2026-01-13",
+      "last_update": "2026-01-13",
+      "version": "1",
+      "summary": "Siemens Industrial Edge Devices contain an authorization bypass vulnerability that could facilitate an unauthenticated remote attacker to circumvent authentication and impersonate a legitimate user.\n\nSiemens has released new versions for several affected products and recommends to update to the latest versions. Siemens is preparing further fix versions and recommends specific countermeasures for products where fixes are not, or not yet available.",
+      "affected_products": [
+        {
+          "product": "Industrial Edge Cloud Device (IECD)",
+          "versions": "vers:intdot/<1.24.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Own Device (IEOD)",
+          "versions": "vers:intdot/<1.24.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge Virtual Device (IEVD)",
+          "versions": "vers:intdot/<1.24.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE LPE9413 (6GK5998-3GS01-2AC2)",
+          "versions": "vers:intdot/<2.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE LPE9433 (6GK5998-3GS11-2AC2)",
+          "versions": "vers:intdot/<2.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Automation Workstation 19\" (6AV7256-6CA01-0FP0)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Automation Workstation 24\" (6AV7256-6CA00-0FP0)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1000 Unified Comfort Panel (6AV2128-3KB06-0AX1)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1000 Unified Comfort Panel hygienic (6AV2128-3KB40-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1000 Unified Comfort Panel hygienic neutral design (6AV2128-3KB70-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1000, Unified Comfort Panel neutral (6AV2128-3KB36-0AX1)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1200 Comfort Pro for stand (expandable, flange at the bottom) (6AV2128-3MB27-1BX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1200 Comfort Pro for support arm (expandable, round tube) and extension unit (6AV2128-3MB27-0BX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1200 Comfort Pro for support arm (not extendable, flange on top) (6AV2128-3MB27-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1200 Comfort Pro neutral design for stand (expandable, flange at the bottom) (6AV2128-3MB57-1BX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1200 Comfort Pro neutral design for support arm (expandable, round tube) and extensio (6AV2128-3MB57-0BX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1200 Comfort Pro neutral design for support arm (not extendable, flange on top) (6AV2128-3MB57-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1200 Unified Comfort Panel (6AV2128-3MB06-0AX1)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1200 Unified Comfort Panel hygienic (6AV2128-3MB40-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1200 Unified Comfort Panel hygienic neutral design (6AV2128-3MB70-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1200 Unified Comfort Panel neutral design (6AV2128-3MB36-0AX1)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1500 Comfort Pro for stand (expandable, flange at the bottom) (6AV2128-3QB27-1BX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1500 Comfort Pro for support arm (expandable, round tube) and extension unit (6AV2128-3QB27-0BX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1500 Comfort Pro for support arm (not extendable, flange on top) (6AV2128-3QB27-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1500 Comfort Pro neutral design for stand (expandable, flange at the bottom) (6AV2128-3QB57-1BX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1500 Comfort Pro neutral design for support arm (expandable, round tube) and extensio (6AV2128-3QB57-0BX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1500 Comfort Pro neutral design for support arm (not extendable, flange on top) (6AV2128-3QB57-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1500 Unified Comfort Panel (6AV2128-3QB06-0AX1)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1500 Unified Comfort Panel hygienic (6AV2128-3QB40-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1500 Unified Comfort Panel hygienic neutral design (6AV2128-3QB70-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1500 Unified Comfort Panel neutral design (6AV2128-3QB36-0AX1)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1900 Comfort Pro for stand (expandable, flange at the bottom) (6AV2128-3UB27-1BX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1900 Comfort Pro for support arm (expandable, round tube) and extension unit (6AV2128-3UB27-0BX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1900 Comfort Pro for support arm (not extendable, flange on top) (6AV2128-3UB27-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1900 Comfort Pro neutral design for stand (expandable, flange at the bottom) (6AV2128-3UB57-1BX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1900 Comfort Pro neutral design for support arm (expandable, round tube) and extensio (6AV2128-3UB57-0BX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1900 Comfort Pro neutral design for support arm (not extendable, flange on top) (6AV2128-3UB57-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1900 Unified Comfort Panel (6AV2128-3UB06-0AX1)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1900 Unified Comfort Panel hygienic (6AV2128-3UB40-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1900 Unified Comfort Panel hygienic neutral design (6AV2128-3UB70-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP1900 Unified Comfort Panel neutral design (6AV2128-3UB36-0AX1)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP2200 Comfort Pro for stand (expandable, flange at the bottom) (6AV2128-3XB27-1BX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP2200 Comfort Pro for support arm (expandable, round tube) and extension unit (6AV2128-3XB27-0BX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP2200 Comfort Pro for support arm (not extendable, flange on top) (6AV2128-3XB27-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP2200 Comfort Pro neutral design for stand (expandable, flange at the bottom) (6AV2128-3XB57-1BX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP2200 Comfort Pro neutral design for support arm (expandable, round tube) and extensio (6AV2128-3XB57-0BX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP2200 Comfort Pro neutral design for support arm (not extendable, flange on top) (6AV2128-3XB57-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP2200 Unified Comfort Hygienic (6AV2128-3XB40-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP2200 Unified Comfort Hygienic neutral design (6AV2128-3XB70-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP2200 Unified Comfort Panel (6AV2128-3XB06-0AX1)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP2200 Unified Comfort Panel neutral design (6AV2128-3XB36-0AX1)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP700 Unified Comfort Panel (6AV2128-3GB06-0AX1)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP700 Unified Comfort Panel hygienic neutral design (6AV2128-3GB40-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP700 Unified Comfort Panel hygienic neutral design (6AV2128-3GB70-0AX0)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC HMI MTP700, Unified Comfort Panel neutral design (6AV2128-3GB36-0AX1)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC IOT2050 (6ES7647-0BA00-1YA2)",
+          "versions": "vers:intdot/<1.25.1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC IPC BX-39A Industrial Edge Device",
+          "versions": "vers:intdot/<3.1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC IPC BX-59A Industrial Edge Device",
+          "versions": "vers:intdot/<3.1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC IPC127E Industrial Edge Device",
+          "versions": "vers:intdot/<3.1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC IPC227E Industrial Edge Device",
+          "versions": "vers:intdot/<3.1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC IPC227G Industrial Edge Device",
+          "versions": "vers:intdot/<3.1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC IPC427E Industrial Edge Device",
+          "versions": "vers:intdot/<3.1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC IPC847E Industrial Edge Device",
+          "versions": "vers:intdot/<3.1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIPLUS HMI MTP1000 Unified Comfort (6AG1128-3KB06-4AX1)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIPLUS HMI MTP1200 Unified Comfort (6AG1128-3MB06-4AX1)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIPLUS HMI MTP700 Unified Comfort (6AG1128-3GB06-4AX1)",
+          "versions": "vers:intdot/<21",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-001536.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-001536.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-001536.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-089022",
+      "title": "SSA-089022: Multiple Vulnerabilities in Third-Party Components in SINEC OS before V3.3",
+      "cvss_v3_score": 7.5,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2022-48174",
+        "CVE-2023-7256",
+        "CVE-2023-39810",
+        "CVE-2023-42363",
+        "CVE-2023-42364",
+        "CVE-2023-42365",
+        "CVE-2023-42366",
+        "CVE-2024-6197",
+        "CVE-2024-6874",
+        "CVE-2024-7264",
+        "CVE-2024-8006",
+        "CVE-2024-8096",
+        "CVE-2024-9681",
+        "CVE-2024-11053",
+        "CVE-2024-12718",
+        "CVE-2024-41996",
+        "CVE-2024-47619",
+        "CVE-2024-52533",
+        "CVE-2025-0167",
+        "CVE-2025-0665",
+        "CVE-2025-0725",
+        "CVE-2025-1390",
+        "CVE-2025-3360",
+        "CVE-2025-4138",
+        "CVE-2025-4330",
+        "CVE-2025-4373",
+        "CVE-2025-4435",
+        "CVE-2025-4516",
+        "CVE-2025-4517",
+        "CVE-2025-6141",
+        "CVE-2025-9086",
+        "CVE-2025-9230",
+        "CVE-2025-9231",
+        "CVE-2025-9232",
+        "CVE-2025-10148",
+        "CVE-2025-27587",
+        "CVE-2025-32433",
+        "CVE-2025-38084",
+        "CVE-2025-38085",
+        "CVE-2025-38086",
+        "CVE-2025-38345",
+        "CVE-2025-38350",
+        "CVE-2025-38498",
+        "CVE-2025-39839",
+        "CVE-2025-39841",
+        "CVE-2025-39846",
+        "CVE-2025-39853",
+        "CVE-2025-39860",
+        "CVE-2025-39864",
+        "CVE-2025-39865",
+        "CVE-2025-59375"
+      ],
+      "publication_date": "2026-01-28",
+      "last_update": "2026-01-28",
+      "version": "1",
+      "summary": "SINEC OS before V3.3 contains third-party components with multiple vulnerabilities.\n\nSiemens has released new versions for the affected products and recommends to update to the latest versions.",
+      "affected_products": [
+        {
+          "product": "RUGGEDCOM RST2428P (6GK6242-6PA00)",
+          "versions": "vers:intdot/<3.3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XCH328 (6GK5328-4TS01-2EC2)",
+          "versions": "vers:intdot/<3.3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XCM324 (6GK5324-8TS01-2AC2)",
+          "versions": "vers:intdot/<3.3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XCM328 (6GK5328-4TS01-2AC2)",
+          "versions": "vers:intdot/<3.3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XCM332 (6GK5332-0GA01-2AC2)",
+          "versions": "vers:intdot/<3.3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRH334 (24 V DC, 8xFO, CC) (6GK5334-2TS01-2ER3)",
+          "versions": "vers:intdot/<3.3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRM334 (230 V AC, 12xFO) (6GK5334-3TS01-3AR3)",
+          "versions": "vers:intdot/<3.3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRM334 (230 V AC, 8xFO) (6GK5334-2TS01-3AR3)",
+          "versions": "vers:intdot/<3.3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRM334 (230V AC, 2x10G, 24xSFP, 8xSFP+) (6GK5334-5TS01-3AR3)",
+          "versions": "vers:intdot/<3.3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRM334 (24 V DC, 12xFO) (6GK5334-3TS01-2AR3)",
+          "versions": "vers:intdot/<3.3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRM334 (24 V DC, 8xFO) (6GK5334-2TS01-2AR3)",
+          "versions": "vers:intdot/<3.3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRM334 (24V DC, 2x10G, 24xSFP, 8xSFP+) (6GK5334-5TS01-2AR3)",
+          "versions": "vers:intdot/<3.3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRM334 (2x230 V AC, 12xFO) (6GK5334-3TS01-4AR3)",
+          "versions": "vers:intdot/<3.3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRM334 (2x230 V AC, 8xFO) (6GK5334-2TS01-4AR3)",
+          "versions": "vers:intdot/<3.3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRM334 (2x230V AC, 2x10G, 24xSFP, 8xSFP+) (6GK5334-5TS01-4AR3)",
+          "versions": "vers:intdot/<3.3",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-089022.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-089022.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-089022.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-978177",
+      "title": "SSA-978177: Vulnerability in Nozomi Guardian/CMC Before 25.4.0 on RUGGEDCOM APE1808 Devices",
+      "cvss_v3_score": 7.9,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2024-13089",
+        "CVE-2024-13090",
+        "CVE-2025-1501",
+        "CVE-2025-3718",
+        "CVE-2025-3719",
+        "CVE-2025-40885",
+        "CVE-2025-40886",
+        "CVE-2025-40887",
+        "CVE-2025-40888",
+        "CVE-2025-40889",
+        "CVE-2025-40890"
+      ],
+      "publication_date": "2025-08-12",
+      "last_update": "2026-01-13",
+      "version": "4",
+      "summary": "Nozomi Networks has published information on vulnerabilities in Nozomi Guardian/CMC. This advisory lists the related Siemens Industrial products affected by these vulnerabilities.\n\nSiemens has released a new version for RUGGEDCOM APE1808 and recommends to update to the latest version.",
+      "affected_products": [
+        {
+          "product": "RUGGEDCOM APE1808",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-978177.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-978177.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-978177.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-928984",
+      "title": "SSA-928984: Heap-based Buffer Overflow Vulnerability in User Management Component (UMC)",
+      "cvss_v3_score": 9.8,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2024-49775"
+      ],
+      "publication_date": "2024-12-16",
+      "last_update": "2026-01-13",
+      "version": "5",
+      "summary": "Siemens User Management Component (UMC) is affected by a heap-based buffer overflow vulnerability which could allow an unauthenticated remote attacker arbitrary code execution.\n\nSiemens has released new versions for several affected products and recommends to update to the latest versions. Siemens recommends specific countermeasures for products where fixes are not, or not yet available.",
+      "affected_products": [
+        {
+          "product": "Desigo ABT",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Opcenter Execution Foundation",
+          "versions": "vers:intdot/<2501.0001",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Opcenter Intelligence",
+          "versions": "vers:intdot/<2501.0001",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Opcenter Quality",
+          "versions": "vers:intdot/<2512",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Opcenter RDnL",
+          "versions": "vers:intdot/<2410",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS neo V4.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS neo V4.1",
+          "versions": "All versions < V4.1 Update 3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC PCS neo V5.0",
+          "versions": "All versions < V5.0 Update 1",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SINEC NMS",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Totally Integrated Automation Portal (TIA Portal) V16",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Totally Integrated Automation Portal (TIA Portal) V17",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Totally Integrated Automation Portal (TIA Portal) V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Totally Integrated Automation Portal (TIA Portal) V19",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-928984.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-928984.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-928984.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-858251",
+      "title": "SSA-858251: Authentication Bypass Vulnerabilities in OPC UA",
+      "cvss_v3_score": 9.1,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2024-42512",
+        "CVE-2024-42513"
+      ],
+      "publication_date": "2025-03-11",
+      "last_update": "2026-01-13",
+      "version": "3",
+      "summary": "The products listed below contain two authentication bypass vulnerabilities that could allow an attacker to gain access to the data managed by the server.\n\nSiemens has released new versions for several affected products and recommends to update to the latest versions. Siemens is preparing further fix versions and recommends countermeasures for products where fixes are not, or not yet available.",
+      "affected_products": [
+        {
+          "product": "Industrial Edge for Machine Tools (formerly known as \"SINUMERIK Edge\")",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC BRAUMAT",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Energy Manager PRO V7.2",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Energy Manager PRO V7.3",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Energy Manager PRO V7.4",
+          "versions": "All versions >= V7.4 Update 0 < V7.4 Update 7",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC Energy Manager PRO V7.5",
+          "versions": "All versions >= V7.5 Update 0 < V7.5 Update 2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC IPC DiagMonitor",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC SISTAR",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Unified V18",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC Unified V19",
+          "versions": "All versions < V19 Update 4",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMATIC WinCC V8.0",
+          "versions": "All versions < V8.0 Update 3",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SIMIT V11",
+          "versions": "vers:intdot/<11.3",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-858251.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-858251.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-858251.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-832273",
+      "title": "SSA-832273: Multiple Vulnerabilities in Fortigate NGFW Before V7.4.3 on RUGGEDCOM APE1808 Devices",
+      "cvss_v3_score": 4.3,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2022-23439",
+        "CVE-2022-45862",
+        "CVE-2023-36640",
+        "CVE-2023-38545",
+        "CVE-2023-38546",
+        "CVE-2023-40721",
+        "CVE-2023-41677",
+        "CVE-2023-42785",
+        "CVE-2023-42786",
+        "CVE-2023-42789",
+        "CVE-2023-42790",
+        "CVE-2023-44247",
+        "CVE-2023-44250",
+        "CVE-2023-44487",
+        "CVE-2023-45583",
+        "CVE-2023-45586",
+        "CVE-2023-46714",
+        "CVE-2023-46715",
+        "CVE-2023-46717",
+        "CVE-2023-46718",
+        "CVE-2023-47537",
+        "CVE-2023-48784",
+        "CVE-2024-23110",
+        "CVE-2024-23112",
+        "CVE-2024-23113",
+        "CVE-2024-23662",
+        "CVE-2024-26007",
+        "CVE-2024-26011",
+        "CVE-2024-40593",
+        "CVE-2025-54822"
+      ],
+      "publication_date": "2024-03-12",
+      "last_update": "2026-01-13",
+      "version": "12",
+      "summary": "Fortinet has published information on vulnerabilities in FORTIOS. This advisory lists the related Siemens Industrial products.\n\nSiemens has released a new version for RUGGEDCOM APE1808 and recommends to update to the latest version. Siemens is preparing further fix versions and recommends specific countermeasures for products where fixes are not, or not yet available.",
+      "affected_products": [
+        {
+          "product": "RUGGEDCOM APE1808",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM APE1808",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-832273.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-832273.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-832273.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-827968",
+      "title": "SSA-827968: Vulnerability in Nozomi Guardian/CMC on RUGGEDCOM APE1808 Devices",
+      "cvss_v3_score": 8.1,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2025-40891",
+        "CVE-2025-40892",
+        "CVE-2025-40893",
+        "CVE-2025-40898"
+      ],
+      "publication_date": "2026-01-13",
+      "last_update": "2026-01-13",
+      "version": "1",
+      "summary": "Nozomi Networks has published information on vulnerabilities in Nozomi Guardian/CMC. This advisory lists the related Siemens Industrial products affected by these vulnerabilities.\n\nSiemens is preparing fix versions and recommends countermeasures for products where fixes are not, or not yet available.",
+      "affected_products": [
+        {
+          "product": "RUGGEDCOM APE1808",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-827968.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-827968.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-827968.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-698820",
+      "title": "SSA-698820: Multiple Vulnerabilities in Fortigate NGFW Before V7.4.4 on RUGGEDCOM APE1808 Devices",
+      "cvss_v3_score": 3.7,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2023-46720",
+        "CVE-2023-50176",
+        "CVE-2024-21754",
+        "CVE-2024-23111",
+        "CVE-2024-26006",
+        "CVE-2024-26008",
+        "CVE-2024-26010",
+        "CVE-2024-26011",
+        "CVE-2024-26015",
+        "CVE-2024-33510",
+        "CVE-2024-36505",
+        "CVE-2024-47570",
+        "CVE-2024-50568",
+        "CVE-2025-47295"
+      ],
+      "publication_date": "2024-07-09",
+      "last_update": "2026-01-13",
+      "version": "11",
+      "summary": "Fortinet has published information on vulnerabilities in FORTIOS. This advisory lists the related Siemens Industrial products.\n\nSiemens has released a new version of Fortigate NGFW for RUGGEDCOM APE1808 and recommends to update to the latest version. Siemens recommends to consult and implement the workarounds provided in Fortinet's upstream security notifications.",
+      "affected_products": [
+        {
+          "product": "RUGGEDCOM APE1808",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-698820.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-698820.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-698820.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-693776",
+      "title": "SSA-693776: Multiple Vulnerabilities in Industrial Communication Devices based on SINEC OS before V3.2",
+      "cvss_v3_score": 4.8,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2025-40567",
+        "CVE-2025-40568",
+        "CVE-2025-40569"
+      ],
+      "publication_date": "2025-06-10",
+      "last_update": "2026-01-13",
+      "version": "2",
+      "summary": "Several Industrial Communication Devices based on SINEC OS before V3.2 contain multiple vulnerabilities that could allow an attacker to circumvent authorization checks and perform actions that exceed the permissions of the \"guest\" role.\n\nSiemens has released new versions for the affected products and recommends to update to the latest versions.",
+      "affected_products": [
+        {
+          "product": "RUGGEDCOM RST2428P (6GK6242-6PA00)",
+          "versions": "vers:intdot/<3.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XC316-8 (6GK5324-8TS00-2AC2)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XC324-4 (6GK5328-4TS00-2AC2)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XC324-4 EEC (6GK5328-4TS00-2EC2)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XC332 (6GK5332-0GA00-2AC2)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XC416-8 (6GK5424-8TR00-2AC2)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XC424-4 (6GK5428-4TR00-2AC2)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XC432 (6GK5432-0GR00-2AC2)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XCH328 (6GK5328-4TS01-2EC2)",
+          "versions": "vers:intdot/<3.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XCM324 (6GK5324-8TS01-2AC2)",
+          "versions": "vers:intdot/<3.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XCM328 (6GK5328-4TS01-2AC2)",
+          "versions": "vers:intdot/<3.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XCM332 (6GK5332-0GA01-2AC2)",
+          "versions": "vers:intdot/<3.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR302-32 (6GK5334-5TS00-2AR3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR302-32 (6GK5334-5TS00-3AR3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR302-32 (6GK5334-5TS00-4AR3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR322-12 (6GK5334-3TS00-2AR3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR322-12 (6GK5334-3TS00-3AR3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR322-12 (6GK5334-3TS00-4AR3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR326-8 (6GK5334-2TS00-2AR3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR326-8 (6GK5334-2TS00-3AR3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR326-8 (6GK5334-2TS00-4AR3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR326-8 EEC (6GK5334-2TS00-2ER3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR502-32 (6GK5534-5TR00-2AR3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR502-32 (6GK5534-5TR00-3AR3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR502-32 (6GK5534-5TR00-4AR3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR522-12 (6GK5534-3TR00-2AR3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR522-12 (6GK5534-3TR00-3AR3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR522-12 (6GK5534-3TR00-4AR3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR526-8 (6GK5534-2TR00-2AR3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR526-8 (6GK5534-2TR00-3AR3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XR526-8 (6GK5534-2TR00-4AR3)",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRH334 (24 V DC, 8xFO, CC) (6GK5334-2TS01-2ER3)",
+          "versions": "vers:intdot/<3.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRM334 (230 V AC, 12xFO) (6GK5334-3TS01-3AR3)",
+          "versions": "vers:intdot/<3.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRM334 (230 V AC, 8xFO) (6GK5334-2TS01-3AR3)",
+          "versions": "vers:intdot/<3.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRM334 (230V AC, 2x10G, 24xSFP, 8xSFP+) (6GK5334-5TS01-3AR3)",
+          "versions": "vers:intdot/<3.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRM334 (24 V DC, 12xFO) (6GK5334-3TS01-2AR3)",
+          "versions": "vers:intdot/<3.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRM334 (24 V DC, 8xFO) (6GK5334-2TS01-2AR3)",
+          "versions": "vers:intdot/<3.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRM334 (24V DC, 2x10G, 24xSFP, 8xSFP+) (6GK5334-5TS01-2AR3)",
+          "versions": "vers:intdot/<3.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRM334 (2x230 V AC, 12xFO) (6GK5334-3TS01-4AR3)",
+          "versions": "vers:intdot/<3.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRM334 (2x230 V AC, 8xFO) (6GK5334-2TS01-4AR3)",
+          "versions": "vers:intdot/<3.2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SCALANCE XRM334 (2x230V AC, 2x10G, 24xSFP, 8xSFP+) (6GK5334-5TS01-4AR3)",
+          "versions": "vers:intdot/<3.2",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-693776.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-693776.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-693776.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-366067",
+      "title": "SSA-366067: Multiple Vulnerabilities in Fortigate NGFW Before V7.4.1 on RUGGEDCOM APE1808 Devices",
+      "cvss_v3_score": 5.6,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2022-39948",
+        "CVE-2022-41327",
+        "CVE-2022-41328",
+        "CVE-2022-41329",
+        "CVE-2022-41330",
+        "CVE-2022-41334",
+        "CVE-2022-42469",
+        "CVE-2022-42474",
+        "CVE-2022-42476",
+        "CVE-2022-43947",
+        "CVE-2022-43953",
+        "CVE-2022-45861",
+        "CVE-2023-22639",
+        "CVE-2023-22640",
+        "CVE-2023-22641",
+        "CVE-2023-25610",
+        "CVE-2023-26207",
+        "CVE-2023-28001",
+        "CVE-2023-28002",
+        "CVE-2023-29175",
+        "CVE-2023-29178",
+        "CVE-2023-29179",
+        "CVE-2023-29180",
+        "CVE-2023-29181",
+        "CVE-2023-29183",
+        "CVE-2023-29184",
+        "CVE-2023-33301",
+        "CVE-2023-33305",
+        "CVE-2023-33306",
+        "CVE-2023-33307",
+        "CVE-2023-33308",
+        "CVE-2023-36555",
+        "CVE-2023-36639",
+        "CVE-2023-36641",
+        "CVE-2023-37930",
+        "CVE-2023-37935",
+        "CVE-2023-40718",
+        "CVE-2023-41675",
+        "CVE-2023-41841",
+        "CVE-2023-45584",
+        "CVE-2024-26009",
+        "CVE-2025-47294",
+        "CVE-2025-62631"
+      ],
+      "publication_date": "2024-03-12",
+      "last_update": "2026-01-13",
+      "version": "8",
+      "summary": "Fortinet has published information on vulnerabilities in FORTIOS. This advisory lists the related Siemens Industrial products.\n\nSiemens has released a new version for RUGGEDCOM APE1808 and recommends to update to the latest version. Siemens is preparing further fix versions and recommends specific countermeasures for products where fixes are not, or not yet available.",
+      "affected_products": [
+        {
+          "product": "RUGGEDCOM APE1808",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-366067.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-366067.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-366067.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-365200",
+      "title": "SSA-365200: Google Chrome Type Confusion Vulnerability in Siemens Products",
+      "cvss_v3_score": 6.6,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2025-6554"
+      ],
+      "publication_date": "2025-10-14",
+      "last_update": "2026-01-13",
+      "version": "2",
+      "summary": "Multiple Siemens products are affected by a type confusion vulnerability in Google Chrome prior to 138.0.7204.96. This could allow a remote attacker to perform arbitrary code execution via a crafted HTML page.\n\nSiemens has released a new version for Industrial Edge App Publisher and recommends to update to the latest version. Siemens is preparing further fix versions and recommends countermeasures for products where fixes are not, or not yet available.",
+      "affected_products": [
+        {
+          "product": "HyperLynx",
+          "versions": "vers:intdot/<2510.0001",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Industrial Edge App Publisher",
+          "versions": "vers:intdot/<1.23.5",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-365200.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-365200.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-365200.pdf",
+      "txt_url": null
+    },
+    {
+      "ssa_id": "SSA-201595",
+      "title": "SSA-201595: Privilege Escalation Vulnerability in WIBU CodeMeter Runtime Affecting the Desigo CC Product Family and SENTRON Powermanager",
+      "cvss_v3_score": 8.2,
+      "cvss_v4_score": null,
+      "cve_ids": [
+        "CVE-2025-47809"
+      ],
+      "publication_date": "2025-08-14",
+      "last_update": "2026-01-13",
+      "version": "3",
+      "summary": "Versions V5.0 through V8 of the Desigo CC product family (Desigo CC, Desigo CC Compact, Desigo CC Connect, Cerberus DMS), as well as the Desigo CC-based SENTRON Powermanager, are affected by a vulnerability in the underlying third-party component WIBU Systems CodeMeter Runtime. Successful exploitation of this vulnerability could allow privilege escalation.\n\nSiemens has released instructions how to update the CodeMeter Runtime component and recommends to apply the update on affected systems.",
+      "affected_products": [
+        {
+          "product": "Desigo CC family V5.0",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Desigo CC family V5.1",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Desigo CC family V6",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Desigo CC family V7",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "Desigo CC family V8",
+          "versions": "All versions < V8.0 QU2",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SENTRON Powermanager V5",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SENTRON Powermanager V6",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SENTRON Powermanager V7",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "SENTRON Powermanager V8",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        }
+      ],
+      "mitigations": [],
+      "general_recommendations": [
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
+      ],
+      "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-201595.html",
+      "csaf_url": "https://cert-portal.siemens.com/productcert/csaf/ssa-201595.json",
+      "pdf_url": "https://cert-portal.siemens.com/productcert/pdf/ssa-201595.pdf",
+      "txt_url": null
+    },
     {
       "ssa_id": "SSA-512988",
       "title": "SSA-512988: File Parsing Vulnerability in Simcenter Femap Before V2512",
@@ -1100,12 +2828,72 @@
         "CVE-2024-56840"
       ],
       "publication_date": "2025-12-09",
-      "last_update": "2025-12-09",
-      "version": "1",
+      "last_update": "2026-01-13",
+      "version": "2",
       "summary": "Devices based on RUGGEDCOM ROX before V2.17 contain multiple high severity vulnerabilities.\n\nSiemens has released a new version for RUGGEDCOM ROX II family and recommends to update to the latest version.",
       "affected_products": [
         {
-          "product": "RUGGEDCOM ROX II family",
+          "product": "RUGGEDCOM ROX MX5000",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX MX5000RE",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX1400",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX1500",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX1501",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX1510",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX1511",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX1512",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX1524",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX1536",
+          "versions": "vers:intdot/<2.17.0",
+          "remediation": "",
+          "cve_id": null
+        },
+        {
+          "product": "RUGGEDCOM ROX RX5000",
           "versions": "vers:intdot/<2.17.0",
           "remediation": "",
           "cve_id": null
@@ -5911,8 +7699,8 @@
         "CVE-2025-30033"
       ],
       "publication_date": "2025-08-12",
-      "last_update": "2025-12-09",
-      "version": "5",
+      "last_update": "2026-02-10",
+      "version": "7",
       "summary": "The installers used to install several Siemens products are affected by a DLL hijacking vulnerability. This could allow an attacker to execute arbitrary code when a legitimate user installs an application that uses the affected installer component. This vulnerability poses a risk only during setup and installation phase of the affected applications downloaded e.g. via OSD (Online Software Delivery).\n\nSiemens has released new versions for several affected products and recommends using the latest versions during setup and installation. Siemens is preparing further fix versions and recommends specific countermeasures for products where fixes are not, or not yet available.",
       "affected_products": [
         {
@@ -5941,7 +7729,7 @@
         },
         {
           "product": "Create MyConfig (CMC)",
-          "versions": "vers:all/*",
+          "versions": "vers:intdot/<6.9",
           "remediation": "",
           "cve_id": null
         },
@@ -5965,7 +7753,7 @@
         },
         {
           "product": "MultiFieldbus Configuration Tool (MFCT)",
-          "versions": "vers:all/*",
+          "versions": "vers:intdot/<1.5.5.0",
           "remediation": "",
           "cve_id": null
         },
@@ -6091,7 +7879,7 @@
         },
         {
           "product": "SIMATIC Logon V2.0",
-          "versions": "vers:all/*",
+          "versions": "All versions < V2.0 Upd3",
           "remediation": "",
           "cve_id": null
         },
@@ -6229,7 +8017,7 @@
         },
         {
           "product": "SIMATIC PCS 7 Basis Library V10.0",
-          "versions": "vers:all/*",
+          "versions": "All versions < V10.0 SP1 Upd2",
           "remediation": "",
           "cve_id": null
         },
@@ -6343,7 +8131,7 @@
         },
         {
           "product": "SIMATIC PDM V9.3",
-          "versions": "vers:all/*",
+          "versions": "All versions < V9.3 SP1 Upd2",
           "remediation": "",
           "cve_id": null
         },
@@ -6367,7 +8155,7 @@
         },
         {
           "product": "SIMATIC Process Historian 2024",
-          "versions": "vers:all/*",
+          "versions": "All versions < V2024 SP1 Upd2",
           "remediation": "",
           "cve_id": null
         },
@@ -6511,13 +8299,13 @@
         },
         {
           "product": "SIMATIC WinCC Runtime Advanced",
-          "versions": "vers:all/*",
+          "versions": "All versions < V17 Update 9",
           "remediation": "",
           "cve_id": null
         },
         {
           "product": "SIMATIC WinCC Runtime Professional",
-          "versions": "vers:all/*",
+          "versions": "vers:intdot/<21",
           "remediation": "",
           "cve_id": null
         },
@@ -6583,7 +8371,7 @@
         },
         {
           "product": "SIMATIC WinCC Visualization Architect (SiVArc) V17",
-          "versions": "vers:all/*",
+          "versions": "All versions < V17 Update 9",
           "remediation": "",
           "cve_id": null
         },
@@ -6745,7 +8533,7 @@
         },
         {
           "product": "WinCC Panel Image Setup",
-          "versions": "vers:all/*",
+          "versions": "All versions < V17 Update 9",
           "remediation": "",
           "cve_id": null
         }
@@ -6774,8 +8562,8 @@
         "CVE-2025-40801"
       ],
       "publication_date": "2025-12-09",
-      "last_update": "2025-12-09",
-      "version": "1",
+      "last_update": "2026-02-10",
+      "version": "3",
       "summary": "COMOS is affected by multiple vulnerabilities that could allow an attacker to execute arbitrary code or cause denial of service condition, data infiltration or perform access control violations. \n\nSiemens has released new versions for several affected products and recommends to update to the latest versions. Siemens is preparing further fix versions and recommends countermeasures for products where fixes are not, or not yet available.",
       "affected_products": [
         {
@@ -6792,7 +8580,7 @@
         },
         {
           "product": "COMOS V10.4.5",
-          "versions": "vers:all/*",
+          "versions": "vers:intdot/<10.4.5.0.2",
           "remediation": "",
           "cve_id": null
         },
@@ -6805,12 +8593,6 @@
         {
           "product": "COMOS V10.5",
           "versions": "vers:intdot/<10.5.2",
-          "remediation": "",
-          "cve_id": null
-        },
-        {
-          "product": "COMOS V10.5.2",
-          "versions": "vers:all/*",
           "remediation": "",
           "cve_id": null
         },
@@ -7887,7 +9669,7 @@
     {
       "ssa_id": "SSA-364175",
       "title": "SSA-364175: Multiple Vulnerabilities in Palo Alto Networks Virtual NGFW on RUGGEDCOM APE1808 Devices Before V11.1.4-h1",
-      "cvss_v3_score": 9.1,
+      "cvss_v3_score": 7.5,
       "cvss_v4_score": null,
       "cve_ids": [
         "CVE-2023-48795",
@@ -7897,13 +9679,20 @@
         "CVE-2024-9468",
         "CVE-2024-9471",
         "CVE-2025-0114",
-        "CVE-2025-4231"
+        "CVE-2025-4231",
+        "CVE-2025-4619"
       ],
       "publication_date": "2024-07-09",
-      "last_update": "2025-07-08",
-      "version": "7",
-      "summary": "Palo Alto Networks has published [1] information on vulnerabilities in PAN-OS. This advisory lists the related Siemens Industrial products affected by these vulnerabilities.\n\nSiemens is preparing updates and recommends specific countermeasures for products where updates are not, or not yet available. Customers are advised to consult and implement the workarounds provided in Palo Alto Networks' upstream security notifications.\n\n[1] \nhttps://security.paloaltonetworks.com/",
+      "last_update": "2026-01-13",
+      "version": "8",
+      "summary": "Palo Alto Networks has published [1] information on vulnerabilities in PAN-OS. This advisory lists the related Siemens Industrial products affected by these vulnerabilities.\n\nSiemens is preparing updates and recommends specific countermeasures for products where updates are not, or not yet available. Customers are advised to consult and implement the workarounds provided in Palo Alto Networks' upstream security notifications.\n\n[1] https://security.paloaltonetworks.com/",
       "affected_products": [
+        {
+          "product": "RUGGEDCOM APE1808",
+          "versions": "vers:all/*",
+          "remediation": "",
+          "cve_id": null
+        },
         {
           "product": "RUGGEDCOM APE1808",
           "versions": "vers:all/*",
@@ -7925,7 +9714,7 @@
       ],
       "mitigations": [],
       "general_recommendations": [
-        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: \nhttps://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
+        "As a general security measure, Siemens strongly recommends to protect network access to devices with appropriate mechanisms. In order to operate the devices in a protected IT environment, Siemens recommends to configure the environment according to Siemens' operational guidelines for Industrial Security (Download: https://www.siemens.com/cert/operational-guidelines-industrial-security), and to follow the recommendations in the product manuals.\nAdditional information on Industrial Security by Siemens can be found at: https://www.siemens.com/industrialsecurity",
         "For further inquiries on security vulnerabilities in Siemens products and solutions, please contact the Siemens ProductCERT: https://www.siemens.com/cert/advisories"
       ],
       "html_url": "https://cert-portal.siemens.com/productcert/html/ssa-364175.html",
@@ -8519,7 +10308,7 @@
     {
       "ssa_id": "SSA-265688",
       "title": "SSA-265688: Vulnerabilities in the additional GNU/Linux subsystem of the SIMATIC S7-1500 TM MFP V1.1",
-      "cvss_v3_score": 5.5,
+      "cvss_v3_score": 5.3,
       "cvss_v4_score": null,
       "cve_ids": [
         "CVE-2021-4090",
@@ -8914,6 +10703,13 @@
         "CVE-2024-58071",
         "CVE-2024-58072",
         "CVE-2024-58085",
+        "CVE-2025-3198",
+        "CVE-2025-5244",
+        "CVE-2025-5245",
+        "CVE-2025-7425",
+        "CVE-2025-7545",
+        "CVE-2025-7546",
+        "CVE-2025-8224",
         "CVE-2025-9230",
         "CVE-2025-21638",
         "CVE-2025-21639",
@@ -8959,11 +10755,18 @@
         "CVE-2025-21858",
         "CVE-2025-21859",
         "CVE-2025-21862",
-        "CVE-2025-21865"
+        "CVE-2025-21865",
+        "CVE-2025-68160",
+        "CVE-2025-69418",
+        "CVE-2025-69419",
+        "CVE-2025-69420",
+        "CVE-2025-69421",
+        "CVE-2026-22795",
+        "CVE-2026-22796"
       ],
       "publication_date": "2024-04-09",
-      "last_update": "2025-10-14",
-      "version": "11",
+      "last_update": "2026-02-10",
+      "version": "12",
       "summary": "Multiple vulnerabilities have been identified in the additional GNU/Linux subsystem of the SIMATIC S7-1500 TM MFP V1.1.\n\nSiemens is preparing fix versions and recommends specific countermeasures for products where fixes are not, or not yet available.",
       "affected_products": [
         {
@@ -10464,8 +12267,8 @@
         "CVE-2024-56182"
       ],
       "publication_date": "2025-03-11",
-      "last_update": "2025-11-11",
-      "version": "3",
+      "last_update": "2026-02-10",
+      "version": "4",
       "summary": "Multiple vulnerabilities has been identified in Siemens SIMATIC IPCs, SIMATIC Tablet PCs, and SIMATIC Field PGs that can allow an authenticated attacker to  alter the secure boot and password configurations.\n\nSiemens has released new versions of BIOS for several affected products and recommends to update to the latest versions. Siemens is preparing further fix versions and recommends specific countermeasures for products where fixes are not, or not yet available.",
       "affected_products": [
         {
@@ -10530,7 +12333,7 @@
         },
         {
           "product": "SIMATIC IPC RC-543B",
-          "versions": "vers:all/*",
+          "versions": "vers:intdot/<35.01.12",
           "remediation": "",
           "cve_id": null
         },
@@ -10542,7 +12345,7 @@
         },
         {
           "product": "SIMATIC IPC RW-543B",
-          "versions": "vers:all/*",
+          "versions": "vers:intdot/<35.02.10",
           "remediation": "",
           "cve_id": null
         },

@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react'
 import { Search, Filter, X } from 'lucide-react'
+import HitachiDateRangeFilter from './HitachiDateRangeFilter'
 import type { HitachiVulnerability } from '@/types'
 
 interface HitachiSearchFilterProps {
@@ -9,14 +10,36 @@ interface HitachiSearchFilterProps {
   onFilterChange: (filtered: HitachiVulnerability[]) => void
 }
 
+interface DateRange {
+  from: Date | undefined
+  to: Date | undefined
+}
+
+// Parse Hitachi date format: "December 23, 2025" or "January 14, 2026"
+function parseHitachiDate(dateStr: string): Date | null {
+  if (!dateStr) return null
+  
+  // Try parsing "Month Day, Year" format
+  const parsed = new Date(dateStr)
+  if (!isNaN(parsed.getTime())) {
+    return parsed
+  }
+  
+  return null
+}
+
 export default function HitachiSearchFilter({ vulnerabilities, onFilterChange }: HitachiSearchFilterProps) {
   const [searchTerm, setSearchTerm] = useState('')
   const [cveCountFilter, setCveCountFilter] = useState<'All' | '1-2' | '3-5' | '5+'>('All')
   const [showFilters, setShowFilters] = useState(false)
+  const [dateRange, setDateRange] = useState<DateRange>({ from: undefined, to: undefined })
+  const [dateField, setDateField] = useState<'last_update'>('last_update')
 
   const applyFilters = useCallback((
     search: string, 
-    cveCount: 'All' | '1-2' | '3-5' | '5+'
+    cveCount: 'All' | '1-2' | '3-5' | '5+',
+    dates: DateRange,
+    field: 'last_update'
   ) => {
     let filtered = [...vulnerabilities]
 
@@ -51,30 +74,70 @@ export default function HitachiSearchFilter({ vulnerabilities, onFilterChange }:
       })
     }
 
+    // Apply date range filter
+    if (dates.from || dates.to) {
+      filtered = filtered.filter(vuln => {
+        const dateStr = vuln.last_update
+        if (!dateStr) return false
+        
+        const vulnDate = parseHitachiDate(dateStr)
+        if (!vulnDate) return false
+        
+        // Normalize to start of day for comparison
+        const vulnDateNormalized = new Date(vulnDate.getFullYear(), vulnDate.getMonth(), vulnDate.getDate())
+        
+        if (dates.from && dates.to) {
+          const fromNormalized = new Date(dates.from.getFullYear(), dates.from.getMonth(), dates.from.getDate())
+          const toNormalized = new Date(dates.to.getFullYear(), dates.to.getMonth(), dates.to.getDate())
+          return vulnDateNormalized >= fromNormalized && vulnDateNormalized <= toNormalized
+        } else if (dates.from) {
+          const fromNormalized = new Date(dates.from.getFullYear(), dates.from.getMonth(), dates.from.getDate())
+          return vulnDateNormalized >= fromNormalized
+        } else if (dates.to) {
+          const toNormalized = new Date(dates.to.getFullYear(), dates.to.getMonth(), dates.to.getDate())
+          return vulnDateNormalized <= toNormalized
+        }
+        
+        return true
+      })
+    }
+
     onFilterChange(filtered)
   }, [vulnerabilities, onFilterChange])
 
   const handleSearchChange = (value: string) => {
     setSearchTerm(value)
-    applyFilters(value, cveCountFilter)
+    applyFilters(value, cveCountFilter, dateRange, dateField)
   }
 
   const handleCveCountChange = (value: 'All' | '1-2' | '3-5' | '5+') => {
     setCveCountFilter(value)
-    applyFilters(searchTerm, value)
+    applyFilters(searchTerm, value, dateRange, dateField)
+  }
+
+  const handleDateRangeChange = (range: DateRange) => {
+    setDateRange(range)
+    applyFilters(searchTerm, cveCountFilter, range, dateField)
+  }
+
+  const handleDateFieldChange = (field: 'last_update') => {
+    setDateField(field)
+    applyFilters(searchTerm, cveCountFilter, dateRange, field)
   }
 
   const clearFilters = () => {
     setSearchTerm('')
     setCveCountFilter('All')
+    setDateRange({ from: undefined, to: undefined })
     onFilterChange(vulnerabilities)
   }
 
-  const hasActiveFilters = searchTerm.trim() !== '' || cveCountFilter !== 'All'
+  const hasActiveFilters = searchTerm.trim() !== '' || cveCountFilter !== 'All' || dateRange.from !== undefined || dateRange.to !== undefined
   
   const activeFilterCount = 
     (searchTerm.trim() ? 1 : 0) + 
-    (cveCountFilter !== 'All' ? 1 : 0)
+    (cveCountFilter !== 'All' ? 1 : 0) +
+    (dateRange.from || dateRange.to ? 1 : 0)
 
   return (
     <div className="space-y-4">
@@ -140,6 +203,15 @@ export default function HitachiSearchFilter({ vulnerabilities, onFilterChange }:
                 </button>
               ))}
             </div>
+          </div>
+
+          {/* Date Range Filter */}
+          <div className="pt-4 border-t border-slate-700">
+            <HitachiDateRangeFilter
+              onDateRangeChange={handleDateRangeChange}
+              dateField={dateField}
+              onDateFieldChange={handleDateFieldChange}
+            />
           </div>
         </div>
       )}

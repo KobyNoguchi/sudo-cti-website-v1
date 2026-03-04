@@ -29,7 +29,7 @@ def export_to_json(vulnerabilities: list[SiemensVulnerability], output_path: str
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
     
-    print(f"✓ Exported {len(vulnerabilities)} vulnerabilities to {output_path}")
+    print(f"[OK] Exported {len(vulnerabilities)} vulnerabilities to {output_path}")
 
 
 def export_to_excel(vulnerabilities: list[SiemensVulnerability], output_path: str) -> None:
@@ -182,5 +182,5 @@ def export_to_excel(vulnerabilities: list[SiemensVulnerability], output_path: st
     output_file.parent.mkdir(parents=True, exist_ok=True)
     wb.save(output_file)
     
-    print(f"✓ Exported {len(vulnerabilities)} vulnerabilities to {output_path}")
+    print(f"[OK] Exported {len(vulnerabilities)} vulnerabilities to {output_path}")
 

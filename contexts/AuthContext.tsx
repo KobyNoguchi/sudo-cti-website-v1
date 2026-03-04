@@ -23,12 +23,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname()
 
   useEffect(() => {
+    // Fallback: if Supabase doesn't respond within 3s (e.g. network error on static host),
+    // stop showing the loading skeleton and show the Login button instead.
+    const loadingTimeout = setTimeout(() => setLoading(false), 3000)
+
     // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-      setUser(session?.user ?? null)
-      setLoading(false)
-    })
+    supabase.auth.getSession()
+      .then(({ data: { session } }) => {
+        setSession(session)
+        setUser(session?.user ?? null)
+        setLoading(false)
+      })
+      .catch(() => {
+        setLoading(false)
+      })
+      .finally(() => {
+        clearTimeout(loadingTimeout)
+      })
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(

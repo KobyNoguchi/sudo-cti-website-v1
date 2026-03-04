@@ -28,7 +28,12 @@ from typing import Optional
 # Known SSA IDs from Siemens CERT
 # These can be found on https://www.siemens.com/global/en/products/services/cert.html
 SSA_IDS = [
-    # Page 1 (most recent - December 2025)
+    # January 2026 (most recent)
+    "SSA-192617", "SSA-014678", "SSA-001536",
+    "SSA-089022", "SSA-978177", "SSA-928984", "SSA-858251", "SSA-832273",
+    "SSA-827968", "SSA-698820", "SSA-693776", "SSA-366067", "SSA-365200",
+    "SSA-201595",
+    # December 2025
     "SSA-512988", "SSA-915282", "SSA-912274", "SSA-882673", "SSA-868571",
     "SSA-800126", "SSA-763474", "SSA-734261", "SSA-723487", "SSA-710408",
     "SSA-693808", "SSA-673996", "SSA-654321", "SSA-640476", "SSA-626856",

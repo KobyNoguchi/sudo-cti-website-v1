@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Shield, FileText, Bell, BarChart3, ChevronRight, Newspaper, TrendingUp } from 'lucide-react'
+import { Shield, FileText, Bell, BarChart3, ChevronRight, Newspaper, TrendingUp, Rss } from 'lucide-react'
 
 const intelligenceTypes = [
   {
@@ -30,6 +30,15 @@ const intelligenceTypes = [
     color: 'from-purple-500 to-pink-600',
     stats: { sectors: 6, reports: 12 },
     href: '/intelligence/analysis',
+  },
+  {
+    id: 'feeds',
+    name: 'OSINT Feed Hub',
+    description: 'Live threat intelligence aggregated from Check Point, Google TAG, Talos, Unit 42, Mandiant, and more',
+    icon: Rss,
+    color: 'from-emerald-500 to-teal-600',
+    stats: { sources: 10, live: 1 },
+    href: '/intelligence/feeds',
   },
 ]
 

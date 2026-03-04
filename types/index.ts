@@ -78,3 +78,29 @@ export interface VulnerabilityData {
 
 export type VulnerabilitySeverity = 'Critical' | 'High' | 'Medium' | 'Low' | 'Unknown'
 
+// Hitachi Vulnerability Types
+export interface HitachiAffectedProduct {
+  product: string
+  versions: string
+  fixed_version: string
+  cve_id?: string | null
+}export interface HitachiVulnerability {
+  advisory_id: string
+  title: string
+  cve_ids: string[]
+  cvss_scores: Record<string, number>
+  description: string
+  publication_date: string
+  last_update: string
+  affected_products: HitachiAffectedProduct[]
+  fixed_products: string[]
+  html_url: string
+}export interface HitachiVulnerabilityData {
+  metadata: {
+    source: string
+    scraped_at: string
+    total_count: number
+    url: string
+  }
+  vulnerabilities: HitachiVulnerability[]
+}

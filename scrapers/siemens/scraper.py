@@ -65,7 +65,7 @@ def get_session() -> requests.Session:
 def create_webdriver(headless: bool = True) -> Optional[webdriver.Chrome]:
     """Create a Selenium Chrome WebDriver for JavaScript-rendered pages."""
     if not SELENIUM_AVAILABLE:
-        print("  ✗ Selenium not available. Please install: pip install selenium webdriver-manager")
+        print("  [ERROR] Selenium not available. Please install: pip install selenium webdriver-manager")
         return None
     
     try:
@@ -83,7 +83,7 @@ def create_webdriver(headless: bool = True) -> Optional[webdriver.Chrome]:
         driver = webdriver.Chrome(service=service, options=chrome_options)
         return driver
     except Exception as e:
-        print(f"  ✗ Error creating WebDriver: {e}")
+        print(f"  [ERROR] Error creating WebDriver: {e}")
         return None
 
 
@@ -200,7 +200,7 @@ def scrape_page_with_selenium(driver: webdriver.Chrome) -> list[dict]:
                     continue
     
     except Exception as e:
-        print(f"  ✗ Error parsing page: {e}")
+        print(f"  [ERROR] Error parsing page: {e}")
     
     return advisories
 
@@ -244,7 +244,7 @@ def click_next_page(driver: webdriver.Chrome) -> bool:
         return False
         
     except Exception as e:
-        print(f"  ✗ Error clicking next page: {e}")
+        print(f"  [ERROR] Error clicking next page: {e}")
         return False
 
 
@@ -279,7 +279,7 @@ def click_page_number(driver: webdriver.Chrome, page_num: int) -> bool:
         return False
         
     except Exception as e:
-        print(f"  ✗ Error clicking page {page_num}: {e}")
+        print(f"  [ERROR] Error clicking page {page_num}: {e}")
         return False
 
 
@@ -327,7 +327,7 @@ def fetch_page(session: requests.Session, url: str) -> Optional[BeautifulSoup]:
         except Exception:
             return BeautifulSoup(response.content, 'html.parser')
     except requests.RequestException as e:
-        print(f"  ✗ Error fetching {url}: {e}")
+        print(f"  [ERROR] Error fetching {url}: {e}")
         return None
 
 
@@ -520,7 +520,7 @@ def parse_advisory_table(soup: BeautifulSoup, base_url: str = BASE_URL) -> list[
             })
             
         except Exception as e:
-            print(f"  ✗ Error parsing row: {e}")
+            print(f"  [ERROR] Error parsing row: {e}")
             continue
     
     return advisories
@@ -543,7 +543,7 @@ def fetch_advisory_list_with_selenium(max_pages: Optional[int] = None) -> list[d
     # Create WebDriver
     driver = create_webdriver(headless=True)
     if not driver:
-        print("  ✗ Could not create WebDriver")
+        print("  [ERROR] Could not create WebDriver")
         return []
     
     try:
@@ -608,7 +608,7 @@ def fetch_advisory_list_with_selenium(max_pages: Optional[int] = None) -> list[d
             elif click_next_page(driver):
                 pass
             else:
-                print("✗ Could not navigate to next page")
+                print("[ERROR] Could not navigate to next page")
                 break
             
             # Scrape the new page
@@ -626,10 +626,10 @@ def fetch_advisory_list_with_selenium(max_pages: Optional[int] = None) -> list[d
             # Brief delay between pages
             time.sleep(REQUEST_DELAY)
         
-        print(f"  ✓ Total: {len(all_advisories)} unique advisories from {current_page} page(s)")
+        print(f"  [OK] Total: {len(all_advisories)} unique advisories from {current_page} page(s)")
         
     except Exception as e:
-        print(f"  ✗ Error during scraping: {e}")
+        print(f"  [ERROR] Error during scraping: {e}")
     
     finally:
         driver.quit()
@@ -651,7 +651,7 @@ def fetch_advisory_list(session: requests.Session, max_pages: Optional[int] = No
         return fetch_advisory_list_with_selenium(max_pages)
     
     # Fallback to basic requests (limited - only first page)
-    print("  ⚠ Selenium not available, using basic scraping (first page only)")
+    print("  [WARN] Selenium not available, using basic scraping (first page only)")
     print(f"  Install Selenium for full pagination: pip install selenium webdriver-manager")
     
     all_advisories = []
@@ -662,7 +662,7 @@ def fetch_advisory_list(session: requests.Session, max_pages: Optional[int] = No
     soup = fetch_page(session, SIEMENS_CERT_PAGE)
     
     if not soup:
-        print("  ✗ Could not fetch page")
+        print("  [ERROR] Could not fetch page")
         return []
     
     advisories = parse_advisory_table(soup, SIEMENS_CERT_PAGE)
@@ -671,7 +671,7 @@ def fetch_advisory_list(session: requests.Session, max_pages: Optional[int] = No
             all_advisories.append(adv)
             seen_ssa_ids.add(adv['ssa_id'])
     
-    print(f"  ✓ Found {len(all_advisories)} advisories (first page only)")
+    print(f"  [OK] Found {len(all_advisories)} advisories (first page only)")
     return all_advisories
 
 
@@ -980,9 +980,9 @@ def scrape_all_advisories(
             if vuln:
                 cve_count = len(vuln.cve_ids)
                 product_count = len(vuln.affected_products)
-                print(f"✓ ({cve_count} CVEs, {product_count} products)")
+                print(f"[OK] ({cve_count} CVEs, {product_count} products)")
             else:
-                print("✗ Failed")
+                print("[ERROR] Failed")
                 continue
         
         vulnerabilities.append(vuln)
