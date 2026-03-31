@@ -111,21 +111,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const setAnthropicApiKey = async (key: string) => {
     if (!user) return
     setAnthropicApiKeyState(key)
-    await supabase.from('user_settings').upsert({
+    supabase.from('user_settings').upsert({
       user_id: user.id,
       anthropic_api_key: key,
       updated_at: new Date().toISOString(),
-    }, { onConflict: 'user_id' })
+    }, { onConflict: 'user_id' }).then(({ error }) => {
+      if (error) console.error('Failed to save Anthropic key:', error)
+    })
   }
 
   const setOpenAiApiKey = async (key: string) => {
     if (!user) return
     setOpenAiApiKeyState(key)
-    await supabase.from('user_settings').upsert({
+    supabase.from('user_settings').upsert({
       user_id: user.id,
       openai_api_key: key,
       updated_at: new Date().toISOString(),
-    }, { onConflict: 'user_id' })
+    }, { onConflict: 'user_id' }).then(({ error }) => {
+      if (error) console.error('Failed to save OpenAI key:', error)
+    })
   }
 
   const signIn = async (email: string, password: string) => {
