@@ -2,7 +2,7 @@
 
 import { useAuth } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import SudoChat from '@/components/sudo-ai/SudoChat'
 import ApiKeyModal from '@/components/auth/ApiKeyModal'
 
@@ -10,6 +10,7 @@ export default function SudoAIPage() {
   const { user, loading, anthropicApiKey } = useAuth()
   const router = useRouter()
   const [isApiKeyModalOpen, setIsApiKeyModalOpen] = useState(false)
+  const hasCheckedKey = useRef(false)
 
   useEffect(() => {
     if (!loading && !user) {
@@ -17,12 +18,20 @@ export default function SudoAIPage() {
     }
   }, [user, loading, router])
 
-  // Auto-open modal when logged in but no key configured
+  // Auto-open modal once when user is loaded and has no key
+  // Use a ref to only trigger once per session, not on every re-render
   useEffect(() => {
-    if (!loading && user && anthropicApiKey === null) {
-      setIsApiKeyModalOpen(true)
+    if (!loading && user && !hasCheckedKey.current) {
+      hasCheckedKey.current = true
+      // Small delay to allow localStorage to hydrate into state
+      const timer = setTimeout(() => {
+        if (!anthropicApiKey) {
+          setIsApiKeyModalOpen(true)
+        }
+      }, 300)
+      return () => clearTimeout(timer)
     }
-  }, [loading, user, anthropicApiKey])
+  }, [loading, user])
 
   if (loading) {
     return (

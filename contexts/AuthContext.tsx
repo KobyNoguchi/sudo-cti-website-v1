@@ -20,6 +20,31 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
+const lsAnthropicKey = (userId: string) => `sudo_anthropic_key_${userId}`
+const lsOpenAiKey = (userId: string) => `sudo_openai_key_${userId}`
+
+function loadKeysFromStorage(userId: string) {
+  try {
+    return {
+      anthropic: localStorage.getItem(lsAnthropicKey(userId)),
+      openai: localStorage.getItem(lsOpenAiKey(userId)),
+    }
+  } catch {
+    return { anthropic: null, openai: null }
+  }
+}
+
+function saveKeyToStorage(storageKey: string, value: string) {
+  try { localStorage.setItem(storageKey, value) } catch {}
+}
+
+function clearKeysFromStorage(userId: string) {
+  try {
+    localStorage.removeItem(lsAnthropicKey(userId))
+    localStorage.removeItem(lsOpenAiKey(userId))
+  } catch {}
+}
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [session, setSession] = useState<Session | null>(null)
@@ -28,20 +53,29 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [openAiApiKey, setOpenAiApiKeyState] = useState<string | null>(null)
   const pathname = usePathname()
 
-  const loadUserSettings = async (userId: string) => {
-    try {
-      const { data } = await supabase
-        .from('user_settings')
-        .select('anthropic_api_key, openai_api_key')
-        .eq('user_id', userId)
-        .single()
-      if (data) {
-        setAnthropicApiKeyState(data.anthropic_api_key ?? null)
-        setOpenAiApiKeyState(data.openai_api_key ?? null)
-      }
-    } catch {
-      // table may not exist yet or no row — silently ignore
-    }
+  const loadUserSettings = (userId: string) => {
+    // Load from localStorage immediately (synchronous)
+    const { anthropic, openai } = loadKeysFromStorage(userId)
+    if (anthropic) setAnthropicApiKeyState(anthropic)
+    if (openai) setOpenAiApiKeyState(openai)
+
+    // Also try Supabase in background — if it has data, prefer it and sync to localStorage
+    supabase
+      .from('user_settings')
+      .select('anthropic_api_key, openai_api_key')
+      .eq('user_id', userId)
+      .single()
+      .then(({ data }) => {
+        if (data?.anthropic_api_key) {
+          setAnthropicApiKeyState(data.anthropic_api_key)
+          saveKeyToStorage(lsAnthropicKey(userId), data.anthropic_api_key)
+        }
+        if (data?.openai_api_key) {
+          setOpenAiApiKeyState(data.openai_api_key)
+          saveKeyToStorage(lsOpenAiKey(userId), data.openai_api_key)
+        }
+      })
+      .catch(() => {})
   }
 
   useEffect(() => {
@@ -51,10 +85,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       .then(({ data: { session } }) => {
         setSession(session)
         setUser(session?.user ?? null)
-        setLoading(false)
         if (session?.user) {
           loadUserSettings(session.user.id)
         }
+        setLoading(false)
       })
       .catch(() => {
         setLoading(false)
@@ -73,6 +107,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           await logActivity('login', session.user.id, session.user.email || '')
           loadUserSettings(session.user.id)
         } else if (event === 'SIGNED_OUT') {
+          if (user) clearKeysFromStorage(user.id)
           setAnthropicApiKeyState(null)
           setOpenAiApiKeyState(null)
         }
@@ -111,24 +146,28 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const setAnthropicApiKey = async (key: string) => {
     if (!user) return
     setAnthropicApiKeyState(key)
+    saveKeyToStorage(lsAnthropicKey(user.id), key)
+    // Background sync to Supabase
     supabase.from('user_settings').upsert({
       user_id: user.id,
       anthropic_api_key: key,
       updated_at: new Date().toISOString(),
     }, { onConflict: 'user_id' }).then(({ error }) => {
-      if (error) console.error('Failed to save Anthropic key:', error)
+      if (error) console.error('Failed to sync Anthropic key to Supabase:', error)
     })
   }
 
   const setOpenAiApiKey = async (key: string) => {
     if (!user) return
     setOpenAiApiKeyState(key)
+    saveKeyToStorage(lsOpenAiKey(user.id), key)
+    // Background sync to Supabase
     supabase.from('user_settings').upsert({
       user_id: user.id,
       openai_api_key: key,
       updated_at: new Date().toISOString(),
     }, { onConflict: 'user_id' }).then(({ error }) => {
-      if (error) console.error('Failed to save OpenAI key:', error)
+      if (error) console.error('Failed to sync OpenAI key to Supabase:', error)
     })
   }
 
@@ -143,6 +182,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signOut = async () => {
     if (user) {
       await logActivity('logout', user.id, user.email || '')
+      clearKeysFromStorage(user.id)
     }
     await supabase.auth.signOut()
   }
@@ -174,5 +214,3 @@ export function useAuth() {
   }
   return context
 }
-
-
