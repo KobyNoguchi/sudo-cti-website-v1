@@ -74,8 +74,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           setOpenAiApiKeyState(data.openai_api_key)
           saveKeyToStorage(lsOpenAiKey(userId), data.openai_api_key)
         }
-      })
-      .catch(() => {})
+      }, () => {})
   }
 
   useEffect(() => {
