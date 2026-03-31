@@ -145,7 +145,6 @@ On {xx numbered day format} {Month with the first letter capitalized} {Year, all
       temperature: selectedPreset?.temperature ?? temperature,
       topK: selectedPreset?.topK ?? topK,
       topP: selectedPreset?.topP ?? topP,
-      apiKey: activeApiKey,
     },
   })
 
@@ -158,8 +157,8 @@ On {xx numbered day format} {Month with the first letter capitalized} {Year, all
   const customSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!input.trim()) return
-    handleSubmit(e)
-  }, [handleSubmit, input])
+    handleSubmit(e, { body: { apiKey: activeApiKey } })
+  }, [handleSubmit, input, activeApiKey])
 
   const handleFileUpload = async (file: File) => {
     const formData = new FormData()
