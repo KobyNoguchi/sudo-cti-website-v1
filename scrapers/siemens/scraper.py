@@ -120,8 +120,8 @@ def scrape_page_with_selenium(driver: webdriver.Chrome) -> list[dict]:
                     ssa_link = id_cell.find('a')
                     ssa_id = ssa_link.get_text(strip=True) if ssa_link else id_cell.get_text(strip=True)
                     
-                    # Skip if not a valid SSA ID
-                    if not ssa_id.startswith('SSA-'):
+                    # Skip if not a valid advisory ID (SSA- / SSB-)
+                    if not ssa_id.startswith(('SSA-', 'SSB-')):
                         continue
                     
                     # Second cell: CVSS Score
@@ -183,6 +183,10 @@ def scrape_page_with_selenium(driver: webdriver.Chrome) -> list[dict]:
                     # Build HTML URL from SSA ID if not found
                     if not html_url:
                         html_url = f"https://cert-portal.siemens.com/productcert/html/{ssa_id.lower()}.html"
+                    
+                    # Build CSAF URL from advisory ID if not found
+                    if not csaf_url:
+                        csaf_url = f"https://cert-portal.siemens.com/productcert/csaf/{ssa_id.lower()}.json"
                     
                     advisories.append({
                         'ssa_id': ssa_id,
@@ -445,8 +449,8 @@ def parse_advisory_table(soup: BeautifulSoup, base_url: str = BASE_URL) -> list[
             ssa_link = id_cell.find('a')
             ssa_id = ssa_link.get_text(strip=True) if ssa_link else id_cell.get_text(strip=True)
             
-            # Skip if not a valid SSA ID
-            if not ssa_id.startswith('SSA-'):
+            # Skip if not a valid advisory ID (SSA- / SSB-)
+            if not ssa_id.startswith(('SSA-', 'SSB-')):
                 continue
             
             # Extract CVSS score
@@ -506,6 +510,14 @@ def parse_advisory_table(soup: BeautifulSoup, base_url: str = BASE_URL) -> list[
                 href = ssa_link.get('href', '')
                 if href:
                     html_url = urljoin(base_url, href)
+            
+            # Final HTML URL fallback using advisory ID
+            if not html_url:
+                html_url = f"https://cert-portal.siemens.com/productcert/html/{ssa_id.lower()}.html"
+
+            # Final CSAF URL fallback using advisory ID
+            if not csaf_url:
+                csaf_url = f"https://cert-portal.siemens.com/productcert/csaf/{ssa_id.lower()}.json"
             
             advisories.append({
                 'ssa_id': ssa_id,
@@ -924,7 +936,8 @@ def fetch_advisory_detail(session: requests.Session, url: str, basic_info: dict)
 def scrape_all_advisories(
     limit: Optional[int] = None, 
     max_pages: Optional[int] = None,
-    skip_details: bool = False
+    skip_details: bool = False,
+    ids: Optional[set[str]] = None
 ) -> list[SiemensVulnerability]:
     """
     Main scraping function.
@@ -946,6 +959,13 @@ def scrape_all_advisories(
     if not advisory_list:
         print("No advisories found. The website structure may have changed.")
         return []
+    
+    # If provided, limit scraping to the requested advisory IDs
+    if ids:
+        advisory_list = [
+            adv for adv in advisory_list
+            if adv.get('ssa_id', '').upper() in ids
+        ]
     
     # Apply limit on total advisories
     if limit:
@@ -1032,6 +1052,13 @@ def main():
         action='store_true',
         help='Only export Excel (skip JSON)'
     )
+
+    parser.add_argument(
+        '--ids',
+        type=str,
+        default=None,
+        help='Comma-separated list of advisory IDs to scrape (e.g. SSA-...,SSB-...)'
+    )
     
     args = parser.parse_args()
     
@@ -1044,11 +1071,17 @@ def main():
         print(f"Will fetch up to {args.pages} page(s) (~{args.pages * ITEMS_PER_PAGE} advisories)")
     print()
     
+    # Parse advisory ID filter (if provided)
+    ids_set = None
+    if args.ids:
+        ids_set = {i.strip().upper() for i in args.ids.split(',') if i.strip()}
+    
     # Run scraper
     vulnerabilities = scrape_all_advisories(
         limit=args.limit,
         max_pages=args.pages,
-        skip_details=args.skip_details
+        skip_details=args.skip_details,
+        ids=ids_set
     )
     
     if not vulnerabilities:

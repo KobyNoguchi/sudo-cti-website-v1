@@ -2,9 +2,10 @@
 
 import React, { useState, useRef, useEffect, FormEvent, useCallback } from 'react'
 import { useChat, Message } from 'ai/react'
-import { Send, Plus, X, ChevronDown, Square, Sparkles, MoreVertical, FileText, Settings } from 'lucide-react'
+import { Send, Plus, X, ChevronDown, Square, Sparkles, MoreVertical, FileText, Settings, KeyRound } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import { useAIConfig } from '@/contexts/AIConfigContext'
+import { useAuth } from '@/contexts/AuthContext'
 import { AIProvider } from '@/lib/ai/constants'
 import { AIConfigurator } from './AIConfigurator'
 import { UploadedFileContext, CisaVulnerability, NvdVulnerability, GreyNoiseItem, Technique } from '@/lib/ai/types'
@@ -22,7 +23,11 @@ interface PromptTemplate {
   content: string
 }
 
-export default function SudoChat() {
+interface SudoChatProps {
+  onOpenApiKeyModal?: () => void
+}
+
+export default function SudoChat({ onOpenApiKeyModal }: SudoChatProps) {
   // File and context state
   const [uploadedFileContexts, setUploadedFileContexts] = useState<UploadedFileContext[]>([])
   const [contextVulnerabilities, setContextVulnerabilities] = useState<CisaVulnerability[]>([])
@@ -87,7 +92,10 @@ On {xx numbered day format} {Month with the first letter capitalized} {Year, all
     systemPrompt,
   } = useAIConfig()
 
+  const { anthropicApiKey, openAiApiKey } = useAuth()
+
   const apiPath = selectedProvider === AIProvider.OpenAI ? '/api/openai/chat' : '/api/anthropic/chat'
+  const activeApiKey = selectedProvider === AIProvider.OpenAI ? openAiApiKey : anthropicApiKey
 
   const getSystemPrompt = useCallback(() => {
     let finalSystemPrompt = activeTemplate?.content || selectedPreset?.systemPrompt || systemPrompt
@@ -137,6 +145,7 @@ On {xx numbered day format} {Month with the first letter capitalized} {Year, all
       temperature: selectedPreset?.temperature ?? temperature,
       topK: selectedPreset?.topK ?? topK,
       topP: selectedPreset?.topP ?? topP,
+      apiKey: activeApiKey,
     },
   })
 
@@ -475,6 +484,13 @@ On {xx numbered day format} {Month with the first letter capitalized} {Year, all
           <div className="flex-1" />
 
           {/* Right side controls */}
+          <button
+            onClick={onOpenApiKeyModal}
+            title="Configure API Keys"
+            className="p-2 text-slate-400 hover:text-cyan-400 hover:bg-slate-700 rounded"
+          >
+            <KeyRound size={18} />
+          </button>
           <button className="p-2 text-slate-400 hover:text-white hover:bg-slate-700 rounded">
             <Square size={18} />
           </button>

@@ -60,3 +60,10 @@ export interface Profile {
   created_at: string
   last_login?: string
 }
+
+export interface UserSettings {
+  user_id: string
+  anthropic_api_key: string | null
+  openai_api_key: string | null
+  updated_at: string
+}

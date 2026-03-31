@@ -1,4 +1,4 @@
-import { openai } from '@ai-sdk/openai'
+import { createOpenAI } from '@ai-sdk/openai'
 import { streamText, StreamData } from 'ai'
 import { NextResponse } from 'next/server'
 
@@ -9,8 +9,10 @@ export async function POST(req: Request) {
 
   try {
     const body = await req.json()
-    const { messages, modelId, systemPrompt, temperature, topP, data: requestData } = body
+    const { messages, modelId, systemPrompt, temperature, topP, apiKey, data: requestData } = body
     const { userContext } = requestData || {}
+
+    const provider = createOpenAI({ apiKey: apiKey || process.env.OPENAI_API_KEY || '' })
 
     let processedMessages = messages
 
@@ -42,7 +44,7 @@ export async function POST(req: Request) {
     }
 
     const result = await streamText({
-      model: openai(modelId || 'gpt-4-turbo') as any,
+      model: provider(modelId || 'gpt-4-turbo') as any,
       messages: processedMessages,
       temperature: temperature || undefined,
       topP: topP || undefined,

@@ -9,6 +9,10 @@ interface AuthContextType {
   user: User | null
   session: Session | null
   loading: boolean
+  anthropicApiKey: string | null
+  openAiApiKey: string | null
+  setAnthropicApiKey: (key: string) => Promise<void>
+  setOpenAiApiKey: (key: string) => Promise<void>
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>
   signOut: () => Promise<void>
   trackActivity: (type: 'page_visit' | 'report_download', data?: { page_path?: string; report_name?: string }) => Promise<void>
@@ -20,19 +24,37 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [session, setSession] = useState<Session | null>(null)
   const [loading, setLoading] = useState(true)
+  const [anthropicApiKey, setAnthropicApiKeyState] = useState<string | null>(null)
+  const [openAiApiKey, setOpenAiApiKeyState] = useState<string | null>(null)
   const pathname = usePathname()
 
+  const loadUserSettings = async (userId: string) => {
+    try {
+      const { data } = await supabase
+        .from('user_settings')
+        .select('anthropic_api_key, openai_api_key')
+        .eq('user_id', userId)
+        .single()
+      if (data) {
+        setAnthropicApiKeyState(data.anthropic_api_key ?? null)
+        setOpenAiApiKeyState(data.openai_api_key ?? null)
+      }
+    } catch {
+      // table may not exist yet or no row — silently ignore
+    }
+  }
+
   useEffect(() => {
-    // Fallback: if Supabase doesn't respond within 3s (e.g. network error on static host),
-    // stop showing the loading skeleton and show the Login button instead.
     const loadingTimeout = setTimeout(() => setLoading(false), 3000)
 
-    // Get initial session
     supabase.auth.getSession()
       .then(({ data: { session } }) => {
         setSession(session)
         setUser(session?.user ?? null)
         setLoading(false)
+        if (session?.user) {
+          loadUserSettings(session.user.id)
+        }
       })
       .catch(() => {
         setLoading(false)
@@ -41,18 +63,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         clearTimeout(loadingTimeout)
       })
 
-    // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
         setSession(session)
         setUser(session?.user ?? null)
         setLoading(false)
 
-        // Track login/logout events
         if (event === 'SIGNED_IN' && session?.user) {
           await logActivity('login', session.user.id, session.user.email || '')
+          loadUserSettings(session.user.id)
         } else if (event === 'SIGNED_OUT') {
-          // Note: We track logout before the user is cleared
+          setAnthropicApiKeyState(null)
+          setOpenAiApiKeyState(null)
         }
       }
     )
@@ -60,7 +82,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => subscription.unsubscribe()
   }, [])
 
-  // Track page visits
   useEffect(() => {
     if (user && pathname) {
       trackActivity('page_visit', { page_path: pathname })
@@ -87,6 +108,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }
 
+  const setAnthropicApiKey = async (key: string) => {
+    if (!user) return
+    setAnthropicApiKeyState(key)
+    await supabase.from('user_settings').upsert({
+      user_id: user.id,
+      anthropic_api_key: key,
+      updated_at: new Date().toISOString(),
+    }, { onConflict: 'user_id' })
+  }
+
+  const setOpenAiApiKey = async (key: string) => {
+    if (!user) return
+    setOpenAiApiKeyState(key)
+    await supabase.from('user_settings').upsert({
+      user_id: user.id,
+      openai_api_key: key,
+      updated_at: new Date().toISOString(),
+    }, { onConflict: 'user_id' })
+  }
+
   const signIn = async (email: string, password: string) => {
     const { error } = await supabase.auth.signInWithPassword({
       email,
@@ -111,7 +152,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, session, loading, signIn, signOut, trackActivity }}>
+    <AuthContext.Provider value={{
+      user, session, loading,
+      anthropicApiKey, openAiApiKey,
+      setAnthropicApiKey, setOpenAiApiKey,
+      signIn, signOut, trackActivity
+    }}>
       {children}
     </AuthContext.Provider>
   )

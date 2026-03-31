@@ -1,4 +1,4 @@
-import { anthropic } from '@ai-sdk/anthropic'
+import { createAnthropic } from '@ai-sdk/anthropic'
 import { streamText, StreamData } from 'ai'
 import { NextResponse } from 'next/server'
 
@@ -9,8 +9,10 @@ export async function POST(req: Request) {
 
   try {
     const body = await req.json()
-    const { messages, modelId, systemPrompt, temperature, topK, topP, data: requestData } = body
+    const { messages, modelId, systemPrompt, temperature, topK, topP, apiKey, data: requestData } = body
     const { userContext } = requestData || {}
+
+    const provider = createAnthropic({ apiKey: apiKey || process.env.ANTHROPIC_API_KEY || '' })
 
     let processedMessages = messages
 
@@ -42,7 +44,7 @@ export async function POST(req: Request) {
     }
 
     const result = await streamText({
-      model: anthropic(modelId || 'claude-sonnet-4-20250514') as any,
+      model: provider(modelId || 'claude-sonnet-4-20250514') as any,
       messages: processedMessages,
       temperature: temperature || undefined,
       topK: topK || undefined,

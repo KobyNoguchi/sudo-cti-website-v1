@@ -1,11 +1,581 @@
 {
   "metadata": {
     "source": "Hitachi Software Vulnerability Information",
-    "scraped_at": "2026-02-10T20:01:25.998836+00:00",
-    "total_count": 132,
+    "scraped_at": "2026-03-18T17:11:12.848228+00:00",
+    "total_count": 143,
     "url": "https://www.hitachi.com/products/it/software/security/index.html"
   },
   "vulnerabilities": [
+    {
+      "advisory_id": "hitachi-sec-2026-112",
+      "title": "Vulnerability in Hitachi Command Suite",
+      "cve_ids": [
+        "CVE-2025-48976"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "March 10, 2026",
+      "affected_products": [
+        {
+          "product": "Hitachi Command Suite",
+          "versions": "Software Vulnerability Information: Software: Hitachi",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Command Suite\n\n\n\n\n\n\nVulnerability in Hitachi Command Suite\n\n\n\n\n\nSecurity Information ID",
+          "versions": "ulnerability description",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Command Suite\n\nProduct name",
+          "versions": "Hitachi Device Manager ---(1)",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Command Suite\n\r\nProduct name",
+          "versions": "Hitachi Device Manager ---(1)",
+          "fixed_version": "",
+          "cve_id": null
+        }
+      ],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2026-112/index.html"
+    },
+    {
+      "advisory_id": "hitachi-sec-2026-111",
+      "title": "Vulnerability in Hitachi Configuration Manager and Hitachi Ops Center API Configuration Manager",
+      "cve_ids": [
+        "CVE-2025-5781"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "February 25, 2026",
+      "affected_products": [
+        {
+          "product": "Hitachi Configuration Manager and Hitachi Ops Center API Configuration Manager",
+          "versions": "Software Vulnerability Information: Software: Hitachi",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Configuration Manager and Hitachi Ops Center API Configuration Manager\n\n\n\n\n\n\nVulnerability in Hitachi Configuration Manager and Hitachi Ops Center API Configuration Manager\n\n\n\n\n\nSecurity Information ID",
+          "versions": "ulnerability description",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Configuration Manager and Hitachi Ops Center API Configuration Manager contain a",
+          "versions": "ulnerability (CVE-2025-5781) that may allow session tokens to be stored.",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Configuration Manager as part of the REST API functionality and are impacted by this",
+          "versions": "ulnerability. Mitigation requires upgrading to Hitachi Configuration Manager 11.0.5-00 or later. Alternatively, if the REST API functionality is not needed, it is recommended to uninstall Hitachi Configuration Manager.",
+          "fixed_version": "",
+          "cve_id": null
+        }
+      ],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2026-111/index.html"
+    },
+    {
+      "advisory_id": "hitachi-sec-2026-110",
+      "title": "Vulnerability in Hitachi Configuration Manager and Hitachi Ops Center API Configuration Manager",
+      "cve_ids": [
+        "CVE-2025-0976"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "February 25, 2026",
+      "affected_products": [
+        {
+          "product": "Hitachi Configuration Manager and Hitachi Ops Center API Configuration Manager",
+          "versions": "Software Vulnerability Information: Software: Hitachi",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Configuration Manager and Hitachi Ops Center API Configuration Manager\n\n\n\n\n\n\nVulnerability in Hitachi Configuration Manager and Hitachi Ops Center API Configuration Manager\n\n\n\n\n\nSecurity Information ID",
+          "versions": "ulnerability description",
+          "fixed_version": "",
+          "cve_id": null
+        }
+      ],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2026-110/index.html"
+    },
+    {
+      "advisory_id": "hitachi-sec-2025-121",
+      "title": "Multiple Vulnerabilities in Hitachi Command Suite, Hitachi Automation Director, Hitachi Configuration Manager, Hitachi Infrastructure Analytics Advisor and Hitachi Ops Center",
+      "cve_ids": [
+        "CVE-2025-21587",
+        "CVE-2025-30691",
+        "CVE-2025-30698"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "February 25, 2026",
+      "affected_products": [
+        {
+          "product": "Hitachi Infrastructure Analytics Advisor and Hitachi Ops Center",
+          "versions": "Software Vulnerability Information: Software: Hitachi",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Infrastructure Analytics Advisor and Hitachi Ops Center\n\n\n\n\n\n\nMultiple",
+          "versions": "ulnerabilities in Hitachi Command Suite, Hitachi Automation Director, Hitachi Configuration Manager, Hitachi Infrastructure Analytics Advisor and Hitachi Ops Center",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Command Suite\n\nProduct name",
+          "versions": "Hitachi Device Manager ---(1)",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Tuning Manager server",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Infrastructure Analytics Advisor",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center\n\nProduct name",
+          "versions": "Hitachi Ops Center Automator ---(8)",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center Analyzer",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center",
+          "versions": "iewpoint (Japanese version) ---(12)",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Command Suite\n\r\nProduct name",
+          "versions": "Hitachi Device Manager(*2) ---(1)",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center Automator\n\nNone\n\nHitachi Ops Center Analyzer\nComponent name",
+          "versions": "Virtual Storage Software Agent",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center Common Services to",
+          "versions": "11.0.3-00 or later, then upgrade Amazon Corretto to version 21.0.7.6.1.",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center Administrator to",
+          "versions": "11.0.1-00 or later, then upgrade Amazon Corretto to version 17.0.15.6.1.",
+          "fixed_version": "",
+          "cve_id": null
+        }
+      ],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2025-121/index.html"
+    },
+    {
+      "advisory_id": "hitachi-sec-2025-109",
+      "title": "Vulnerability in Hitachi Command Suite, Hitachi Automation Director, Hitachi Configuration Manager, Hitachi Infrastructure Analytics Advisor and Hitachi Ops Center",
+      "cve_ids": [
+        "CVE-2025-21502"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "February 25, 2026",
+      "affected_products": [
+        {
+          "product": "Hitachi Infrastructure Analytics Advisor and Hitachi Ops Center",
+          "versions": "Software Vulnerability Information: Software: Hitachi",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Command Suite\n\nProduct name",
+          "versions": "Hitachi Device Manager ---(1)",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Tuning Manager server",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Infrastructure Analytics Advisor",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center\n\nProduct name",
+          "versions": "Hitachi Ops Center Automator ---(8)",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center Analyzer",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center",
+          "versions": "iewpoint (Japanese version) ---(12)",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Command Suite\n\r\nProduct name",
+          "versions": "Hitachi Device Manager(*2) ---(1)",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center Automator\n\nNone\n\nHitachi Ops Center Analyzer\nComponent name",
+          "versions": "Virtual Storage Software Agent",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center Common Services to",
+          "versions": "11.0.3-00 or later, then upgrade Amazon Corretto to version 21.0.6.7.1.",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center Administrator to",
+          "versions": "11.0.1-00 or later, then upgrade Amazon Corretto to version 17.0.14.7.1.",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Configuration Manager and Hitachi Ops Center API Configuration Manager\n\nUpgrade Amazon Corretto to",
+          "versions": "11.0.26.4.1.",
+          "fixed_version": "",
+          "cve_id": null
+        }
+      ],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2025-109/index.html"
+    },
+    {
+      "advisory_id": "hitachi-sec-2026-109",
+      "title": "Multiple Vulnerabilities in Cosminexus HTTP Server",
+      "cve_ids": [
+        "CVE-2025-49630",
+        "CVE-2025-53020"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "February 13, 2026",
+      "affected_products": [],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2026-109/index.html"
+    },
+    {
+      "advisory_id": "hitachi-sec-2026-108",
+      "title": "Vulnerability in Cosminexus HTTP Server",
+      "cve_ids": [
+        "CVE-2025-23048"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "February 13, 2026",
+      "affected_products": [],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2026-108/index.html"
+    },
+    {
+      "advisory_id": "hitachi-sec-2026-107",
+      "title": "Vulnerability in Cosminexus HTTP Server and Hitachi Web Server",
+      "cve_ids": [
+        "CVE-2024-43204"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "February 13, 2026",
+      "affected_products": [
+        {
+          "product": "Hitachi Web Server",
+          "versions": "Software Vulnerability Information: Software: Hitachi",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Web Server\n\n\n\n\n\n\nVulnerability in Cosminexus HTTP Server and Hitachi Web Server\n\n\n\n\n\nSecurity Information ID",
+          "versions": "ulnerability description",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Application Server\n\nProduct name",
+          "versions": "Hitachi Application Server",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Application Server for Developers",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        }
+      ],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2026-107/index.html"
+    },
+    {
+      "advisory_id": "hitachi-sec-2026-106",
+      "title": "Multiple Vulnerabilities in Cosminexus HTTP Server and Hitachi Web Server",
+      "cve_ids": [
+        "CVE-2024-42516",
+        "CVE-2024-47252"
+      ],
+      "cvss_scores": {},
+      "description": "CVE-2024-47252: is not exploitable when SSL is not enabled",
+      "publication_date": "",
+      "last_update": "February 13, 2026",
+      "affected_products": [
+        {
+          "product": "Hitachi Web Server",
+          "versions": "Software Vulnerability Information: Software: Hitachi",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Web Server\n\n\n\n\n\n\nMultiple Vulnerabilities in Cosminexus HTTP Server and Hitachi Web Server\n\n\n\n\n\nSecurity Information ID",
+          "versions": "ulnerability description",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Application Server\n\nProduct name",
+          "versions": "Hitachi Application Server",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Application Server for Developers",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        }
+      ],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2026-106/index.html"
+    },
+    {
+      "advisory_id": "hitachi-sec-2026-105",
+      "title": "Multiple Vulnerabilities in Cosminexus",
+      "cve_ids": [
+        "CVE-2026-21925",
+        "CVE-2026-21932",
+        "CVE-2026-21933",
+        "CVE-2026-21945"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "February 13, 2026",
+      "affected_products": [
+        {
+          "product": "Hitachi Application Server\n\nProduct name",
+          "versions": "Hitachi Application Server",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Application Server for Developers",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        }
+      ],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2026-105/index.html"
+    },
+    {
+      "advisory_id": "hitachi-sec-2026-104",
+      "title": "Multiple Vulnerabilities in JP1",
+      "cve_ids": [
+        "CVE-2024-38473",
+        "CVE-2024-38477"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "February 13, 2026",
+      "affected_products": [],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2026-104/index.html"
+    },
+    {
+      "advisory_id": "hitachi-sec-2026-102",
+      "title": "Multiple Vulnerabilities in Hitachi Command Suite, Hitachi Automation Director, Hitachi Configuration Manager, Hitachi Infrastructure Analytics Advisor and Hitachi Ops Center",
+      "cve_ids": [
+        "CVE-2026-21925",
+        "CVE-2026-21932",
+        "CVE-2026-21933",
+        "CVE-2026-21945"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "February 13, 2026",
+      "affected_products": [
+        {
+          "product": "Hitachi Infrastructure Analytics Advisor and Hitachi Ops Center",
+          "versions": "Software Vulnerability Information: Software: Hitachi",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Infrastructure Analytics Advisor and Hitachi Ops Center\n\n\n\n\n\n\nMultiple",
+          "versions": "ulnerabilities in Hitachi Command Suite, Hitachi Automation Director, Hitachi Configuration Manager, Hitachi Infrastructure Analytics Advisor and Hitachi Ops Center",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Command Suite\n\nProduct name",
+          "versions": "Hitachi Device Manager ---(1)",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Tuning Manager server",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Infrastructure Analytics Advisor",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center\n\nProduct name",
+          "versions": "Hitachi Ops Center Automator ---(8)",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center Analyzer",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center",
+          "versions": "iewpoint (Japanese version) ---(12)",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center Automator\n\nNone\n\nHitachi Ops Center Analyzer\nComponent name",
+          "versions": "Virtual Storage Software Agent",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center Analyzer to",
+          "versions": "11.0.5-00 or later, then upgrade Amazon Corretto to version 17.0.18.8.1.",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center Common Services to",
+          "versions": "11.0.3-00 or later, then upgrade Amazon Corretto to version 21.0.10.7.1.",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Ops Center Administrator to",
+          "versions": "11.0.1-00 or later, then upgrade Amazon Corretto to version 17.0.18.8.1.",
+          "fixed_version": "",
+          "cve_id": null
+        }
+      ],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2026-102/index.html"
+    },
+    {
+      "advisory_id": "hitachi-sec-2026-101",
+      "title": "Multiple Vulnerabilities in Hitachi Command Suite products",
+      "cve_ids": [
+        "CVE-2024-2511",
+        "CVE-2024-38477"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "February 13, 2026",
+      "affected_products": [
+        {
+          "product": "Hitachi Command Suite products",
+          "versions": "Software Vulnerability Information: Software: Hitachi",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Command Suite products\n\n\n\n\n\n\nMultiple Vulnerabilities in Hitachi Command Suite products\n\n\n\n\n\nSecurity Information ID",
+          "versions": "ulnerability description",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Command Suite\n\nProduct name",
+          "versions": "Hitachi Device Manager ---(1)",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Tuning Manager server",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Command Suite\n\r\nProduct name",
+          "versions": "Hitachi Device Manager(*1) ---(1)",
+          "fixed_version": "",
+          "cve_id": null
+        }
+      ],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2026-101/index.html"
+    },
     {
       "advisory_id": "hitachi-sec-2026-103",
       "title": "Multiple Vulnerabilities in Cosminexus",
@@ -20,218 +590,6 @@
       "affected_products": [],
       "fixed_products": [],
       "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2026-103/index.html"
-    },
-    {
-      "advisory_id": "hitachi-sec-2025-128",
-      "title": "Multiple Vulnerabilities in Cosminexus",
-      "cve_ids": [
-        "CVE-2025-53057",
-        "CVE-2025-53066",
-        "CVE-2025-61748"
-      ],
-      "cvss_scores": {},
-      "description": "",
-      "publication_date": "",
-      "last_update": "January 14, 2026",
-      "affected_products": [
-        {
-          "product": "Hitachi Application Server\n\nProduct name",
-          "versions": "Hitachi Application Server",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Application Server for Developers",
-          "versions": "(s):",
-          "fixed_version": "",
-          "cve_id": null
-        }
-      ],
-      "fixed_products": [],
-      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2025-128/index.html"
-    },
-    {
-      "advisory_id": "hitachi-sec-2025-123",
-      "title": "Multiple Vulnerabilities in Cosminexus",
-      "cve_ids": [
-        "CVE-2025-30754",
-        "CVE-2025-30761",
-        "CVE-2025-50059"
-      ],
-      "cvss_scores": {},
-      "description": "",
-      "publication_date": "",
-      "last_update": "January 14, 2026",
-      "affected_products": [
-        {
-          "product": "Hitachi Application Server\n\nProduct name",
-          "versions": "Hitachi Application Server",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Application Server for Developers",
-          "versions": "(s):",
-          "fixed_version": "",
-          "cve_id": null
-        }
-      ],
-      "fixed_products": [],
-      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2025-123/index.html"
-    },
-    {
-      "advisory_id": "hitachi-sec-2025-117",
-      "title": "Multiple Vulnerabilities in Cosminexus",
-      "cve_ids": [
-        "CVE-2025-21587",
-        "CVE-2025-30691",
-        "CVE-2025-30698"
-      ],
-      "cvss_scores": {},
-      "description": "",
-      "publication_date": "",
-      "last_update": "January 14, 2026",
-      "affected_products": [
-        {
-          "product": "Hitachi Application Server\n\nProduct name",
-          "versions": "Hitachi Application Server",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Application Server for Developers",
-          "versions": "(s):",
-          "fixed_version": "",
-          "cve_id": null
-        }
-      ],
-      "fixed_products": [],
-      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2025-117/index.html"
-    },
-    {
-      "advisory_id": "hitachi-sec-2024-148",
-      "title": "Multiple Vulnerabilities in Cosminexus",
-      "cve_ids": [
-        "CVE-2024-21208",
-        "CVE-2024-21210",
-        "CVE-2024-21217",
-        "CVE-2024-21235"
-      ],
-      "cvss_scores": {},
-      "description": "",
-      "publication_date": "",
-      "last_update": "January 14, 2026",
-      "affected_products": [
-        {
-          "product": "Hitachi Application Server\n\nProduct name",
-          "versions": "Hitachi Application Server",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Application Server for Developers",
-          "versions": "(s):",
-          "fixed_version": "",
-          "cve_id": null
-        }
-      ],
-      "fixed_products": [],
-      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2024-148/index.html"
-    },
-    {
-      "advisory_id": "hitachi-sec-2024-141",
-      "title": "Multiple Vulnerabilities in Cosminexus",
-      "cve_ids": [
-        "CVE-2024-21131",
-        "CVE-2024-21138",
-        "CVE-2024-21140",
-        "CVE-2024-21144",
-        "CVE-2024-21145",
-        "CVE-2024-21147"
-      ],
-      "cvss_scores": {},
-      "description": "",
-      "publication_date": "",
-      "last_update": "January 14, 2026",
-      "affected_products": [
-        {
-          "product": "Hitachi Application Server\n\nProduct name",
-          "versions": "Hitachi Application Server",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Application Server for Developers",
-          "versions": "(s):",
-          "fixed_version": "",
-          "cve_id": null
-        }
-      ],
-      "fixed_products": [],
-      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2024-141/index.html"
-    },
-    {
-      "advisory_id": "hitachi-sec-2024-124",
-      "title": "Multiple Vulnerabilities in Cosminexus",
-      "cve_ids": [
-        "CVE-2024-21011",
-        "CVE-2024-21012",
-        "CVE-2024-21085",
-        "CVE-2024-21094"
-      ],
-      "cvss_scores": {},
-      "description": "",
-      "publication_date": "",
-      "last_update": "January 14, 2026",
-      "affected_products": [
-        {
-          "product": "Hitachi Application Server\n\nProduct name",
-          "versions": "Hitachi Application Server",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Application Server for Developers",
-          "versions": "(s):",
-          "fixed_version": "",
-          "cve_id": null
-        }
-      ],
-      "fixed_products": [],
-      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2024-124/index.html"
-    },
-    {
-      "advisory_id": "hitachi-sec-2024-105",
-      "title": "Multiple Vulnerabilities in Cosminexus",
-      "cve_ids": [
-        "CVE-2024-20918",
-        "CVE-2024-20919",
-        "CVE-2024-20921",
-        "CVE-2024-20926",
-        "CVE-2024-20932",
-        "CVE-2024-20945",
-        "CVE-2024-20952"
-      ],
-      "cvss_scores": {},
-      "description": "",
-      "publication_date": "",
-      "last_update": "January 14, 2026",
-      "affected_products": [
-        {
-          "product": "Hitachi Application Server\n\nProduct name",
-          "versions": "Hitachi Application Server",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Application Server for Developers",
-          "versions": "(s):",
-          "fixed_version": "",
-          "cve_id": null
-        }
-      ],
-      "fixed_products": [],
-      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2024-105/index.html"
     },
     {
       "advisory_id": "hitachi-sec-2025-133",
@@ -384,6 +742,35 @@
       "affected_products": [],
       "fixed_products": [],
       "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2025-130/index.html"
+    },
+    {
+      "advisory_id": "hitachi-sec-2025-128",
+      "title": "Multiple Vulnerabilities in Cosminexus",
+      "cve_ids": [
+        "CVE-2025-53057",
+        "CVE-2025-53066",
+        "CVE-2025-61748"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "January 14, 2026",
+      "affected_products": [
+        {
+          "product": "Hitachi Application Server\n\nProduct name",
+          "versions": "Hitachi Application Server",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Application Server for Developers",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        }
+      ],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2025-128/index.html"
     },
     {
       "advisory_id": "hitachi-sec-2025-127",
@@ -618,6 +1005,35 @@
       "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2025-124/index.html"
     },
     {
+      "advisory_id": "hitachi-sec-2025-123",
+      "title": "Multiple Vulnerabilities in Cosminexus",
+      "cve_ids": [
+        "CVE-2025-30754",
+        "CVE-2025-30761",
+        "CVE-2025-50059"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "January 14, 2026",
+      "affected_products": [
+        {
+          "product": "Hitachi Application Server\n\nProduct name",
+          "versions": "Hitachi Application Server",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Application Server for Developers",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        }
+      ],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2025-123/index.html"
+    },
+    {
       "advisory_id": "hitachi-sec-2025-122",
       "title": "Multiple Vulnerabilities in JP1/IT Desktop Management 2",
       "cve_ids": [
@@ -672,95 +1088,6 @@
       "affected_products": [],
       "fixed_products": [],
       "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2025-122/index.html"
-    },
-    {
-      "advisory_id": "hitachi-sec-2025-121",
-      "title": "Multiple Vulnerabilities in Hitachi Command Suite, Hitachi Automation Director, Hitachi Configuration Manager, Hitachi Infrastructure Analytics Advisor and Hitachi Ops Center",
-      "cve_ids": [
-        "CVE-2025-21587",
-        "CVE-2025-30691",
-        "CVE-2025-30698"
-      ],
-      "cvss_scores": {},
-      "description": "",
-      "publication_date": "",
-      "last_update": "November 11, 2025",
-      "affected_products": [
-        {
-          "product": "Hitachi Infrastructure Analytics Advisor and Hitachi Ops Center",
-          "versions": "Software Vulnerability Information: Software: Hitachi",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Infrastructure Analytics Advisor and Hitachi Ops Center\n\n\n\n\n\n\nMultiple",
-          "versions": "ulnerabilities in Hitachi Command Suite, Hitachi Automation Director, Hitachi Configuration Manager, Hitachi Infrastructure Analytics Advisor and Hitachi Ops Center",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Command Suite\n\nProduct name",
-          "versions": "Hitachi Device Manager ---(1)",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Tuning Manager server",
-          "versions": "(s):",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Infrastructure Analytics Advisor",
-          "versions": "(s):",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Ops Center\n\nProduct name",
-          "versions": "Hitachi Ops Center Automator ---(8)",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Ops Center Analyzer",
-          "versions": "(s):",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Ops Center",
-          "versions": "iewpoint (Japanese version) ---(12)",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Command Suite\nFixed",
-          "versions": "s are scheduled to be released.",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Ops Center Automator\n\nNone\n\nHitachi Ops Center Analyzer\nComponent name",
-          "versions": "Virtual Storage Software Agent",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Ops Center Common Services to",
-          "versions": "11.0.3-00 or later, then upgrade Amazon Corretto to version 21.0.7.6.1.",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Ops Center Administrator to",
-          "versions": "11.0.1-00 or later, then upgrade Amazon Corretto to version 17.0.15.6.1.",
-          "fixed_version": "",
-          "cve_id": null
-        }
-      ],
-      "fixed_products": [],
-      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2025-121/index.html"
     },
     {
       "advisory_id": "hitachi-sec-2025-120",
@@ -851,6 +1178,35 @@
       ],
       "fixed_products": [],
       "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2025-118/index.html"
+    },
+    {
+      "advisory_id": "hitachi-sec-2025-117",
+      "title": "Multiple Vulnerabilities in Cosminexus",
+      "cve_ids": [
+        "CVE-2025-21587",
+        "CVE-2025-30691",
+        "CVE-2025-30698"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "January 14, 2026",
+      "affected_products": [
+        {
+          "product": "Hitachi Application Server\n\nProduct name",
+          "versions": "Hitachi Application Server",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Application Server for Developers",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        }
+      ],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2025-117/index.html"
     },
     {
       "advisory_id": "hitachi-sec-2025-116",
@@ -1070,93 +1426,6 @@
       ],
       "fixed_products": [],
       "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2025-110/index.html"
-    },
-    {
-      "advisory_id": "hitachi-sec-2025-109",
-      "title": "Multiple Vulnerabilities in Hitachi Command Suite, Hitachi Automation Director, Hitachi Configuration Manager, Hitachi Infrastructure Analytics Advisor and Hitachi Ops Center",
-      "cve_ids": [
-        "CVE-2025-21502"
-      ],
-      "cvss_scores": {},
-      "description": "",
-      "publication_date": "",
-      "last_update": "May 27, 2025",
-      "affected_products": [
-        {
-          "product": "Hitachi Infrastructure Analytics Advisor and Hitachi Ops Center",
-          "versions": "Software Vulnerability Information: Software: Hitachi",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Command Suite\n\nProduct name",
-          "versions": "Hitachi Device Manager ---(1)",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Tuning Manager server",
-          "versions": "(s):",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Infrastructure Analytics Advisor",
-          "versions": "(s):",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Ops Center\n\nProduct name",
-          "versions": "Hitachi Ops Center Automator ---(8)",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Ops Center Analyzer",
-          "versions": "(s):",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Ops Center",
-          "versions": "iewpoint (Japanese version) ---(12)",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Command Suite\nFixed",
-          "versions": "s are scheduled to be released.",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Ops Center Automator\n\nNone\n\nHitachi Ops Center Analyzer\nComponent name",
-          "versions": "Virtual Storage Software Agent",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Ops Center Common Services to",
-          "versions": "11.0.3-00 or later, then upgrade Amazon Corretto to version 21.0.6.7.1.",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Ops Center Administrator to",
-          "versions": "11.0.1-00 or later, then upgrade Amazon Corretto to version 17.0.14.7.1.",
-          "fixed_version": "",
-          "cve_id": null
-        },
-        {
-          "product": "Hitachi Configuration Manager and Hitachi Ops Center API Configuration Manager\n\nUpgrade Amazon Corretto to",
-          "versions": "11.0.26.4.1.",
-          "fixed_version": "",
-          "cve_id": null
-        }
-      ],
-      "fixed_products": [],
-      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2025-109/index.html"
     },
     {
       "advisory_id": "hitachi-sec-2025-108",
@@ -1615,6 +1884,36 @@
       "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2024-149/index.html"
     },
     {
+      "advisory_id": "hitachi-sec-2024-148",
+      "title": "Multiple Vulnerabilities in Cosminexus",
+      "cve_ids": [
+        "CVE-2024-21208",
+        "CVE-2024-21210",
+        "CVE-2024-21217",
+        "CVE-2024-21235"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "January 14, 2026",
+      "affected_products": [
+        {
+          "product": "Hitachi Application Server\n\nProduct name",
+          "versions": "Hitachi Application Server",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Application Server for Developers",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        }
+      ],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2024-148/index.html"
+    },
+    {
       "advisory_id": "hitachi-sec-2024-147",
       "title": "Multiple Vulnerabilities in Hitachi Command Suite, Hitachi Automation Director, Hitachi Configuration Manager, Hitachi Infrastructure Analytics Advisor and Hitachi Ops Center",
       "cve_ids": [
@@ -1917,6 +2216,38 @@
       ],
       "fixed_products": [],
       "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2024-142/index.html"
+    },
+    {
+      "advisory_id": "hitachi-sec-2024-141",
+      "title": "Multiple Vulnerabilities in Cosminexus",
+      "cve_ids": [
+        "CVE-2024-21131",
+        "CVE-2024-21138",
+        "CVE-2024-21140",
+        "CVE-2024-21144",
+        "CVE-2024-21145",
+        "CVE-2024-21147"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "January 14, 2026",
+      "affected_products": [
+        {
+          "product": "Hitachi Application Server\n\nProduct name",
+          "versions": "Hitachi Application Server",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Application Server for Developers",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        }
+      ],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2024-141/index.html"
     },
     {
       "advisory_id": "hitachi-sec-2024-140",
@@ -2512,6 +2843,36 @@
       "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2024-125/index.html"
     },
     {
+      "advisory_id": "hitachi-sec-2024-124",
+      "title": "Multiple Vulnerabilities in Cosminexus",
+      "cve_ids": [
+        "CVE-2024-21011",
+        "CVE-2024-21012",
+        "CVE-2024-21085",
+        "CVE-2024-21094"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "January 14, 2026",
+      "affected_products": [
+        {
+          "product": "Hitachi Application Server\n\nProduct name",
+          "versions": "Hitachi Application Server",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Application Server for Developers",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        }
+      ],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2024-124/index.html"
+    },
+    {
       "advisory_id": "hitachi-sec-2024-123",
       "title": "Multiple Vulnerabilities in JP1",
       "cve_ids": [
@@ -2981,6 +3342,39 @@
       ],
       "fixed_products": [],
       "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2024-106/index.html"
+    },
+    {
+      "advisory_id": "hitachi-sec-2024-105",
+      "title": "Multiple Vulnerabilities in Cosminexus",
+      "cve_ids": [
+        "CVE-2024-20918",
+        "CVE-2024-20919",
+        "CVE-2024-20921",
+        "CVE-2024-20926",
+        "CVE-2024-20932",
+        "CVE-2024-20945",
+        "CVE-2024-20952"
+      ],
+      "cvss_scores": {},
+      "description": "",
+      "publication_date": "",
+      "last_update": "January 14, 2026",
+      "affected_products": [
+        {
+          "product": "Hitachi Application Server\n\nProduct name",
+          "versions": "Hitachi Application Server",
+          "fixed_version": "",
+          "cve_id": null
+        },
+        {
+          "product": "Hitachi Application Server for Developers",
+          "versions": "(s):",
+          "fixed_version": "",
+          "cve_id": null
+        }
+      ],
+      "fixed_products": [],
+      "html_url": "https://www.hitachi.com/products/it/software/security/info/vuls/hitachi-sec-2024-105/index.html"
     },
     {
       "advisory_id": "hitachi-sec-2024-104",
